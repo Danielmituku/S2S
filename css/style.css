@@ -3,6 +3,7 @@
     padding: 0;
     list-style: none;
     font-family: josefin;
+    text-decoration: none;
 }
 .nav-header{
   background: url(/img/slider-left-dec.png) no-repeat;
@@ -109,7 +110,14 @@
   
   /* Show the dropdown menu on hover */
   .droplist:hover .droplist-content{
-    transition-delay: 2s;
     display: block;
-  
   }
+footer{
+  margin-top: 2%;
+  background: url("/img/footer-bg.png") no-repeat;
+}
+.text{
+  font-family: josefin;
+  color: #000;
+  text-decoration: none;
+}
