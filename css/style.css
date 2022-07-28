@@ -12,6 +12,11 @@
     background-color: transparent;
     border-bottom: 1px solid #010101;
   }
+  .main-navbar-brand a{
+    font-size: large;
+    color: #000;
+    text-decoration: none;
+  }
   .Main-nav{
     display: flex;
     justify-content: end;
@@ -59,7 +64,11 @@
     padding: 14px 16px;
     font-family: josefin;
  }
-
+.droplistbtn:hover{
+  opacity: 0.5;
+  background: #fff;
+ 
+}
   
   /* Add a red background color to navbar links on hover */
  .droplist:hover .droplistbtn {
@@ -76,7 +85,7 @@
     border-bottom-right-radius: 20px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
- 
+   
   }
   
   /* Links inside the dropdown */
@@ -89,10 +98,9 @@
     text-align: left;
   }
   
-  /* Add a grey background color to dropdown links on hover */
+  
   .droplist-content a:hover {
     background-color: linear-gradient(#de6767, #7f67de) !important; 
-    background-color:#de6767;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
@@ -100,6 +108,8 @@
   }
   
   /* Show the dropdown menu on hover */
-  .droplist:hover .droplist-content {
+  .droplist:hover .droplist-content{
+    transition-delay: 2s;
     display: block;
+  
   }
