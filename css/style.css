@@ -13,11 +13,7 @@
     background-color: transparent;
     border-bottom: 1px solid #010101;
   }
-  .main-navbar-brand a{
-    font-size: large;
-    color: #000;
-    text-decoration: none;
-  }
+ 
   .Main-nav{
     display: flex;
     justify-content: end;
