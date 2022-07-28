@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: josefin sans;
+}
+.navbar {
+    overflow: hidden; 
+    background-color: transparent;
+    border-bottom: 1px solid #010101;
+  }
+  .Main-nav{
+    display: flex;
+    justify-content: end;
+    margin-right: 5rem;
+    margin-top: 5px;
+
+  }
+  
+  /* Links inside the navbar*/
+  .navbar a{
+    float: left;
+    font-size: 18px;
+    color: #010101;
+    font-family: josefin;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  
+  /* Dropdown button */
+ .dropbtn {
+    background:linear-gradient(232deg, #e59999 0%, #7e66df 100%);
+    font-size: 18px;
+    border: none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 14px 16px;
+    font-family: josefin;
+ }
+
+  
+  /* Add a red background color to navbar links on hover */
+ .dropdown:hover .dropbtn {
+    background:linear-gradient(232deg, #e59999 0%, #7e66df 100%);
+  }
+    /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 150px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+ 
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  /* Add a grey background color to dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: linear-gradient(#de6767, #7f67de) !important; 
+    background-color:#de6767;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
