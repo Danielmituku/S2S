@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Danielmituku/S2S#readme",
   "dependencies": {
+    "express": "^4.16.4",
     "mongoose": "^5.13.14",
     "nodemon": "^2.0.19"
   }
