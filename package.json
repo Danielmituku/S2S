@@ -1,0 +1,23 @@
+{
+  "name": "s2s-1",
+  "version": "1.0.0",
+  "description": "This is the student to student project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Danielmituku/S2S.git"
+  },
+  "author": "S2S members",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Danielmituku/S2S/issues"
+  },
+  "homepage": "https://github.com/Danielmituku/S2S#readme",
+  "dependencies": {
+    "mongoose": "^5.13.14",
+    "nodemon": "^2.0.19"
+  }
+}
