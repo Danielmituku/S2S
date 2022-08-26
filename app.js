@@ -16,7 +16,7 @@ mongoose.connect(DB, {
 }).then(()=>{console.log("DB connection successfull!!")});
 
 //router
-app.use('/S2S/v1', userRouter)
+app.use('/', userRouter)
 
 
 //server creation
