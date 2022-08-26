@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv')
 
+const userRouter = require('./routes/userRoute')
+
 const app = express();
 
 //Databse connection
@@ -12,6 +14,10 @@ mongoose.connect(DB, {
   useCreateIndex: 'true',
   useFileAndModify: 'false'
 }).then(()=>{console.log("DB connection successfull!!")});
+
+//router
+app.use('/S2S/v1', userRouter)
+
 
 //server creation
 const port = 8000;

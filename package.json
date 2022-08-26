@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/Danielmituku/S2S#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.1",
     "express": "^4.16.4",
     "mongoose": "^5.13.14",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "validator": "^13.7.0"
   }
 }
