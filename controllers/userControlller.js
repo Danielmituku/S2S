@@ -1,8 +1,8 @@
-const User = require('../models/userModel')
+const Student = require('../models/studnetModel')
 const catchAsync = require("../utilis/catchAsync")
 
 exports.getAllUser = catchAsync(async (req, res, next) => {
-  const users = await User.find();
+  const users = await Student.find();
   res.status(201).json({
     status: 'Success',
     data:{

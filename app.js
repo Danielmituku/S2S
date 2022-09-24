@@ -1,26 +1,34 @@
 const express = require('express');
+const morgan = require('morgan');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv')
 
 const userRouter = require('./routes/userRoute')
 
 const app = express();
+app.use(express.json());
+app.use(express.static(`${__dirname}/public`));
+app.use(morgan('dev'));
 
-//Databse connection
-dotenv.config({path:'./config.env'});
-const DB = process.env.DATABASE.replace('<password>', process.env.PASSWORD);
-mongoose.connect(DB, {
-    useNewUrlParser: 'true',
-  useCreateIndex: 'true',
-  useFileAndModify: 'false'
-}).then(()=>{console.log("DB connection successfull!!")});
+app.use((req,res, next) =>{
+  console.log('Hello form the middleware');
+  next();
+})
+
+app.use((req,res,next)=>{
+  req.requestTime = new Date().toISOString();
+  next();
+})
 
 //router
 app.use('/', userRouter)
 
+//handling an unhandled route handler
 
-//server creation
-const port = 8000;
-app.listen(port, ()=>{
-    console.log("the app is running at port 8000");
+app.all('*',(req,res,next)=>{
+  next(new AppError(`can not find ${req.orginalUrl} on server`,404));
 })
+
+
+// app.use(globlalErrorhandlers)
+module.exports= app;

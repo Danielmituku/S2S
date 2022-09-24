@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
 
-const userSchema = new mongoose.Schema({
+const StudentSchema = new mongoose.Schema({
     name:{
         type: String,
         required:[true, "Please provide your name!"],
@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema({
     
 })
 
-userSchema.pre('save', async function(next){
+StudentSchema.pre('save', async function(next){
     
     //Only run if password is acctually modifeid
     if(!this.isModified('password')) return next();
@@ -51,7 +51,7 @@ userSchema.pre('save', async function(next){
 
     next();
 })
-userSchema.pre('save', async function (next){
+StudentSchema.pre('save', async function (next){
 
     if(!this.isModifeid('password')) return next();
 
@@ -62,6 +62,6 @@ userSchema.pre('save', async function (next){
     next();
 })
 
-const User = mongoose.model("User", userSchema);
+const Student = mongoose.model("Student", StudentSchema);
 
-module.exports = User;
+module.exports = Student;
