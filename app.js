@@ -5,8 +5,8 @@ const dotenv = require('dotenv')
 
 const studentRouter = require('./routes/studentRoute')
 const tutorRouter = require('./routes/tutorRoute')
-
 const AppError = require('./utilis/appError')
+
 const app = express();
 app.use(express.json());
 app.use(express.static(`${__dirname}/public`));
