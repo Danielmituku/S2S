@@ -53,7 +53,7 @@ tutorSchema.pre('save', async function(next){
 })
 
 //instance method for comaprison of password
-studentSchema.methods.correctPassword = async function(candidatePassword, userPassword){
+tutorSchema.methods.correctPassword = async function(candidatePassword, userPassword){
     return await bcrypt.compare(candidatePassword, userPassword)
 }
 

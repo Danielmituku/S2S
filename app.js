@@ -3,7 +3,9 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv')
 
-const userRouter = require('./routes/studentRoute')
+const studentRouter = require('./routes/studentRoute')
+const tutorRouter = require('./routes/tutorRoute')
+
 const AppError = require('./utilis/appError')
 const app = express();
 app.use(express.json());
@@ -12,6 +14,7 @@ app.use(morgan('dev'));
 
 app.use((req,res, next) =>{
   console.log('Hello form the middleware');
+  console.log(req.headers)
   next();
 })
 
@@ -21,7 +24,8 @@ app.use((req,res,next)=>{
 })
 
 //router
-app.use('/', userRouter)
+app.use('/api/v1/students', studentRouter)
+app.use('/api/v1/tutors', tutorRouter)
 
 //handling an unhandled route handler
 

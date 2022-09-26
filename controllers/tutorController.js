@@ -1,8 +1,8 @@
-const Student = require('../models/tutorModel')
+const Tutor = require('../models/tutorModel')
 const catchAsync = require("../utilis/catchAsync")
 
-exports.getAlltutor = catchAsync(async (req, res, next) => {
-  const users = await Student.find();
+exports.getAllTutor = catchAsync(async (req, res, next) => {
+  const users = await Tutor.find();
   res.status(201).json({
     status: 'Success',
     data:{
@@ -23,7 +23,7 @@ exports.updateTutor = (req, res) => {
     message: 'The Route is not defined yet',
   });
 };
-exports.createTutors = (req, res) => {
+exports.createTutor = (req, res) => {
   res.status(500).json({
     status: 'File not found',
     message: 'The Route is not defined yet',
