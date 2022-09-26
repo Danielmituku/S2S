@@ -1,7 +1,7 @@
 const Student = require('../models/studentModel')
 const catchAsync = require("../utilis/catchAsync")
 
-exports.getAllUser = catchAsync(async (req, res, next) => {
+exports.getAllStudent = catchAsync(async (req, res, next) => {
   const users = await Student.find();
   res.status(201).json({
     status: 'Success',
@@ -11,19 +11,19 @@ exports.getAllUser = catchAsync(async (req, res, next) => {
   });
 })
 
-exports.getUser = (req, res) => {
+exports.getStudent = (req, res) => {
   res.status(500).json({
     status: 'File not found',
     message: 'The Route is not defined yet',
   });
 };
-exports.updateUser = (req, res) => {
+exports.updateStudent = (req, res) => {
   res.status(500).json({
     status: 'File not found',
     message: 'The Route is not defined yet',
   });
 };
-exports.createUsers = (req, res) => {
+exports.createStudent = (req, res) => {
   res.status(500).json({
     status: 'File not found',
     message: 'The Route is not defined yet',
