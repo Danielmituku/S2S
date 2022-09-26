@@ -51,16 +51,11 @@ tutorSchema.pre('save', async function(next){
 
     next();
 })
-tutorSchema.pre('save', async function (next){
 
-    if(!this.isModifeid('password')) return next();
-
-    this.password = await bcrypt.hash("password", 12)
-
-    this.password = undefined;
-
-    next();
-})
+//instance method for comaprison of password
+studentSchema.methods.correctPassword = async function(candidatePassword, userPassword){
+    return await bcrypt.compare(candidatePassword, userPassword)
+}
 
 const Tutor = mongoose.model("Tutor", tutorSchema);
 

@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv')
 
-const userRouter = require('./routes/userRoute')
+const userRouter = require('./routes/studentRoute')
 const AppError = require('./utilis/appError')
 const app = express();
 app.use(express.json());

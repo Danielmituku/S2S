@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const Student = require("../models/studnetModel")
+const Student = require("../models/studentModel")
 const catchAsync = require("../utilis/catchAsync")
 const AppError = require("../utilis/appError")
 
@@ -10,6 +10,7 @@ const signToken = id => {
     return jwt.sign({id}, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIRED
     })}
+
 
 exports.signup = catchAsync(async (req, res) => {
     const newUser = await Student.create({
@@ -47,7 +48,7 @@ exports.login = catchAsync(async (req, res, next)=>{
     const user = await Student.findOne({ email }).select('+password');
     console.log(user);
 
-    if(!user || !await user.correctPassword(password, user.password)){
+    if(!user || !user.correctPassword(password, user.password)){
         return next(new AppError("Incorrect email or Password!!", 401));
     }
 
