@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv')
 
 const userRouter = require('./routes/userRoute')
-
+const AppError = require('./utilis/appError')
 const app = express();
 app.use(express.json());
 app.use(express.static(`${__dirname}/public`));

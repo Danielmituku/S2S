@@ -53,7 +53,7 @@ StudentSchema.pre('save', async function(next){
 })
 StudentSchema.pre('save', async function (next){
 
-    if(!this.isModifeid('password')) return next();
+    if(!this.isModified('password')) return next();
 
     this.password = await bcrypt.hash("password", 12)
 
