@@ -23,12 +23,11 @@ const tutorSchema = new mongoose.Schema({
     },
     Gender:{
         type: String,
-        required:[type,'Please provide your gender']
+        required:[true,'Please provide your gender']
     },
     AlternativeNumber:{
         type: Number
     },
-
     email:{
         type: String,
         required: [true, "Please provide your email"],
@@ -69,7 +68,7 @@ const tutorSchema = new mongoose.Schema({
     },
     Resume:{
         type: String,
-        required:[ture,"please upload your resume"]
+        required:[true,"please upload your resume"]
     },
 
     Qualification:{
