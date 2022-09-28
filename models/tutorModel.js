@@ -16,7 +16,8 @@ const tutorSchema = new mongoose.Schema({
     },
     Mobile:{
         type: Number,
-        required:[true,"Please provide your contact Number"]
+        length:12,
+        required:[true,"Please provide your contact Number"],
     },
     Address:{
         type:String
