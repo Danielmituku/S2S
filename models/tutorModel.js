@@ -57,7 +57,6 @@ const tutorSchema = new mongoose.Schema({
             message: "Password does not match!!"
         }
     },
-
     Institution:{
         type: String,
     },
