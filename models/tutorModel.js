@@ -3,10 +3,32 @@ const validator = require('validator')
 const bcrypt = require('bcryptjs')
 
 const tutorSchema = new mongoose.Schema({
-    name:{
+    firstname:{
         type: String,
-        required:[true, "Please provide your name!"],
+        required:[true, "Please provide your name!"]
     },
+    middlename:{
+        type: String
+    },
+    lastname:{
+        type: String,
+        required:[true,"Please provide your last name"]
+    },
+    Mobile:{
+        type: Number,
+        required:[true,"Please provide your contact Number"]
+    },
+    Address:{
+        type:String
+    },
+    Gender:{
+        type: String,
+        required:[type,'Please provide your gender']
+    },
+    AlternativeNumber:{
+        type: Number
+    },
+
     email:{
         type: String,
         required: [true, "Please provide your email"],
@@ -14,17 +36,18 @@ const tutorSchema = new mongoose.Schema({
         unique:true,
         validate:[validator.isEmail,"Invalid Email address"]
     },
-    photo:{ 
-        type: String,
-        required:false
+    DOB:{
+        type: Date,
+        requierd:[true,"please provide your birthdate"]
     },
-
+    photo:{ 
+        type: String
+    },
     password:{
         type: String,
         required: [true, "Please provide password"],
         minlegnth: 8
     },
-
     passwordConfirm:{
         type: String,
         required: [true, "Please confirm the password"],
@@ -34,8 +57,28 @@ const tutorSchema = new mongoose.Schema({
             },  
             message: "Password does not match!!"
         }
-    }
-    
+    },
+
+    Institution:{
+        type: String,
+    },
+
+    TutoringCourse:{
+        type: String,
+        required:[true,"Please select yout tutoring course!"]
+    },
+    Resume:{
+        type: String,
+        required:[ture,"please upload your resume"]
+    },
+
+    Qualification:{
+        type: String,
+    },
+    Expreinece:{
+        type: Number,
+        required:[true,'Provide year Expreince']
+    }, 
 })
 
 tutorSchema.pre('save', async function(next){
