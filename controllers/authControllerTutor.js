@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const Student = require("../models/studentModel")
+const Tutor = require("../models/tutorModel")
 const catchAsync = require("../utilis/catchAsync")
 const AppError = require("../utilis/appError")
 
@@ -13,17 +13,26 @@ const signToken = id => {
 
 
 exports.signup = catchAsync(async (req, res) => {
-    const newUser = await Student.create({
-        name: req.body.name,
+    const newUser = await Tutor.create({
+        firstname: req.body.firstname,
+        middlename: req.body.middlename,
+        lastname: req.body.lastname,
+        Mobile: req.body.Mobile,
+        Gender: req.body.Gender,
         email: req.body.email,
         password: req.body.password,
-        passwordConfirm: req.body.passwordConfirm
+        passwordConfirm: req.body.passwordConfirm,
+        DOB: req.body.DOB,
+        TutoringCourse: req.body.TutoringCourse,
+        Resume: req.body.Resume,
+        Expreinece: req.body.Expreinece,
+
     });
     
     // JSON WEB TOKEN IS APPLIED HER WHICH HELP US OR WE CAN TREAT IT AS SESSION TIME FOR THE AUTHENTCETICATED USER
     //THERE US NO NEED TO STORE USER SESSION  ON SERVER 
     
-    const token = signToken(Student._id)
+    const token = signToken(Tutor._id)
 
     res.status(201).json({
         status: "success",
@@ -45,7 +54,7 @@ exports.login = catchAsync(async (req, res, next)=>{
 
     //2) check if the email and password are correct
 
-    const user = await Student.findOne({ email }).select('+password');
+    const user = await Tutor.findOne({ email }).select('+password');
     console.log(user);
 
     if(!user || !user.correctPassword(password, user.password)){

@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
-const userSchema = new mongoose.Schema({
+const studentSchema = new mongoose.Schema({
     name:{
         type: String,
         required:[true, "Please provide your name!"],
@@ -31,14 +31,14 @@ const userSchema = new mongoose.Schema({
         validate:{
             validator:function(el){
                 return el === this.password
-            },
+            },  
             message: "Password does not match!!"
         }
     }
     
 })
 
-userSchema.pre('save', async function(next){
+studentSchema.pre('save', async function(next){
     
     //Only run if password is acctually modifeid
     if(!this.isModified('password')) return next();
@@ -52,6 +52,11 @@ userSchema.pre('save', async function(next){
     next();
 })
 
-const User = mongoose.model("User", userSchema);
+//instance method for comaprison of password
+studentSchema.methods.correctPassword = async function(candidatePassword, userPassword){
+    return await bcrypt.compare(candidatePassword, userPassword)
+}
 
-module.exports = User;
+const Student = mongoose.model("Student", studentSchema);
+
+module.exports = Student;
