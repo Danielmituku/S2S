@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
+const crypto = require('crypto')
 
 const studentSchema = new mongoose.Schema({
     name:{
@@ -13,6 +14,11 @@ const studentSchema = new mongoose.Schema({
         lowercase: true,
         unique:true,
         validate:[validator.isEmail,"Invalid Email address"]
+    },
+    role:{
+        type: String,
+        enum:['student','admin'],
+        default:'student'
     },
     photo:{ 
         type: String,
@@ -34,8 +40,10 @@ const studentSchema = new mongoose.Schema({
             },  
             message: "Password does not match!!"
         }
-    }
-    
+    },
+    passwordChangedAt: Date,
+    passwordResetToken: String,
+    passwordRestExpires: Date
 })
 
 studentSchema.pre('save', async function(next){
@@ -57,6 +65,27 @@ studentSchema.methods.correctPassword = async function(candidatePassword, userPa
     return await bcrypt.compare(candidatePassword, userPassword)
 }
 
+studentSchema.methods.changedPasswordAfter = function(JWTTimesamp){
+    if(this.passwordChangedAt){
+        const changedTimestamp = ParseInt(this.passwordChangedAt.getDate() / 1000, 10);
+        console(this.changedTimestamp, JWTTimestamp)
+
+        return JWTTimestamp < changedTimestamp
+    }
+
+    //false means not changed
+    return false;
+}
+
+studentSchema.methods.createPasswordResetToken = function() {
+
+    const restToken = crypto.randomBytes(32).toString('hex');
+    this.passwordResetToken = crypto.createHash('sha256').update(restToken).digest('hex');
+    this.passwordRestExpires = Date.now() + 10 * 60 * 1000;
+    console.log({restToken}, this.passwordRestToken);
+
+    return restToken;
+}
 const Student = mongoose.model("Student", studentSchema);
 
 module.exports = Student;

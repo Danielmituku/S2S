@@ -8,7 +8,11 @@ const router = express.Router();
 router.route('/signup').post(authController.signup)
 router.route('/login').post(authController.login) 
 
-router.route('/').get(authController.protect, studentController.getAllStudent).post(studentController.createStudent);
-router.route('/:id').get(studentController.getStudent).patch(studentController.updateStudent);
+router.route('/forgetPassword').post(authController.forgetPassword) 
+router.route('/restPassword/:token').patch(authController.restPassword) 
 
-module.exports = router;
+
+router.route('/').get(authController.protect, studentController.getAllStudent);
+router.route('/:id').get(studentController.getStudent).patch(studentController.updateStudent).delete(authController.protect,authController.restrictTo('admin'),studentController.deleteStudent);
+
+module.exports = router; 

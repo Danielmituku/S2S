@@ -43,6 +43,11 @@ const tutorSchema = new mongoose.Schema({
     photo:{ 
         type: String
     },
+    role:{
+        type: String,
+        enum:['tutor','admin'],
+        default:'tutor'
+    },
     password:{
         type: String,
         required: [true, "Please provide password"],
@@ -78,6 +83,7 @@ const tutorSchema = new mongoose.Schema({
         type: Number,
         required:[true,'Provide year Expreince']
     }, 
+    passwordChangedAt: Date,
 })
 
 tutorSchema.pre('save', async function(next){
@@ -98,7 +104,17 @@ tutorSchema.pre('save', async function(next){
 tutorSchema.methods.correctPassword = async function(candidatePassword, userPassword){
     return await bcrypt.compare(candidatePassword, userPassword)
 }
+tutorSchema.methods.changedPasswordAfter = function(JWTTimestamp){
+    if(this.passwordChangedAt){
+        const changedTimestamp = parseInt(this.passwordChangedAt.getDate() / 1000, 10);
+        console.log(this.changedTimestamp, JWTTimestamp)
 
+        return JWTTimestamp < changedTimestamp
+    }
+
+    //false means not changed
+    return false;
+}
 const Tutor = mongoose.model("Tutor", tutorSchema);
 
 module.exports = Tutor;
