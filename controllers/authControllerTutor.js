@@ -1,3 +1,4 @@
+const {promisify} = require('util');
 const jwt = require('jsonwebtoken')
 const Tutor = require("../models/tutorModel")
 const catchAsync = require("../utilis/catchAsync")
@@ -26,6 +27,8 @@ exports.signup = catchAsync(async (req, res) => {
         TutoringCourse: req.body.TutoringCourse,
         Resume: req.body.Resume,
         Expreinece: req.body.Expreinece,
+        passwordChangedAt:req.body.passwordChangedAt,
+        role:req.body.role
 
     });
     
@@ -78,14 +81,34 @@ exports.protect = catchAsync(async(req,res,next)=>{
      if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
          token = req.headers.authorization.split(' ')[1];
      }
-     console.log(token);
      if(!token){
          return next(new AppError('You are not logged in! please login to get access', 401))
      }
      //2) verification token
- 
+    const decoded = await promisify(jwt.verify)(token,process.env.JWT_SECRET);
      //3) check if user still exits
- 
+    const freshTutor = await  Tutor.findById(decoded.id)
+    if(!freshTutor){
+        return next(new AppError("The Tutor belong to this token no more exist.",401))
+    }
      //4) check if user changed password after the token was issued
+        if(freshTutor.changedPasswordAfter(decoded.iat)) {
+            return next(new AppError('The password is recently changed! please log in again.', 401))
+        }
+
+    //Grant Access to the protected route
+    req.user = freshTutor
      next();
 })
+
+exports.restrictTo = (...roles)=>{
+    return (req,res,next) => {
+        //roles is the array of {'admin"} or someonelse. role="user"
+
+        if(!roles.includes(req.user.role)){
+            return next(new AppError("you do not have a permission to perform this action"), 403)
+
+        }
+        next();
+    }
+}
