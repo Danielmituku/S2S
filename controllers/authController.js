@@ -15,6 +15,18 @@ const signToken = id => {
         expiresIn: process.env.JWT_EXPIRED
     })}
 
+const createSendToken = (user, statusCode, res) =>{
+    const token = signToken(user._id)
+
+    res.status(statusCode).json({
+        status: "success",
+        token,
+        data: {
+            user
+        }
+    })
+}
+
 
 exports.signup = catchAsync(async (req, res) => {
     const newUser = await Student.create({
@@ -25,19 +37,9 @@ exports.signup = catchAsync(async (req, res) => {
         passwordChangedAt:req.body.passwordChangedAt,
         role:req.body.role
     });
-    
+    createSendToken(newUser, 201, res);
     // JSON WEB TOKEN IS APPLIED HER WHICH HELP US OR WE CAN TREAT IT AS SESSION TIME FOR THE AUTHENTCETICATED USER
     //THERE US NO NEED TO STORE USER SESSION  ON SERVER 
-    
-    const token = signToken(Student._id)
-
-    res.status(201).json({
-        status: "success",
-        token,
-        data: {
-            newUser
-        }
-    })
 })
 
 exports.login = catchAsync(async (req, res, next)=>{
@@ -50,7 +52,6 @@ exports.login = catchAsync(async (req, res, next)=>{
     }
 
     //2) check if the email and password are correct
-
     const user = await Student.findOne({ email }).select('+password');
     console.log(user);
 
@@ -59,14 +60,7 @@ exports.login = catchAsync(async (req, res, next)=>{
     }
 
     //3) if everything is ok, send the token to the client
-    const token = signToken(user._id);
-    res.status(200).json({
-        status: "Success",
-        message: "The request is succcessful",
-        token:{
-            token
-        } 
-    })
+    createSendToken(user, 201, res);
 })
 
 exports.protect = catchAsync(async(req,res,next)=>{
@@ -108,12 +102,12 @@ exports.restrictTo = (...roles)=>{
 }
 exports.forgetPassword = catchAsync(async (req, res, next)=>{
     //1) check if the POSTed email is existed
-    const student = await Student.findOne({email: req.body.email})
-    if(!student){
+    const user = await Student.findOne({email: req.body.email})
+    if(!user){
         return next(new AppError("There is no user with that email Addreess", 404))
     }
     //2) Generate the random rest token
-    const restToken = student.createPasswordResetToken();
+    const restToken = user.createPasswordResetToken();
    
 
     //3) send it to the user
@@ -123,7 +117,7 @@ exports.forgetPassword = catchAsync(async (req, res, next)=>{
 
     try {
         await sendEmail({
-        email: student.email,
+        email: user.email,
         subject: "Your password reset token (valid for 10min)",
         message
     })
@@ -131,9 +125,9 @@ exports.forgetPassword = catchAsync(async (req, res, next)=>{
         status: 'success',
         message: 'Token sent to email'
     })} catch(err){
-        student.passwordResetToken = undefined;
-        student.passwordResetExpires = undefined;
-        await student.save({ validateBeforeSave: false});
+        user.passwordResetToken = undefined;
+        user.passwordResetExpires = undefined;
+        await user.save({ validateBeforeSave: false});
         return next(new AppError("There was an error sending an email, Try again letter!"), 500)
     }
     
@@ -143,26 +137,37 @@ exports.resetPassword = catchAsync( async (req, res, next)=>{
     //1) get user based on thier token
     const hashedToken = crypto.createHash('sha256').update(req.params.token).digest('hex');
 
-    const student = await Student.findOne({passwordResetToken: hashedToken, passwordResetExpires: { $gt: Date.now()}})
+    const user = await Student.findOne({passwordResetToken: hashedToken, passwordResetExpires: { $gt: Date.now()}})
 
     //2) if token has not expired there is a user
-        if(!student){
+        if(!user){
             return next(new AppError("Token is invalid or has expired", 400))
         }
-        student.password = req.body.password;
-        student.passwordConfirm = req.body.passwordConfirm;
-        student.passwordResetToken = undefined
-        student.passwordTokenExpires = undefined
-        await student.save()
+        user.password = req.body.password;
+        user.passwordConfirm = req.body.passwordConfirm;
+        user.passwordResetToken = undefined;
+        user.passwordTokenExpires = undefined;
+        await user.save();
     //3) update the changedPasswordAt property for the user
     //4) Log the user in, send JWT
-    const token = signToken(student._id);
-    res.status(200).json({
-        status: "success",
-        message: "The request is succcessful",
-        token:{
-            token
-        } 
-    })
+    createSendToken(user, 201, res);
 }
 )
+exports.updatePassword = catchAsync(async (req, res, next) =>{
+    //1) get user from the collection
+    const user = await Student.findById(req.user.id).select('+password')
+    //2) check if the posted current password is correct
+    if(!(await user.correctPassword(req.body.passwordCurrent, user.password))){
+        return next(new AppError("Your current Password is wrong", 401))    
+    }
+
+
+    //3) if the password is correct
+user.password = req.body.password;
+user.passwordConfirm = req.body.passwordConfirm;
+await user.save();
+//Student.findByIdandUpdate will not work as intended!
+
+    //4) log user in, send JWT)
+    createSendToken(user, 201, res);
+})
