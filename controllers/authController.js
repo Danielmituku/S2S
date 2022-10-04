@@ -1,3 +1,4 @@
+const crypto = require('crypto')
 const jwt = require('jsonwebtoken')
 const {promisify} = require('util');
 const Student = require("../models/studentModel")
@@ -113,9 +114,55 @@ exports.forgetPassword = catchAsync(async (req, res, next)=>{
     }
     //2) Generate the random rest token
     const restToken = student.createPasswordResetToken();
-    await student.save({ validateBeforeSave: false});
+   
 
     //3) send it to the user
+    const restURL = `${req.protocol}:${req.get('host')}/api/v1/users/restPassword/${restToken}`;
+
+    const message = `Forgot your password? submit a patch request with your new password and pasword confirm to: ${restURL}.\If you did not forger yout password. please forget this email`;
+
+    try {
+        await sendEmail({
+        email: student.email,
+        subject: "Your password reset token (valid for 10min)",
+        message
+    })
+    res.status(200).json({
+        status: 'success',
+        message: 'Token sent to email'
+    })} catch(err){
+        student.passwordResetToken = undefined;
+        student.passwordResetExpires = undefined;
+        await student.save({ validateBeforeSave: false});
+        return next(new AppError("There was an error sending an email, Try again letter!"), 500)
+    }
     
 }) 
-exports.restPassword = (req, res, next)=>{}
+exports.resetPassword = catchAsync( async (req, res, next)=>{
+
+    //1) get user based on thier token
+    const hashedToken = crypto.createHash('sha256').update(req.params.token).digest('hex');
+
+    const student = await Student.findOne({passwordResetToken: hashedToken, passwordResetExpires: { $gt: Date.now()}})
+
+    //2) if token has not expired there is a user
+        if(!student){
+            return next(new AppError("Token is invalid or has expired", 400))
+        }
+        student.password = req.body.password;
+        student.passwordConfirm = req.body.passwordConfirm;
+        student.passwordResetToken = undefined
+        student.passwordTokenExpires = undefined
+        await student.save()
+    //3) update the changedPasswordAt property for the user
+    //4) Log the user in, send JWT
+    const token = signToken(student._id);
+    res.status(200).json({
+        status: "success",
+        message: "The request is succcessful",
+        token:{
+            token
+        } 
+    })
+}
+)

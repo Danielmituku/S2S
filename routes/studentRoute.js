@@ -9,7 +9,7 @@ router.route('/signup').post(authController.signup)
 router.route('/login').post(authController.login) 
 
 router.route('/forgetPassword').post(authController.forgetPassword) 
-router.route('/restPassword/:token').patch(authController.restPassword) 
+router.route('/resetPassword/:token').patch(authController.resetPassword) 
 
 
 router.route('/').get(authController.protect, studentController.getAllStudent);

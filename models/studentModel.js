@@ -41,9 +41,15 @@ const studentSchema = new mongoose.Schema({
             message: "Password does not match!!"
         }
     },
-    passwordChangedAt: Date,
-    passwordResetToken: String,
-    passwordRestExpires: Date
+    passwordChangedAt:{
+        type: Date
+    },
+    passwordResetToken: {
+        type: String
+    },
+    passwordResetExpires:{
+        type: Date
+    }
 })
 
 studentSchema.pre('save', async function(next){
@@ -76,13 +82,18 @@ studentSchema.methods.changedPasswordAfter = function(JWTTimesamp){
     //false means not changed
     return false;
 }
+studentSchema.pre('save', function(next){
+    if(!this.isModified('password') || this.isNew) return next();
+    this.passwordChangedAt = Date.now() - 1000;
+    next();
+})
 
 studentSchema.methods.createPasswordResetToken = function() {
 
     const restToken = crypto.randomBytes(32).toString('hex');
     this.passwordResetToken = crypto.createHash('sha256').update(restToken).digest('hex');
-    this.passwordRestExpires = Date.now() + 10 * 60 * 1000;
-    console.log({restToken}, this.passwordRestToken);
+    this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
+    console.log({restToken}, this.passwordResetToken);
 
     return restToken;
 }
