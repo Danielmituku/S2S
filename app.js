@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv')
 
+const courseRouter = require('./routes/courseRoute')
 const studentRouter = require('./routes/studentRoute')
 const tutorRouter = require('./routes/tutorRoute')
 const AppError = require('./utilis/appError')
@@ -26,7 +27,7 @@ app.use((req,res,next)=>{
 //router
 app.use('/api/v1/students', studentRouter)
 app.use('/api/v1/tutors', tutorRouter)
-
+app.use('api/v1/courses', courseRouter)
 //handling an unhandled route handler
 
 app.all('*',(req,res,next)=>{
