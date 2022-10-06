@@ -1,5 +1,6 @@
 const Student = require('../models/studentModel')
 const catchAsync = require("../utilis/catchAsync")
+const AppError = require("../utilis/appError")
 
 exports.getAllStudent = catchAsync(async (req, res, next) => {
   const users = await Student.find();
@@ -160,5 +161,12 @@ exports.getMonthlyPlan = async (req, res) => {
       reportLength: "The message is not requires",
       message: err
     })
+  }
+};
+{
+  exports = getloginform = (req, res) =>{
+    res.status(200).render('login',{
+      title: 'login your accout'
+    });
   }
 };
