@@ -1,13 +1,6 @@
 const express = require('express')
 
-const studentController = require('../controllers/studentController')
-const authController = require('../controllers/authController')
-
-const router = express.Router();
-
-router.route('/signup').post(authController.signup)
-router.route('/login').post(authController.login) 
-
+const router = express.Router()
 router.route('/forgetPassword').post(authController.forgetPassword) 
 router.route('/restPassword/:token').patch(authController.restPassword) 
 

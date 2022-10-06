@@ -170,3 +170,5 @@ exports.getMonthlyPlan = async (req, res) => {
     });
   }
 };
+
+exports = getloginform

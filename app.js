@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv')
 const path = require('path');
 
+
 const studentRouter = require('./routes/studentRoute')
 const tutorRouter = require('./routes/tutorRoute')
 const AppError = require('./utilis/appError');
@@ -24,37 +25,37 @@ app.use((req,res,next)=>{
   req.requestTime = new Date().toISOString();
   next();
 })
+// router
+const router = express();
 
-//router
-router.get('/',function(req,res){
+router.get('/index',function(req,res, next){
   res.sendFile(path.join(__dirname+'/index.html'));
   //__dirname : It will resolve to your project folder.
 });
 
-router.get('/logins',function(req,res){
+
+router.get('/logins',function(req,res, next){
   res.sendFile(path.join(__dirname+'/logins.html'));
 });
 
-router.get('/logint',function(req,res){
+router.get('/logint',function(req,res, next){
   res.sendFile(path.join(__dirname+'/logint.html'));
 });
 
-router.get('/reg',function(req,res){
+router.get('/reg',function(req,res, next){
   res.sendFile(path.join(__dirname+'/reg.html'));
 });
 
-router.get('/signup',function(req,res){
+router.get('/signup',function(req,res, next){
   res.sendFile(path.join(__dirname+'/signup.html'));
 });
 
-router.get('/Tprofile',function(req,res){
+router.get('/Tprofile',function(req,res, next){
   res.sendFile(path.join(__dirname+'/Tprofile.html'));
 });
 //Add to the router
 app.use('/', router);
-app.listen(process.env.port || 8000);
 
-console.log('Running at Port 8000');
 
 app.use('/api/v1/students', studentRouter)
 app.use('/api/v1/tutors', tutorRouter)
@@ -64,8 +65,6 @@ app.use('/api/v1/tutors', tutorRouter)
 app.all('*',(req,res,next)=>{
   next(new AppError(`can not find ${req.orginalUrl} on server`,404));
 })
-
-
 
 
 // app.use(globlalErrorhandlers)
