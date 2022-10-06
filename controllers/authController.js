@@ -119,3 +119,75 @@ exports.forgetPassword = catchAsync(async (req, res, next)=>{
     
 }) 
 exports.restPassword = (req, res, next)=>{}
+
+//app.get('/conformation/: token', confirmEmail)
+exports.confirmEmail = function(req, res, next) {
+    token.findOne({ token: req.params.token}, function(err, token) {
+        if(!token){
+            return res.status(400).send( {msg: 'your vervication link may have expired. please click on resend for verify email.'});
+
+            }        
+            else{
+                user.findOne({_id: token._userId, email: req.params.email},function(err, user) {
+                    if(!user){
+                        return res.status(401).send({msg: 'We were unable to find a user for this verfication. please signup'});
+                    }
+                        //user is already verfified
+                        else if(user.isVerified){
+                            return res.status(200).send('user has been already verified .please login');
+                        }
+                        // verify user
+                        else{
+                            //chande isVerified to true
+                            user.isVerified = true;
+                            user.save(function(err) {
+                                //error occur
+                                if(err){
+                                    return res.status(500).send({msg: err.message});
+                                }
+                                //accout successfy verified
+                                else{
+                                    return res.status(200).send('Your accout has been successfuly verified')
+                                }
+                            });
+                        }
+                    });
+            }
+        });
+}
+
+//resend the link
+exports.resendLink = function (req, res, next) {
+
+    User.findOne({ email: req.body.email }, function (err, user) {
+        // user is not found into database
+        if (!user){
+            return res.status(400).send({msg:'We were unable to find a user with that email. Make sure your Email is correct!'});
+        }
+        // user has been already verified
+        else if (user.isVerified){
+            return res.status(200).send('This account has been already verified. Please log in.');
+    
+        } 
+        // send verification link
+        else{
+            // generate token and save
+            var token = new Token({ _userId: user._id, token: crypto.randomBytes(16).toString('hex') });
+            token.save(function (err) {
+                if (err) {
+                  return res.status(500).send({msg:err.message});
+                }
+    
+                // Send email (use credintials of SendGrid)
+                    var transporter = nodemailer.createTransport({ service: 'Sendgrid', auth: { user: process.env.SENDGRID_USERNAME, pass: process.env.SENDGRID_PASSWORD } });
+                    var mailOptions = { from: 'no-reply@example.com', to: user.email, subject: 'Account Verification Link', text: 'Hello '+ user.name +',\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + user.email + '\/' + token.token + '\n\nThank You!\n' };
+                    transporter.sendMail(mailOptions, function (err) {
+                       if (err) { 
+                        return res.status(500).send({msg:'Technical Issue!, Please click on resend for verify your Email.'});
+                     }
+                    return res.status(200).send('A verification email has been sent to ' + user.email + '. It will be expire after one day. If you not get verification Email click on resend token.');
+                });
+            });
+        }
+    });
+}

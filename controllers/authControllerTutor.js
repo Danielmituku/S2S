@@ -2,7 +2,8 @@ const {promisify} = require('util');
 const jwt = require('jsonwebtoken')
 const Tutor = require("../models/tutorModel")
 const catchAsync = require("../utilis/catchAsync")
-const AppError = require("../utilis/appError")
+const AppError = require("../utilis/appError");
+const { token } = require('morgan');
 
 
 
@@ -112,3 +113,5 @@ exports.restrictTo = (...roles)=>{
         next();
     }
 }
+
+
