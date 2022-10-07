@@ -6,5 +6,5 @@ exports.getsLoginStudent= (req,res)=>{
   }
 exports.getsLoginTutor= (req,res)=>{
     res.status(200).render('logint')
-  }
+  } 
 
