@@ -14,11 +14,15 @@
     <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
     <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+
+    <!--js file-->
+    <script src="/public/js/login.js"></script>
+
 </head>
 
 <body>
     <section class="login-dark">
-        <form method="post">
+        <form class="form" id="form_id" method="post">
             <h2 class="visually-hidden">Login Form</h2>
             <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
             <div class="mb-3"><input class="form-control" type="email" name="email" required placeholder="Email"></div>
@@ -26,9 +30,11 @@
             <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background: linear-gradient(-135deg, #DE6767, #7F67DE);">Log In</button></div><a class="forgot" href="signup.html" style="color: var(--bs-blue);">Create an account</a><a class="forgot" href="#" style="color: var(--bs-blue);">Forgot your email or password?</a>
         </form>
     </section>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/agency.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bs-init.js"></script>
+    <script src="/assets/js/agency.js"></script>
+    <script src="/public/js/login.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.0/esm/axios.min.js"></script>
 </body>
 
 </html>
