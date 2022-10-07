@@ -1,24 +1,37 @@
+<!DOCTYPE html>
 <html>
+
 <head>
-<title>Javascript Login Form Validation</title>
-<!-- Include CSS File Here -->
-<link rel="stylesheet" href="/public/css/style.css"/>
-<!-- Include JS File Here -->
-<script src="/public/js/login.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>S2S</title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,400&amp;display=swap">
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="/css/Registration-Form-with-Photo.css">
 </head>
+
 <body>
-<div class="container">
-<div class="main">
-<h2>Javascript Login Form Validation</h2>
-<form id="form_id" method="post" name="myform">
-<label>User Name :</label>
-<input type="text" name="username" id="username"/>
-<label>Password :</label>
-<input type="password" name="password" id="password"/>
-<input type="button" value="Login" id="submit" onclick="validate()"/>
-</form>
-<span><b class="note">Note : </b>For this demo use following username and password. <br/><b class="valid">User Name : Formget<br/>Password : formget#123</b></span>
-</div>
-</div>
+    <section class="login-clean">
+        <form id="form_id" class="form" method="post">
+            <h2 class="visually-hidden">Login Form</h2>
+            <div class="illustration"><i class="icon ion-ios-navigate" style="color: rgb(244,71,107);background: #ffffff;"></i></div>
+            <div class="mb-3"><input class="form-control" type="email" name="email" required placeholder="Email"></div>
+            <div class="mb-3"><input class="form-control" type="password" name="password" required placeholder="Password"required></div>
+            <div class="mb-3"><button class="btn btn-primary border rounded-0 d-block w-100" type="submit" style="background: linear-gradient(-126deg, #DE6767, #7F67DE);font-family: Montserrat, sans-serif;">Log In</button></div><a class="forgot" href="/signupt" style="font-family: Montserrat, sans-serif;color: var(--bs-blue);">Create an account</a><a class="forgot" href="/forgetPassword" style="font-family: Montserrat, sans-serif;color: var(--bs-blue);">Forgot your email or password?</a>
+        </form>
+    </section>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.0/esm/axios.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/bs-init.js"></script>
+    <script src="/js/agency.js"></script>
+    <script src="/js/login.js"></script>
+
 </body>
 </html>

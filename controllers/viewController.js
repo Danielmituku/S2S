@@ -7,4 +7,9 @@ exports.getsLoginStudent= (req,res)=>{
 exports.getsLoginTutor= (req,res)=>{
     res.status(200).render('logint')
   } 
-
+  exports.getsSignupTutor= (req,res)=>{
+    res.status(200).render('signupt')
+  } 
+  exports.getsSignupStudent= (req,res)=>{
+    res.status(200).render('signups')
+  } 
