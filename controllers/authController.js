@@ -1,4 +1,3 @@
-const crypto = require('crypto')
 const jwt = require('jsonwebtoken')
 const {promisify} = require('util');
 const Student = require("../models/studentModel")
@@ -15,18 +14,6 @@ const signToken = id => {
         expiresIn: process.env.JWT_EXPIRED
     })}
 
-const createSendToken = (user, statusCode, res) =>{
-    const token = signToken(user._id)
-
-    res.status(statusCode).json({
-        status: "success",
-        token,
-        data: {
-            user
-        }
-    })
-}
-
 
 exports.signup = catchAsync(async (req, res) => {
     const newUser = await Student.create({
@@ -37,9 +24,19 @@ exports.signup = catchAsync(async (req, res) => {
         passwordChangedAt:req.body.passwordChangedAt,
         role:req.body.role
     });
-    createSendToken(newUser, 201, res);
+    
     // JSON WEB TOKEN IS APPLIED HER WHICH HELP US OR WE CAN TREAT IT AS SESSION TIME FOR THE AUTHENTCETICATED USER
     //THERE US NO NEED TO STORE USER SESSION  ON SERVER 
+    
+    const token = signToken(Student._id)
+
+    res.status(201).json({
+        status: "success",
+        token,
+        data: {
+            newUser
+        }
+    })
 })
 
 exports.login = catchAsync(async (req, res, next)=>{
@@ -52,6 +49,7 @@ exports.login = catchAsync(async (req, res, next)=>{
     }
 
     //2) check if the email and password are correct
+
     const user = await Student.findOne({ email }).select('+password');
     console.log(user);
 
@@ -60,7 +58,14 @@ exports.login = catchAsync(async (req, res, next)=>{
     }
 
     //3) if everything is ok, send the token to the client
-    createSendToken(user, 201, res);
+    const token = signToken(user._id);
+    res.status(200).json({
+        status: "Success",
+        message: "The request is succcessful",
+        token:{
+            token
+        } 
+    })
 })
 
 exports.protect = catchAsync(async(req,res,next)=>{
@@ -102,72 +107,87 @@ exports.restrictTo = (...roles)=>{
 }
 exports.forgetPassword = catchAsync(async (req, res, next)=>{
     //1) check if the POSTed email is existed
-    const user = await Student.findOne({email: req.body.email})
-    if(!user){
+    const student = await Student.findOne({email: req.body.email})
+    if(!student){
         return next(new AppError("There is no user with that email Addreess", 404))
     }
     //2) Generate the random rest token
-    const restToken = user.createPasswordResetToken();
-   
+    const restToken = student.createPasswordResetToken();
+    await student.save({ validateBeforeSave: false});
 
     //3) send it to the user
-    const restURL = `${req.protocol}:${req.get('host')}/api/v1/users/restPassword/${restToken}`;
-
-    const message = `Forgot your password? submit a patch request with your new password and pasword confirm to: ${restURL}.\If you did not forger yout password. please forget this email`;
-
-    try {
-        await sendEmail({
-        email: user.email,
-        subject: "Your password reset token (valid for 10min)",
-        message
-    })
-    res.status(200).json({
-        status: 'success',
-        message: 'Token sent to email'
-    })} catch(err){
-        user.passwordResetToken = undefined;
-        user.passwordResetExpires = undefined;
-        await user.save({ validateBeforeSave: false});
-        return next(new AppError("There was an error sending an email, Try again letter!"), 500)
-    }
     
 }) 
-exports.resetPassword = catchAsync( async (req, res, next)=>{
+exports.restPassword = (req, res, next)=>{}
 
-    //1) get user based on thier token
-    const hashedToken = crypto.createHash('sha256').update(req.params.token).digest('hex');
+//app.get('/conformation/: token', confirmEmail)
+exports.confirmEmail = function(req, res, next) {
+    token.findOne({ token: req.params.token}, function(err, token) {
+        if(!token){
+            return res.status(400).send( {msg: 'your vervication link may have expired. please click on resend for verify email.'});
 
-    const user = await Student.findOne({passwordResetToken: hashedToken, passwordResetExpires: { $gt: Date.now()}})
-
-    //2) if token has not expired there is a user
-        if(!user){
-            return next(new AppError("Token is invalid or has expired", 400))
-        }
-        user.password = req.body.password;
-        user.passwordConfirm = req.body.passwordConfirm;
-        user.passwordResetToken = undefined;
-        user.passwordTokenExpires = undefined;
-        await user.save();
-    //3) update the changedPasswordAt property for the user
-    //4) Log the user in, send JWT
-    createSendToken(user, 201, res);
+            }        
+            else{
+                user.findOne({_id: token._userId, email: req.params.email},function(err, user) {
+                    if(!user){
+                        return res.status(401).send({msg: 'We were unable to find a user for this verfication. please signup'});
+                    }
+                        //user is already verfified
+                        else if(user.isVerified){
+                            return res.status(200).send('user has been already verified .please login');
+                        }
+                        // verify user
+                        else{
+                            //chande isVerified to true
+                            user.isVerified = true;
+                            user.save(function(err) {
+                                //error occur
+                                if(err){
+                                    return res.status(500).send({msg: err.message});
+                                }
+                                //accout successfy verified
+                                else{
+                                    return res.status(200).send('Your accout has been successfuly verified')
+                                }
+                            });
+                        }
+                    });
+            }
+        });
 }
-)
-exports.updatePassword = catchAsync(async (req, res, next) =>{
-    //1) get user from the collection
-    const user = await Student.findById(req.user.id).select('+password')
-    //2) check if the posted current password is correct
-    if(!(await user.correctPassword(req.body.passwordCurrent, user.password))){
-        return next(new AppError("Your current Password is wrong", 401))    
-    }
 
+//resend the link
+exports.resendLink = function (req, res, next) {
 
-    //3) if the password is correct
-user.password = req.body.password;
-user.passwordConfirm = req.body.passwordConfirm;
-await user.save();
-//Student.findByIdandUpdate will not work as intended!
-
-    //4) log user in, send JWT)
-    createSendToken(user, 201, res);
-})
+    User.findOne({ email: req.body.email }, function (err, user) {
+        // user is not found into database
+        if (!user){
+            return res.status(400).send({msg:'We were unable to find a user with that email. Make sure your Email is correct!'});
+        }
+        // user has been already verified
+        else if (user.isVerified){
+            return res.status(200).send('This account has been already verified. Please log in.');
+    
+        } 
+        // send verification link
+        else{
+            // generate token and save
+            var token = new Token({ _userId: user._id, token: crypto.randomBytes(16).toString('hex') });
+            token.save(function (err) {
+                if (err) {
+                  return res.status(500).send({msg:err.message});
+                }
+    
+                // Send email (use credintials of SendGrid)
+                    var transporter = nodemailer.createTransport({ service: 'Sendgrid', auth: { user: process.env.SENDGRID_USERNAME, pass: process.env.SENDGRID_PASSWORD } });
+                    var mailOptions = { from: 'no-reply@example.com', to: user.email, subject: 'Account Verification Link', text: 'Hello '+ user.name +',\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + user.email + '\/' + token.token + '\n\nThank You!\n' };
+                    transporter.sendMail(mailOptions, function (err) {
+                       if (err) { 
+                        return res.status(500).send({msg:'Technical Issue!, Please click on resend for verify your Email.'});
+                     }
+                    return res.status(200).send('A verification email has been sent to ' + user.email + '. It will be expire after one day. If you not get verification Email click on resend token.');
+                });
+            });
+        }
+    });
+}
