@@ -4,7 +4,10 @@
   "description": "This is the student to student project",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:js":"parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
+    "build:js":"parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
+
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,7 @@
   },
   "homepage": "https://github.com/Danielmituku/S2S#readme",
   "dependencies": {
+    "axios": "^1.1.2",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
@@ -28,6 +32,7 @@
     "morgan": "^1.10.0",
     "nodemailer": "^6.8.0",
     "nodemon": "^2.0.19",
+    "parcel-bundler": "^1.12.5",
     "validator": "^13.7.0"
   }
 }
