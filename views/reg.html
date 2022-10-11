@@ -24,16 +24,39 @@
 <body>
     <h1 style="text-align: center;font-family: 'Josefin Sans', sans-serif;margin: 67px;">Registration page</h1>
     <h1 style="font-family: 'Josefin Sans', sans-serif;font-size: 32px;margin: 0px 40px 30px;">Personal info</h1>
+    <form name="myform" class="registration" onsubmit="return valiationReg()">
     <div class="container">
         <div class="row">
-            <div class="col-md-4"><label class="form-label" style="text-align: left;padding: 0px;font-family: 'Josefin Sans', sans-serif;">First Name</label><input type="text" style="margin: 20px;"><label class="form-label" style="width: 80.8281px;text-align: center;font-family: 'Josefin Sans', sans-serif;">Email</label><input type="email" style="margin: 20px;"><label class="form-label" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">Mobile</label><input type="tel" style="margin: 20px;"><label class="form-label" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">Address</label><input type="text" required="" name="" placeholder="Ex. Room No-361, 33/1, 3rd Floor" style="margin: 20px;font-family: 'Josefin Sans', sans-serif;width: 182px;"><label class="form-label" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">Gender</label><select style="font-family: 'Josefin Sans', sans-serif;margin: 20px;" name="gender">
+            <div class="col-md-4">
+                <label class="fname" style="text-align: left;padding: 0px;font-family: 'Josefin Sans', sans-serif;">
+                    First Name</label><input type="text" id="fname" onsubmit="return validaatFname()" style="margin: 20px;">
+                    <label class="email" style="width: 80.8281px;text-align: center;font-family: 'Josefin Sans', sans-serif;">
+                        Email</label><input type="email" id="email" onsubmit="return validateEmail()" style="margin: 20px;">
+                        <label class="mobile" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">
+                            Mobile</label><input type="tel" id="mobile" onsubmit="return validateMobile()" style="margin: 20px;">
+                            <label class="address" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">
+                                Address</label><input type="text" required="" id="address" onsubmit="return validateAdress()" placeholder="Ex. Room No-361, 33/1, 3rd Floor" 
+                                style="margin: 20px;font-family: 'Josefin Sans', sans-serif;width: 182px;">
+                                <label class="gender" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">
+                                    Gender</label><select style="font-family: 'Josefin Sans', sans-serif;margin: 20px;" id="gender" onsubmit="return validateGender()" name="gender">
                     <optgroup label="Gender">
                         <option value="">Male</option>
                         <option value="">Female</option>
                     </optgroup>
                 </select></div>
-            <div class="col-md-4"><label class="form-label" style="font-family: 'Josefin Sans', sans-serif;">Middle Name</label><input type="text" style="margin: 20px;"><label class="form-label" style="font-family: 'Josefin Sans', sans-serif;width: 99.6094px;text-align: center;">Password</label><input type="password" style="margin: 20px;"><label class="form-label" style="width: 99.6094px;">Alternative no</label><input type="tel" style="margin: 20px;"></div>
-            <div class="col-md-4"><label class="form-label" style="text-align: left;padding: 0px;font-family: 'Josefin Sans', sans-serif;width: 82.2969px;">Last Name</label><input type="text" style="margin: 15px;"><label class="form-label" style="font-family: 'Josefin Sans', sans-serif;">Confirm pw</label><input type="password" style="margin: 20px;"><label class="form-label" style="font-family: 'Josefin Sans', sans-serif;width: 82.2969px;">Date of birth</label><input type="date" required="" name="" style="margin: 20px;"></div>
+            <div class="col-md-4"><label class="mname" style="font-family: 'Josefin Sans', sans-serif;">
+                Middle Name</label><input type="text" id="mname" onsubmit="return validateMname()" style="margin: 20px;">
+                <label class="password" style="font-family: 'Josefin Sans', sans-serif;width: 99.6094px;text-align: center;"> 
+                Password</label><input type="password" id="password" onsubmit = "return validatePassword()" style="margin: 20px;">
+                <label class="alno" style="width: 99.6094px;">
+                    Alternative no</label><input type="tel" id="alno" style="margin: 20px;"></div>
+            <div class="col-md-4">
+                <label class="lname" style="text-align: left;padding: 0px;font-family: 'Josefin Sans', sans-serif;width: 82.2969px;">
+                    Last Name</label><input type="text" id="lname" onsubmit="return validateLname()" style="margin: 15px;">
+                    <label class="confirm" style="font-family: 'Josefin Sans', sans-serif;">
+                    Confirm pw</label><input type="password" id="confirm" style="margin: 20px;">
+                    <label class="DoB" style="font-family: 'Josefin Sans', sans-serif;width: 82.2969px;">
+                    Date of birth</label><input type="date" required="" id="DoB" name="" style="margin: 20px;"></div>
         </div>
     </div>
     <h1 style="font-family: 'Josefin Sans', sans-serif;font-size: 32px;margin: 45px 40px 30px;">Educational Details</h1>
@@ -54,10 +77,11 @@
             <div class="col-12 col-md-4 offset-md-4" data-bss-hover-animate="pulse" style="width: 230px;margin: 50px 0px 20px 400px;"><button class="btn btn-light btn-lg" data-bss-hover-animate="pulse" style="font-family: 'Josefin Sans', sans-serif;" type="save">Save</button><button class="btn btn-light btn-lg tada animated" data-bs-toggle="tooltip" data-bss-tooltip="" id="submit" style="margin-left: 16px;font-family: 'Josefin Sans', sans-serif;" type="submit">Submit </button></div>
         </div>
     </div>
-    <fieldset></fieldset>
+</form>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/agency.js"></script>
+    <script src="reg-validation.js"></script>
 </body>
 
 </html>

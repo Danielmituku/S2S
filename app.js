@@ -29,7 +29,7 @@ app.use((req,res,next)=>{
 const router = express();
 
 router.get('/index',function(req,res, next){
-  res.sendFile(path.join(__dirname+'/index.html'));
+  res.sendFile(path.join(__dirname+'index.html'));
   //__dirname : It will resolve to your project folder.
 });
 
