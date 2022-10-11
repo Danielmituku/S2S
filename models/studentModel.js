@@ -52,11 +52,9 @@ studentSchema.pre('save', async function(next){
     if(!this.isModified('password')) return next();
 
     //hash the password with cost of 12
-    this.password = await bcrypt.hash("passwoed", 12);
-
+    this.password = await bcrypt.hash("password", 12);
     //delete the passwoed confirm field
     this.passwordConfirm = undefined;
-
     next();
 })
 
@@ -69,16 +67,13 @@ studentSchema.methods.changedPasswordAfter = function(JWTTimesamp){
     if(this.passwordChangedAt){
         const changedTimestamp = ParseInt(this.passwordChangedAt.getDate() / 1000, 10);
         console(this.changedTimestamp, JWTTimestamp)
-
         return JWTTimestamp < changedTimestamp
     }
-
     //false means not changed
     return false;
 }
 
 studentSchema.methods.createPasswordResetToken = function() {
-
     const restToken = crypto.randomBytes(32).toString('hex');
     this.passwordResetToken = crypto.createHash('sha256').update(restToken).digest('hex');
     this.passwordRestExpires = Date.now() + 10 * 60 * 1000;
