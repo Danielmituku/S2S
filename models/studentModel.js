@@ -43,7 +43,7 @@ const studentSchema = new mongoose.Schema({
     },
     passwordChangedAt: Date,
     passwordResetToken: String,
-    passwordRestExpires: Date
+    passwordResetExpires: Date
 })
 
 studentSchema.pre('save', async function(next){
@@ -74,10 +74,10 @@ studentSchema.methods.changedPasswordAfter = function(JWTTimesamp){
 }
 
 studentSchema.methods.createPasswordResetToken = function() {
-    const restToken = crypto.randomBytes(32).toString('hex');
-    this.passwordResetToken = crypto.createHash('sha256').update(restToken).digest('hex');
-    this.passwordRestExpires = Date.now() + 10 * 60 * 1000;
-    console.log({restToken}, this.passwordRestToken);
+    const resetToken = crypto.randomBytes(32).toString('hex');
+    this.passwordResetToken = crypto.createHash('sha256').update(resetToken).digest('hex');
+    this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
+    console.log({restToken}, this.passwordResetToken);
 
     return restToken;
 }
