@@ -9,7 +9,10 @@ const cookieParser = require('cookie-parser')
 const studentRouter = require('./routes/studentRoute')
 const tutorRouter = require('./routes/tutorRoute')
 const viewRoute = require('./routes/viewRoutes')
+const bookingRouter = require('./routes/bookingRoute')
+
 const AppError = require("./utilis/appError")
+
 const app = express();
 
 const path = require('path')
@@ -48,6 +51,8 @@ app.use((req,res,next)=>{
 app.use('/', viewRoute)
 app.use('/api/v1/students', studentRouter)
 app.use('/api/v1/tutors', tutorRouter)
+app.use('/api/v1/bookings', bookingRouter)
+
 
 //handling an unhandled route handler
 
