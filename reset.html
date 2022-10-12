@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>S2S</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,400&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/fonts/material-icons.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/-Filterable-Cards-.css">
+    <link rel="stylesheet" href="assets/css/404-NOT-FOUND-animated.css">
+    <link rel="stylesheet" href="assets/css/Account-setting-or-edit-profile.css">
+    <link rel="stylesheet" href="assets/css/animated-services.css">
+    <link rel="stylesheet" href="assets/css/Article-Cards.css">
+    <link rel="stylesheet" href="assets/css/File-Manager.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.carousel.css">
+    <link rel="stylesheet" href="assets/css/Landing-Page---Parallax-Background---Logo-Heading-ButtonGIF.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/Ludens-Users---3-Profile.css">
+    <link rel="stylesheet" href="assets/css/Ludens-Users---4-Edit-Profile.css">
+    <link rel="stylesheet" href="assets/css/News-Cards.css">
+    <link rel="stylesheet" href="assets/css/Profile-Edit-Form-1.css">
+    <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
+    <link rel="stylesheet" href="assets/css/Profile-with-data-and-skills.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="assets/css/slider-hover.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Team-with-rotating-cards.css">
+</head>
+
+<body>
+    <section class="clean-block clean-form dark">
+        <div class="container">
+            <div class="block-heading">
+                <h2 style="color: var(--bs-blue);">Reset Password<br></h2>
+            </div>
+            <form style="max-width: 700px;" enctype="multipart/form-data" method="post" role="form" action="profile.html">
+                <div class="form-group mb-3"><label class="form-label">Old Password<br></label><input class="form-control" type="password" name="oldPassword"></div><script>
+    // Submit button made with javascript
+    function changePassword() {
+        var password = document.querySelector("#password").value;
+        var confirmPassword = document.querySelector("#confirmPassword").value;
+        
+        if(password.length >= 8) {
+            if(password === confirmPassword)
+            {
+                var btn = $('#submitButton').removeAttr("disabled");
+                document.querySelector('#passwordsError').style.display = 'none';
+                console.log("enabling")
+            }
+            else {
+                var btn = $('#submitButton').attr("disabled", "true");
+                document.querySelector('#passwordsError').style.display = 'block';
+                document.querySelector('#errorMessage').innerHTML = 'The passwords do not match';
+                console.log("disabling")
+            }
+        }
+        else {
+            var btn = $('#submitButton').attr("disabled", "true");
+            document.querySelector('#passwordsError').style.display = 'block';
+            document.querySelector('#errorMessage').innerHTML = 'The new password must be at least 8 characters long';
+            console.log("disabling")
+        }
+    }
+</script>
+
+                <div class="form-group mb-3"><label class="form-label" style="margin-top: 15px;">New Password<br></label><input class="form-control" type="password" id="password" name="password" onchange="changePassword()"></div>
+                <div class="form-group mb-3"><label class="form-label" style="margin-top: 15px;">Confirm Password<br></label><input class="form-control" type="password" id="confirmPassword" onchange="changePassword()"></div>
+                <div id="passwordsError" class="form-group mb-3" style="display: none;margin-bottom: 18px;"><span id="errorMessage" class="text-danger" style="font-size:15px;">Text</span></div>
+                <hr style="margin-top: 20px;margin-bottom: 20px;">
+                <div class="form-group mb-3"><button class="btn d-block w-100" id="submitButton" type="submit" style="color: rgb(33, 37, 41);background: #036ead;"><i class="fas fa-save"></i>&nbsp;Save</button><a class="btn btn-danger d-block w-100" role="button" href="profile.html" style="margin-top: 15px;"><i class="fas fa-arrow-left"></i>&nbsp;Back</a></div>
+            </form>
+        </div>
+    </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/-Filterable-Cards-.js"></script>
+    <script src="assets/js/agency.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.js"></script>
+    <script src="assets/js/Profile-Edit-Form.js"></script>
+    <script src="assets/js/slider-hover.js"></script>
+</body>
+
+</html>
