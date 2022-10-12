@@ -5,30 +5,33 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>S2S</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,400&amp;display=swap">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
-    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="/css/Registration-Form-with-Photo.css">
 </head>
 
 <body>
-    <section class="login-dark">
-        <form method="post">
+    <section class="login-clean">
+        <form id="form_id" class="form" method="post">
             <h2 class="visually-hidden">Login Form</h2>
-            <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
-            <div class="mb-3"><input class="form-control" type="email" name="email" required placeholder="Email"></div>
-            <div class="mb-3"><input class="form-control" type="password" name="password" required placeholder="Password"></div>
-            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background: linear-gradient(-135deg, #DE6767, #7F67DE);">Log In</button></div><a class="forgot" href="signup.html" style="color: var(--bs-blue);">Create an account</a><a class="forgot" href="#" style="color: var(--bs-blue);">Forgot your email or password?</a>
+            <div class="illustration"><i class="icon ion-ios-navigate" style="color: rgb(244,71,107);background: #ffffff;"></i></div>
+            <div class="mb-3"><input class="form-control" type="email" id="email" name="email" required placeholder="Email"></div>
+            <div class="mb-3"><input class="form-control" type="password" id="password" name="password" required placeholder="Password"required></div>
+            <div class="mb-3"><button class="btn btn-primary border rounded-0 d-block w-100" type="submit" style="background: linear-gradient(-126deg, #DE6767, #7F67DE);font-family: Montserrat, sans-serif;">Log In</button></div><a class="forgot" href="/signupt" style="font-family: Montserrat, sans-serif;color: var(--bs-blue);">Create an account</a><a class="forgot" href="/forgetPassword" style="font-family: Montserrat, sans-serif;color: var(--bs-blue);">Forgot your email or password?</a>
         </form>
     </section>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/agency.js"></script>
+    
+    <!-- <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/bs-init.js"></script>
+    <script src="/js/agency.js"></script> -->
+    <!-- <script src="/js/login.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.2/axios.min.js"></script> -->
+    <script src="/js/bundle.js"></script>
 </body>
-
 </html>
