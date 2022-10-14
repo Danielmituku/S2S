@@ -12382,7 +12382,7 @@ exports.showAlert = showAlert;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.logout = exports.login = void 0;
+exports.logout = exports.logint = exports.login = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -12488,6 +12488,57 @@ var logout = /*#__PURE__*/function () {
 }();
 
 exports.logout = logout;
+
+var logint = /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(email, password) {
+    var result;
+    return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.prev = 0;
+            _context3.next = 3;
+            return (0, _axios.default)({
+              method: 'POST',
+              url: 'http://127.0.0.1:8000/api/v1/tutors/login',
+              data: {
+                email: email,
+                password: password
+              }
+            });
+
+          case 3:
+            result = _context3.sent;
+
+            if (result.data.status === "success") {
+              (0, _alert.showAlert)("success", "logged in successfully");
+              window.setTimeout(function () {
+                location.assign('/tutors');
+              }, 1500);
+            }
+
+            _context3.next = 10;
+            break;
+
+          case 7:
+            _context3.prev = 7;
+            _context3.t0 = _context3["catch"](0);
+            (0, _alert.showAlert)('error', _context3.t0.response.data.message);
+
+          case 10:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3, null, [[0, 7]]);
+  }));
+
+  return function logint(_x3, _x4) {
+    return _ref3.apply(this, arguments);
+  };
+}();
+
+exports.logint = logint;
 },{"axios":"../../node_modules/axios/index.js","./alert":"alert.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
@@ -12762,6 +12813,7 @@ document.querySelector('.form').addEventListener('submit', function (e) {
   var email = document.getElementById('email').value;
   var password = document.getElementById('password').value;
   (0, _login.login)(email, password);
+  (0, _login.logint)(email, password);
 });
 var logOutBtn = document.querySelector('.nav__el--logout');
 if (logOutBtn) logOutBtn.addEventListener('click', _login.logout);
@@ -12793,7 +12845,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49789" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54304" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
