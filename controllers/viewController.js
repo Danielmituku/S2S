@@ -43,3 +43,14 @@ exports.getProfile = (req, res) =>{
 exports.getProfileEdit = (req, res)=>{
   res.status(200).render('Sedit')
 }
+
+//  Tutor control
+exports.getsTutorProfile = (req, res)=>{
+  res.status(200).render('Tprofile')
+}
+exports.getsTutorProfileEdit = (req, res)=>{
+  res.status(200).render('Tedit')
+}
+exports.getsTutorLanding = (req, res)=>{
+  res.status(200).render('TutorLanding')
+}
