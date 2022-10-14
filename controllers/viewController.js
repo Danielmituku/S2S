@@ -10,6 +10,9 @@ exports.getsLoginTutor= (req,res)=>{
 exports.getSignup = (req, res)=>{
   res.status(200).render('signup')
 }
+exports.getForgetPassword = (req, res)=>{
+  res.status(200).render('forget')
+}
 exports.getsSignupTutor= (req,res)=>{
     res.status(200).render('signupt')
   } 
