@@ -12353,29 +12353,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = _axios.default;
 exports.default = _default;
 },{"./lib/axios.js":"../../node_modules/axios/lib/axios.js"}],"alert.js":[function(require,module,exports) {
-"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.showAlert = exports.hideAlert = void 0;
-
-//type is either success or error
-var hideAlert = function hideAlert() {
-  var el = document.querySelector('.alerti');
-  if (el) el.parentElement.removeChild(el);
-};
-
-exports.hideAlert = hideAlert;
-
-var showAlert = function showAlert(type, msg) {
-  hideAlert();
-  var markup = "<div class =\"alerti alerti--".concat(type, "\">").concat(msg, "</div>");
-  document.querySelector('body').insertAdjacentHTML('afterbegin', markup);
-  window.setTimeout(hideAlert, 5000);
-};
-
-exports.showAlert = showAlert;
 },{}],"login.js":[function(require,module,exports) {
 "use strict";
 
@@ -12813,6 +12791,11 @@ document.querySelector('.form').addEventListener('submit', function (e) {
   var email = document.getElementById('email').value;
   var password = document.getElementById('password').value;
   (0, _login.login)(email, password);
+});
+document.getElementById('form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
   (0, _login.logint)(email, password);
 });
 var logOutBtn = document.querySelector('.nav__el--logout');
@@ -12845,7 +12828,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54304" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60131" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
