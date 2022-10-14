@@ -2,10 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv')
-
 const cookieParser = require('cookie-parser')
-
-
 const studentRouter = require('./routes/studentRoute')
 const tutorRouter = require('./routes/tutorRoute')
 const viewRoute = require('./routes/viewRoutes')
@@ -46,40 +43,7 @@ app.use((req,res,next)=>{
   next();
 })
 
-// router
-const router = express();
-
-router.get('/index',function(req,res, next){
-  res.sendFile(path.join(__dirname+'index.html'));
-  //__dirname : It will resolve to your project folder.
-});
-
-
-router.get('/logins',function(req,res, next){
-  res.sendFile(path.join(__dirname+'/logins.html'));
-});
-
-router.get('/logint',function(req,res, next){
-  res.sendFile(path.join(__dirname+'/logint.html'));
-});
-
-router.get('/reg',function(req,res, next){
-  res.sendFile(path.join(__dirname+'/reg.html'));
-});
-
-router.get('/signup',function(req,res, next){
-  res.sendFile(path.join(__dirname+'/signup.html'));
-});
-
-router.get('/Tprofile',function(req,res, next){
-  res.sendFile(path.join(__dirname+'/Tprofile.html'));
-});
-//Add to the router
-app.use('/', router);
-
-
 //Routes
-
 app.use('/', viewRoute)
 app.use('/api/v1/students', studentRouter)
 app.use('/api/v1/tutors', tutorRouter)

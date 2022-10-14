@@ -14,14 +14,11 @@ exports.getForgetPassword = (req, res)=>{
   res.status(200).render('forget')
 }
 exports.getsSignupTutor= (req,res)=>{
-    res.status(200).render('signupt')
+    res.status(200).render('reg')
   } 
 exports.getsSignupStudent= (req,res)=>{
     res.status(200).render('signup')
   } 
-exports.getReg = (req, res)=>{
-  res.status(200).render('reg')
-}
 exports.getStudentLanding = (req,res)=>{
   res.status(200).render('student_home')
 }
