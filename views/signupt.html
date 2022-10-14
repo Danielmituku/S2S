@@ -24,16 +24,39 @@
 <body>
     <h1 style="text-align: center;font-family: 'Josefin Sans', sans-serif;margin: 67px;">Registration page</h1>
     <h1 style="font-family: 'Josefin Sans', sans-serif;font-size: 32px;margin: 0px 40px 30px;">Personal info</h1>
+    
     <div class="container">
         <div class="row">
-            <div class="col-md-4"><label class="form-label" style="text-align: left;padding: 0px;font-family: 'Josefin Sans', sans-serif;">First Name</label><input type="text" style="margin: 20px;"><label class="form-label" style="width: 80.8281px;text-align: center;font-family: 'Josefin Sans', sans-serif;">Email</label><input type="email" style="margin: 20px;"><label class="form-label" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">Mobile</label><input type="tel" style="margin: 20px;"><label class="form-label" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">Address</label><input type="text" required="" name="" placeholder="Ex. Room No-361, 33/1, 3rd Floor" style="margin: 20px;font-family: 'Josefin Sans', sans-serif;width: 182px;"><label class="form-label" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">Gender</label><select style="font-family: 'Josefin Sans', sans-serif;margin: 20px;" name="gender">
+            <div class="col-md-4">
+                <label class="fname" style="text-align: left;padding: 0px;font-family: 'Josefin Sans', sans-serif;">
+                    First Name</label><input type="text" id="fname"  style="margin: 20px;">
+                    <label class="email" style="width: 80.8281px;text-align: center;font-family: 'Josefin Sans', sans-serif;">
+                        Email</label><input type="email" id="email"  style="margin: 20px;">
+                        <label class="mobile" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">
+                            Mobile</label><input type="tel" id="mobile" style="margin: 20px;">
+                            <label class="address" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">
+                                Address</label><input type="text" required="" id="address"  placeholder="Ex. Room No-361, 33/1, 3rd Floor" 
+                                style="margin: 20px;font-family: 'Josefin Sans', sans-serif;width: 182px;">
+                                <label class="gender" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">
+                                    Gender</label><select style="font-family: 'Josefin Sans', sans-serif;margin: 20px;" id="gender"  name="gender">
                     <optgroup label="Gender">
                         <option value="">Male</option>
                         <option value="">Female</option>
                     </optgroup>
                 </select></div>
-            <div class="col-md-4"><label class="form-label" style="font-family: 'Josefin Sans', sans-serif;">Middle Name</label><input type="text" style="margin: 20px;"><label class="form-label" style="font-family: 'Josefin Sans', sans-serif;width: 99.6094px;text-align: center;">Password</label><input type="password" style="margin: 20px;"><label class="form-label" style="width: 99.6094px;">Alternative no</label><input type="tel" style="margin: 20px;"></div>
-            <div class="col-md-4"><label class="form-label" style="text-align: left;padding: 0px;font-family: 'Josefin Sans', sans-serif;width: 82.2969px;">Last Name</label><input type="text" style="margin: 15px;"><label class="form-label" style="font-family: 'Josefin Sans', sans-serif;">Confirm pw</label><input type="password" style="margin: 20px;"><label class="form-label" style="font-family: 'Josefin Sans', sans-serif;width: 82.2969px;">Date of birth</label><input type="date" required="" name="" style="margin: 20px;"></div>
+            <div class="col-md-4"><label class="mname" style="font-family: 'Josefin Sans', sans-serif;">
+                Middle Name</label><input type="text" id="mname" " style="margin: 20px;">
+                <label class="password" style="font-family: 'Josefin Sans', sans-serif;width: 99.6094px;text-align: center;"> 
+                Password</label><input type="password" id="password"  style="margin: 20px;">
+                <label class="alno" style="width: 99.6094px;">
+                    Alternative no</label><input type="tel" id="alno" style="margin: 20px;"></div>
+            <div class="col-md-4">
+                <label class="lname" style="text-align: left;padding: 0px;font-family: 'Josefin Sans', sans-serif;width: 82.2969px;">
+                    Last Name</label><input type="text" id="lname"  style="margin: 15px;">
+                    <label class="confirm" style="font-family: 'Josefin Sans', sans-serif;">
+                    Confirm pw</label><input type="password" id="confirm" style="margin: 20px;">
+                    <label class="DoB" style="font-family: 'Josefin Sans', sans-serif;width: 82.2969px;">
+                    Date of birth</label><input type="date" required="" id="DoB" name="" style="margin: 20px;"></div>
         </div>
     </div>
     <h1 style="font-family: 'Josefin Sans', sans-serif;font-size: 32px;margin: 45px 40px 30px;">Educational Details</h1>
@@ -54,12 +77,23 @@
             <div class="col-12 col-md-4 offset-md-4" data-bss-hover-animate="pulse" style="width: 230px;margin: 50px 0px 20px 400px;"><button class="btn btn-light btn-lg" data-bss-hover-animate="pulse" style="font-family: 'Josefin Sans', sans-serif;" type="save">Save</button><button class="btn btn-light btn-lg tada animated" data-bs-toggle="tooltip" data-bss-tooltip="" id="submit" style="margin-left: 16px;font-family: 'Josefin Sans', sans-serif;" type="submit">Submit </button></div>
         </div>
     </div>
+
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/bs-init.js"></script>
+    <script src="/js/agency.js"></script>
+    <script src="reg-validation.js"></script>
     <fieldset></fieldset>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
+<<<<<<< HEAD
+    <script src="/js/bs-init.js"></script>
+    <script src="/js/agency.js"></script>
+
+=======
     <script src="/js/bundle.js"></script>
 
     <!-- <script src="/js/bs-init.js"></script>
     <script src="/js/agency.js"></script> -->
+>>>>>>> 2cf206569da56c68beb741c67f4a3d8836a8534e
 </body>
 
 </html>
