@@ -16,4 +16,6 @@ router.route('/updateMyPassword').patch(authController.protect, authController.u
 router.route('/').get(authController.protect, studentController.getAllStudent);
 router.route('/:id').get(studentController.getStudent).patch(studentController.updateStudent).delete(authController.protect,authController.restrictTo('admin'),studentController.deleteStudent);
 
+router.get('/login', studentController.getLoginForm);
+
 module.exports = router; 
