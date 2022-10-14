@@ -17,6 +17,9 @@ router.route('/resetPassword/:token').patch(authController.resetPassword)
 router.route('/').get(authController.protect, studentController.getAllStudent);
 router.route('/:id').get(studentController.getStudent).patch(studentController.updateStudent).delete(authController.protect,authController.restrictTo('admin'),studentController.deleteStudent);
 
+
+router.get('/login', studentController.getLoginForm);
 router.route('/login', studentController.getloginForm)
+
 
 module.exports = router; 
