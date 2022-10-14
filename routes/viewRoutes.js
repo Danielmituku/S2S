@@ -10,6 +10,8 @@ router.get('/logins',viewController.getsLoginStudent)
 router.get('/logint',viewController.getsLoginTutor)
 router.get('/signupt',viewController.getsSignupTutor)
 router.get('/signups',viewController.getsSignupStudent)
+router.get('/signup', viewController.getSignup)
+router.get('/reg', viewController.getReg)
 
 
 

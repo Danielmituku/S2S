@@ -7,9 +7,15 @@ exports.getsLoginStudent= (req,res)=>{
 exports.getsLoginTutor= (req,res)=>{
     res.status(200).render('logint')
   } 
-  exports.getsSignupTutor= (req,res)=>{
+exports.getSignup = (req, res)=>{
+  res.status(200).render('signup')
+}
+exports.getsSignupTutor= (req,res)=>{
     res.status(200).render('signupt')
   } 
-  exports.getsSignupStudent= (req,res)=>{
-    res.status(200).render('signups')
+exports.getsSignupStudent= (req,res)=>{
+    res.status(200).render('signup')
   } 
+exports.getReg = (req, res)=>{
+  res.status(200).render('reg')
+}
