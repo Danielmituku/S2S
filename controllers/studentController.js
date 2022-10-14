@@ -1,11 +1,12 @@
 const Student = require('../models/studentModel')
-<<<<<<< HEAD
+
+
 const catchAsync = require("../utilis/catchAsync");
 const { login } = require('./authController');
-=======
+
 const catchAsync = require("../utilis/catchAsync")
 const AppError = require("../utilis/appError")
->>>>>>> c13331c14df48aad02092bb1d75faee6625500e5
+
 
 exports.getAllStudent = catchAsync(async (req, res, next) => {
   const users = await Student.find();
@@ -168,14 +169,13 @@ exports.getMonthlyPlan = async (req, res) => {
     })
   }
 };
-<<<<<<< HEAD
+
 
 exports.getLoginForm = (res, req)=>{
   res.status(200).render('login',{
     title:'login your accout'
   })
 }
-=======
 {
   exports = getloginform = (req, res) =>{
     res.status(200).render('login',{
@@ -185,4 +185,4 @@ exports.getLoginForm = (res, req)=>{
 };
 
 exports = getloginform
->>>>>>> c13331c14df48aad02092bb1d75faee6625500e5
+
