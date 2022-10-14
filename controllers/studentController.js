@@ -1,6 +1,5 @@
 const Student = require('../models/studentModel')
 const { login } = require('./authController');
-
 const catchAsync = require("../utilis/catchAsync")
 const AppError = require("../utilis/appError")
 

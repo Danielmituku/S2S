@@ -5,10 +5,10 @@ const router = express.Router();
 
 router.use(authController.isLoggedIn)
 
+
+// view Routes for student 
 router.get('/',viewController.getsHome)
 router.get('/logins',viewController.getsLoginStudent)
-router.get('/logint',viewController.getsLoginTutor)
-router.get('/signupt',viewController.getsSignupTutor)
 router.get('/signups',viewController.getsSignupStudent)
 router.get('/signup', viewController.getSignup)
 router.get('/reg', viewController.getReg)
@@ -22,6 +22,10 @@ router.get('/student/profile', authController.isLoggedIn, authController.protect
 router.get('/student/profile/edit', authController.isLoggedIn, authController.protect, viewController.getProfileEdit)
 
 // router.get('/allCourses',viewController.getAllCourses)
+
+//view routes for Tutor 
+router.get('/logint',viewController.getsLoginTutor)
+router.get('/signupt',viewController.getsSignupTutor)
 
 module.exports = router
 
