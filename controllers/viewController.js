@@ -1,5 +1,5 @@
-exports.getsOverview = (req,res)=>{
-    res.status(200).render('index1')
+exports.getsHome = (req,res)=>{
+    res.status(200).render('index')
   }
 exports.getsLoginStudent= (req,res)=>{
     res.status(200).render('logins')
