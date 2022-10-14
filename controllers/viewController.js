@@ -19,3 +19,15 @@ exports.getsSignupStudent= (req,res)=>{
 exports.getReg = (req, res)=>{
   res.status(200).render('reg')
 }
+exports.getStudentLanding = (req,res)=>{
+  res.status(200).render('student_home')
+}
+exports.getMyCourse = (req,res)=>{
+  res.status(200).render('mycourses')
+}
+exports.getTutorFind = (req, res)=>{
+  res.status(200).render('Tutors')
+}
+exports.getWebinar = (req, res)=>{
+  res.status(200).render('webinar')
+}

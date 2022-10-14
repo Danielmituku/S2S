@@ -15,7 +15,7 @@ export const login = async (email, password) => {
    if (result.data.status === "success"){
     showAlert("success","logged in successfully")
     window.setTimeout(()=>{
-        location.assign('/')
+        location.assign('/student')
     }, 1500)
    } 
 
