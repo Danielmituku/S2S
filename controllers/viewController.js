@@ -31,3 +31,15 @@ exports.getTutorFind = (req, res)=>{
 exports.getWebinar = (req, res)=>{
   res.status(200).render('webinar')
 }
+exports.getOnline = (req, res) =>{
+  res.status(200).render('online')
+}
+exports.getTask = (req, res) =>{
+  res.status(200).render('tasks')
+}
+exports.getProfile = (req, res) =>{
+  res.status(200).render('student_profile')
+}
+exports.getProfileEdit = (req, res)=>{
+  res.status(200).render('Sedit')
+}
