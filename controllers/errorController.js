@@ -23,18 +23,28 @@ return new AppError(message, 400)
 //   return new AppError(message, 400)
 //   }
 
-const sendErrorDev = (err, res)=>{
-  res.status(err.statusCode).json({
+const sendErrorDev = (err, req, res)=>{
+  //Api
+  if(req.originalUrl.startswith('/api/')){
+   res.status(err.statusCode).json({
     stauts:err.status,
     error: err,
     message: err.message,
     stack: err.stack
   })
+} else{
+  //render website
+  res.status(err.statusCode).render('error', {
+    title: 'something went wrong',
+    msg: err.message
+   })
+ }
 }
+
 const handleJWTError = err => new AppError("Invalid Token Please login again", 401)
 const handleJWTExpiredError = err=> new AppError("Your token is Expired! please login again", 401)
 
-const sendErrorProd = (err, res)=>{
+const sendErrorProd = (err, req, res)=>{
   //Operational, trusted error: send message to client
   if(err.isOperational){
     res.status(err.statusCode).json({

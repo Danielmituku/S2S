@@ -1,0 +1,23 @@
+const express = require('express')
+const viewController = require('../controllers/viewController')
+const authController = require('../controllers/authController')
+const router = express.Router();
+
+router.use(authController.isLoggedIn)
+
+router.get('/',viewController.getsHome)
+router.get('/logins',viewController.getsLoginStudent)
+router.get('/logint',viewController.getsLoginTutor)
+router.get('/signupt',viewController.getsSignupTutor)
+router.get('/signups',viewController.getsSignupStudent)
+router.get('/signup', viewController.getSignup)
+router.get('/reg', viewController.getReg)
+router.get('/student', authController.isLoggedIn, viewController.getStudentLanding)
+router.get('/student/mycourses', authController.isLoggedIn, authController.protect, viewController.getMyCourse)
+router.get('/student/tutors', authController.isLoggedIn, authController.protect, viewController.getTutorFind)
+router.get('/student/webinar', authController.isLoggedIn, authController.protect, viewController.getWebinar)
+
+// router.get('/allCourses',viewController.getAllCourses)
+
+module.exports = router
+
