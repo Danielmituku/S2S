@@ -1,7 +1,4 @@
 const Student = require('../models/studentModel')
-
-
-const catchAsync = require("../utilis/catchAsync");
 const { login } = require('./authController');
 
 const catchAsync = require("../utilis/catchAsync")
