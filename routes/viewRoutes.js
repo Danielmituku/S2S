@@ -28,6 +28,9 @@ router.get('/student/profile/edit', authController.isLoggedIn, authController.pr
 //view routes for Tutor 
 router.get('/logint',viewController.getsLoginTutor)
 router.get('/signupt',viewController.getsSignupTutor)
+router.get('/tutors/profile',viewController.getsTutorProfile)
+router.get('/tutors/edit',viewController.getsTutorProfileEdit)
+router.get('/tutors',viewController.getsTutorLanding)
 
 module.exports = router
 
