@@ -54,3 +54,6 @@ exports.getsTutorProfileEdit = (req, res)=>{
 exports.getsTutorLanding = (req, res)=>{
   res.status(200).render('TutorLanding')
 }
+exports.getsPortfolio = (req, res) =>{
+  res.status(200).render('portfolio')
+}
