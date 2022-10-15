@@ -4,9 +4,7 @@ exports.getsHome = (req,res)=>{
 exports.getsLoginStudent= (req,res)=>{
     res.status(200).render('logins')
   }
-exports.getsLoginTutor= (req,res)=>{
-    res.status(200).render('logint')
-  } 
+
 exports.getSignup = (req, res)=>{
   res.status(200).render('signup')
 }
@@ -45,6 +43,9 @@ exports.getProfileEdit = (req, res)=>{
 }
 
 //  Tutor control
+exports.getsLoginTutor= (req,res)=>{
+  res.status(200).render('logint')
+} 
 exports.getsTutorProfile = (req, res)=>{
   res.status(200).render('Tprofile')
 }
