@@ -50,7 +50,7 @@
             </div>
             <div id="multistep-start-row" class="row">
                 <div id="multistep-start-column" class="col-12 col-lg-8 m-auto">
-                    <form id="main-form" class="multisteps-form__form">
+                    <form id="main-form" class="multisteps-form__form" method="post">
                         <div id="single-form-next" class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
                             <h3 class="text-center multisteps-form__title">Personal Info</h3>
                             <div id="form-content" class="multisteps-form__content">
@@ -58,13 +58,13 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <label class="form-label" style="text-align: left;padding: 0px;font-family: 'Josefin Sans', sans-serif;">First Name</label>
-                                            <input class="form-control" type="text" name="firstname" style="margin: 20px;">
+                                            <input class="form-control" id="firsname" type="text" name="firstname" style="margin: 20px;">
                                             <label class="form-label" style="width: 80.8281px;text-align: center;font-family: 'Josefin Sans', sans-serif;">Email</label>
-                                            <input class="form-control" type="email" name="email" style="margin: 20px;">
+                                            <input class="form-control" type="email" id="email" name="email" style="margin: 20px;">
                                             <label class="form-label" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">Mobile</label>
-                                            <input class="form-control" type="tel" name="Mobile" style="margin: 20px;">
+                                            <input class="form-control" type="tel" id="Mobile" name="Mobile" style="margin: 20px;">
                                             <label class="form-label" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">Address</label>
-                                            <input class="form-control" type="text" required="" name="" placeholder="Ex. Room No-361, 33/1, 3rd Floor" style="margin: 20px;font-family: 'Josefin Sans', sans-serif;width: 182px;"><label class="form-label" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">Gender</label><select class="form-select" style="font-family: 'Josefin Sans', sans-serif;margin: 20px;" name="gender">
+                                            <input class="form-control" type="text" required="" id="Gender" name="Gender" placeholder="Ex. Room No-361, 33/1, 3rd Floor" style="margin: 20px;font-family: 'Josefin Sans', sans-serif;width: 182px;"><label class="form-label" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">Gender</label><select class="form-select" style="font-family: 'Josefin Sans', sans-serif;margin: 20px;" name="gender">
                                                 <optgroup label="Gender">
                                                     <option value="">Male</option>
                                                     <option value="">Female</option>
@@ -72,18 +72,18 @@
                                             </select></div>
                                         <div class="col-md-4">
                                             <label class="form-label" style="font-family: 'Josefin Sans', sans-serif;">Middle Name</label>
-                                            <input class="form-control" name="middlename" type="text" style="margin: 20px;">
+                                            <input class="form-control" id="middlename" name="middlename" type="text" style="margin: 20px;">
                                             <label class="form-label" style="font-family: 'Josefin Sans', sans-serif;width: 99.6094px;text-align: center;">Password</label>
-                                            <input class="form-control" type="password" name="password" style="margin: 20px;">
+                                            <input class="form-control" type="password" id="password" name="password" style="margin: 20px;">
                                             <label class="form-label" style="font-family: 'Josefin Sans', sans-serif;width: 99.6094px;text-align: center;">Alternative Mobile</label>
                                             <input class="form-control" type="tel" name="Alternative" style="margin: 20px;"></div>
                                         <div class="col-md-4">
                                             <label class="form-label" style="text-align: left;padding: 0px;font-family: 'Josefin Sans', sans-serif;width: 82.2969px;">Last Name</label>
-                                            <input class="form-control" type="text" name="lastname" style="margin: 15px;">
+                                            <input class="form-control" type="text" id="lastname" name="lastname" style="margin: 15px;">
                                             <label class="form-label" style="font-family: 'Josefin Sans', sans-serif;">Confirm Password</label>
-                                            <input class="form-control" type="password" name="passwordConfirm" style="margin: 20px;">
+                                            <input class="form-control" type="password" id="passwordConfirm" name="passwordConfirm" style="margin: 20px;">
                                             <label class="form-label" style="font-family: 'Josefin Sans', sans-serif;width: 82.2969px;">Date of birth</label>
-                                            <input class="form-control" type="date" required="" name="DOB" style="margin: 20px;">
+                                            <input class="form-control" type="date" required="" id name="DOB" style="margin: 20px;">
                                             <button class="btn bg-primary btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button></div>
                                         <!-- <div class="col"></div>
                                         <div class="col">
