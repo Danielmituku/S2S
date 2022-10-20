@@ -56,18 +56,39 @@
                             <div id="form-content" class="multisteps-form__content">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-md-4"><label class="form-label" style="text-align: left;padding: 0px;font-family: 'Josefin Sans', sans-serif;">First Name</label><input class="form-control" type="text" style="margin: 20px;"><label class="form-label" style="width: 80.8281px;text-align: center;font-family: 'Josefin Sans', sans-serif;">Email</label><input class="form-control" type="email" style="margin: 20px;"><label class="form-label" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">Mobile</label><input class="form-control" type="tel" style="margin: 20px;"><label class="form-label" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">Address</label><input class="form-control" type="text" required="" name="" placeholder="Ex. Room No-361, 33/1, 3rd Floor" style="margin: 20px;font-family: 'Josefin Sans', sans-serif;width: 182px;"><label class="form-label" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">Gender</label><select class="form-select" style="font-family: 'Josefin Sans', sans-serif;margin: 20px;" name="gender">
+                                        <div class="col-md-4">
+                                            <label class="form-label" style="text-align: left;padding: 0px;font-family: 'Josefin Sans', sans-serif;">First Name</label>
+                                            <input class="form-control" type="text" name="firstname" style="margin: 20px;">
+                                            <label class="form-label" style="width: 80.8281px;text-align: center;font-family: 'Josefin Sans', sans-serif;">Email</label>
+                                            <input class="form-control" type="email" name="email" style="margin: 20px;">
+                                            <label class="form-label" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">Mobile</label>
+                                            <input class="form-control" type="tel" name="Mobile" style="margin: 20px;">
+                                            <label class="form-label" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">Address</label>
+                                            <input class="form-control" type="text" required="" name="" placeholder="Ex. Room No-361, 33/1, 3rd Floor" style="margin: 20px;font-family: 'Josefin Sans', sans-serif;width: 182px;"><label class="form-label" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">Gender</label><select class="form-select" style="font-family: 'Josefin Sans', sans-serif;margin: 20px;" name="gender">
                                                 <optgroup label="Gender">
                                                     <option value="">Male</option>
                                                     <option value="">Female</option>
                                                 </optgroup>
                                             </select></div>
-                                        <div class="col-md-4"><label class="form-label" style="font-family: 'Josefin Sans', sans-serif;">Middle Name</label><input class="form-control" type="text" style="margin: 20px;"><label class="form-label" style="font-family: 'Josefin Sans', sans-serif;width: 99.6094px;text-align: center;">Password</label><input class="form-control" type="password" style="margin: 20px;"><label class="form-label" style="width: 99.6094px;">Alternative no</label><input class="form-control" type="tel" style="margin: 20px;"></div>
-                                        <div class="col-md-4"><label class="form-label" style="text-align: left;padding: 0px;font-family: 'Josefin Sans', sans-serif;width: 82.2969px;">Last Name</label><input class="form-control" type="text" style="margin: 15px;"><label class="form-label" style="font-family: 'Josefin Sans', sans-serif;">Confirm pw</label><input class="form-control" type="password" style="margin: 20px;"><label class="form-label" style="font-family: 'Josefin Sans', sans-serif;width: 82.2969px;">Date of birth</label><input class="form-control" type="date" required="" name="" style="margin: 20px;"><button class="btn bg-primary btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button></div>
-                                        <div class="col"></div>
+                                        <div class="col-md-4">
+                                            <label class="form-label" style="font-family: 'Josefin Sans', sans-serif;">Middle Name</label>
+                                            <input class="form-control" name="middlename" type="text" style="margin: 20px;">
+                                            <label class="form-label" style="font-family: 'Josefin Sans', sans-serif;width: 99.6094px;text-align: center;">Password</label>
+                                            <input class="form-control" type="password" name="password" style="margin: 20px;">
+                                            <label class="form-label" style="font-family: 'Josefin Sans', sans-serif;width: 99.6094px;text-align: center;">Alternative Mobile</label>
+                                            <input class="form-control" type="tel" name="Alternative" style="margin: 20px;"></div>
+                                        <div class="col-md-4">
+                                            <label class="form-label" style="text-align: left;padding: 0px;font-family: 'Josefin Sans', sans-serif;width: 82.2969px;">Last Name</label>
+                                            <input class="form-control" type="text" name="lastname" style="margin: 15px;">
+                                            <label class="form-label" style="font-family: 'Josefin Sans', sans-serif;">Confirm Password</label>
+                                            <input class="form-control" type="password" name="passwordConfirm" style="margin: 20px;">
+                                            <label class="form-label" style="font-family: 'Josefin Sans', sans-serif;width: 82.2969px;">Date of birth</label>
+                                            <input class="form-control" type="date" required="" name="DOB" style="margin: 20px;">
+                                            <button class="btn bg-primary btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button></div>
+                                        <!-- <div class="col"></div>
                                         <div class="col">
                                             <div id="next-button" class="button-row d-flex mt-4"></div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -78,16 +99,24 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <p style="font-family: 'Josefin Sans', sans-serif;">Institution</p><input class="form-control" type="text" required="" name="" placeholder="Ex. Marwadi University" style="width: 300px;margin: 20px;font-family: 'Josefin Sans', sans-serif;">
-                                            <p style="font-family: 'Josefin Sans', sans-serif;">Current GPA</p><input class="form-control" type="text" required="" name="" placeholder="Ex. 8.52" style="width: 300px;margin: 20px;font-family: 'Josefin Sans', sans-serif;">
-                                            <p style="font-family: 'Josefin Sans', sans-serif;">Qualification</p><textarea class="form-control" type="text" required="" placeholder="Ex. Cisco Certified" name="Qualification" style="font-family: 'Josefin Sans', sans-serif;width: 320px;"></textarea>
-                                            <p style="font-family: 'Josefin Sans', sans-serif;margin: 10px 0px 16px;">Mark sheet</p><input class="form-control" type="file" style="font-family: 'Josefin Sans', sans-serif;">
-                                            <p style="font-family: 'Josefin Sans', sans-serif;margin: 10px 0px 16px;">Resume</p><input class="form-control" type="file" style="font-family: 'Josefin Sans', sans-serif;">
+                                            <p style="font-family: 'Josefin Sans', sans-serif;">Institution</p>
+                                            <input class="form-control" type="text" required="" name="institution" placeholder="Ex. Marwadi University" style="width: 300px;margin: 20px;font-family: 'Josefin Sans', sans-serif;">
+                                            <p style="font-family: 'Josefin Sans', sans-serif;">Current GPA</p>
+                                            <input class="form-control" type="text" required="" name="CGPA" placeholder="Ex. 8.52" style="width: 300px;margin: 20px;font-family: 'Josefin Sans', sans-serif;">
+                                            <p style="font-family: 'Josefin Sans', sans-serif;">Qualification</p>
+                                            <textarea class="form-control" type="text" required="" placeholder="Ex. Cisco Certified" name="Qualification" style="font-family: 'Josefin Sans', sans-serif;width: 320px;"></textarea>
+                                            <p style="font-family: 'Josefin Sans', sans-serif;margin: 10px 0px 16px;">Mark sheet</p>
+                                            <input class="form-control" type="file" name="Marksheet" style="font-family: 'Josefin Sans', sans-serif;">
+                                            <p style="font-family: 'Josefin Sans', sans-serif;margin: 10px 0px 16px;">Resume</p>
+                                            <input class="form-control" type="file" style="font-family: 'Josefin Sans', sans-serif;" name="Resume">
                                         </div>
                                         <div class="col-md-6">
-                                            <p style="font-family: 'Josefin Sans', sans-serif;">Department</p><input class="form-control" type="text" required="" name="" placeholder="Ex. Computer Engineering" style="width: 300px;margin: 20px;font-family: 'Josefin Sans', sans-serif;">
-                                            <p style="font-family: 'Josefin Sans', sans-serif;">Percentage</p><input class="form-control" type="text" required="" name="" placeholder="Ex. 85" style="width: 300px;margin: 20px;font-family: 'Josefin Sans', sans-serif;">
-                                            <p style="font-family: 'Josefin Sans', sans-serif;">Experience</p><textarea class="form-control" type="text" required="" placeholder="1 year of tutoring" name="Experience" style="font-family: 'Josefin Sans', sans-serif;width: 320px;"></textarea>
+                                            <p style="font-family: 'Josefin Sans', sans-serif;">Select Your Course</p>
+                                            <input class="form-control" type="text" required="" name="Tutoringcourse" placeholder="Ex. Computer Engineering" style="width: 300px;margin: 20px;font-family: 'Josefin Sans', sans-serif;">
+                                            <p style="font-family: 'Josefin Sans', sans-serif;">Percentage</p>
+                                            <input class="form-control" type="text" required="" name="Percentage" placeholder="Ex. 85" style="width: 300px;margin: 20px;font-family: 'Josefin Sans', sans-serif;">
+                                            <p style="font-family: 'Josefin Sans', sans-serif;">Experience</p>
+                                            <textarea class="form-control" type="text" required="" placeholder="1 year of tutoring" name="Experience" style="font-family: 'Josefin Sans', sans-serif;width: 320px;"></textarea>
                                         </div>
                                         <div class="col-12 col-md-4 offset-md-4" data-bss-hover-animate="pulse" style="width: 230px;margin: 50px 0px 20px 400px;"><button class="btn btn-light btn-lg tada animated" data-bs-toggle="tooltip" data-bss-tooltip="" id="submit" style="margin-left: 16px;font-family: 'Josefin Sans', sans-serif;" type="submit">Submit </button></div>
                                     </div>

@@ -25,12 +25,17 @@ exports.signup = catchAsync(async (req, res) => {
         password: req.body.password,
         passwordConfirm: req.body.passwordConfirm,
         DOB: req.body.DOB,
-        TutoringCourse: req.body.TutoringCourse,
+        TutoringCourse: req.body.Tutoringcourse,
         Resume: req.body.Resume,
         Expreinece: req.body.Expreinece,
-        passwordChangedAt:req.body.passwordChangedAt,
-        role:req.body.role
-
+        CGPA: req.body.CGPA,
+        Percentage: req.body.Percentage,
+        Qualification: req.body.Qualification,
+        Expreinece: req.body.Expreinece,
+        Marksheet:req.body.Marksheet,
+        Resume: req.body.Resume,
+        photo: req.body.photo,
+        passwordChangedAt:req.body.passwordChangedAt
     });
     
     // JSON WEB TOKEN IS APPLIED HER WHICH HELP US OR WE CAN TREAT IT AS SESSION TIME FOR THE AUTHENTCETICATED USER

@@ -14,39 +14,13 @@ const tutorSchema = new mongoose.Schema({
         type: String,
         required:[true,"Please provide your last name"]
     },
-    Mobile:{
-        type: Number,
-        length:12,
-        required:[true,"Please provide your contact Number"],
-    },
-    Address:{
-        type:String
-    },
-    Gender:{
-        type: String,
-        required:[true,'Please provide your gender']
-    },
-    AlternativeNumber:{
-        type: Number
-    },
+    
     email:{
         type: String,
         required: [true, "Please provide your email"],
         lowercase: true,
         unique:true,
         validate:[validator.isEmail,"Invalid Email address"]
-    },
-    DOB:{
-        type: Date,
-        requierd:[true,"please provide your birthdate"]
-    },
-    photo:{ 
-        type: String
-    },
-    role:{
-        type: String,
-        enum:['tutor','admin'],
-        default:'tutor'
     },
     password:{
         type: String,
@@ -63,19 +37,40 @@ const tutorSchema = new mongoose.Schema({
             message: "Password does not match!!"
         }
     },
+    Mobile:{
+        type: Number,
+        length:12,
+        required:[true,"Please provide your contact Number"],
+    }, 
+    AlternativeNumber:{
+        type: Number
+    },
+   
+    DOB:{
+        type: Date,
+        requierd:[true,"please provide your birthdate"]
+    },
+    Address:{
+        type:String
+    },
+    Gender:{
+        type: String,
+        required:[true,'Please provide your gender']
+    },
+
     Institution:{
         type: String,
     },
-
     TutoringCourse:{
         type: String,
         required:[true,"Please select yout tutoring course!"]
     },
-    Resume:{
-        type: String,
-        required:[true,"please upload your resume"]
+    CGPA:{
+        type: Number,
     },
-
+    Percentage:{
+        type: Number,
+    },
     Qualification:{
         type: String,
     },
@@ -83,6 +78,21 @@ const tutorSchema = new mongoose.Schema({
         type: Number,
         required:[true,'Provide year Expreince']
     }, 
+    Marksheet:{
+        type: String,
+    },
+    Resume:{
+        type: String,
+        required:[true,"please upload your resume"]
+    },
+    photo:{ 
+        type: String
+    },
+    role:{
+        type: String,
+        enum:['tutor','admin'],
+        default:'tutor'
+    },
     passwordChangedAt: Date,
 })
 
