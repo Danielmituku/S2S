@@ -46,17 +46,17 @@ exports.getProfileEdit = (req, res)=>{
 
 //  Tutor-View control
 exports.getsLoginTutor= (req,res)=>{
-  res.status(200).render('logint')
+  res.status(200).render('logint', {title: "Tutor-Login"})
 } 
 exports.getsTutorProfile = (req, res)=>{
-  res.status(200).render('Tprofile',{title:"My-Profile"})
+  res.status(200).render('Tprofile',{title:"My-Profile", layout:'./layouts/tutor-layout'})
 }
 exports.getsTutorProfileEdit = (req, res)=>{
-  res.status(200).render('Tedit',{title:"Edit-Me"})
+  res.status(200).render('Tedit',{title:"Edit-Me", layout:'./layouts/tutor-layout'})
 }
 exports.getsTutorLanding = (req, res)=>{
-  res.status(200).render('TutorLanding', {title:"Home"})
+  res.status(200).render('TutorLanding', {title:"Home", layout:'./layouts/tutor-layout'})
 }
 exports.getsPortfolio = (req, res) =>{ 
-  res.status(200).render('portfolio',{title: "My-Portfolio"})
+  res.status(200).render('portfolio',{title: "My-Portfolio", layout:'./layouts/tutor-layout'})
 }
