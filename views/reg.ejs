@@ -118,9 +118,13 @@
                                             <p style="font-family: 'Josefin Sans', sans-serif;">Experience</p>
                                             <textarea class="form-control" type="text" required="" placeholder="1 year of tutoring" name="Experience" style="font-family: 'Josefin Sans', sans-serif;width: 320px;"></textarea>
                                         </div>
-                                        <div class="col-12 col-md-4 offset-md-4" data-bss-hover-animate="pulse" style="width: 230px;margin: 50px 0px 20px 400px;"><button class="btn btn-light btn-lg tada animated" data-bs-toggle="tooltip" data-bss-tooltip="" id="submit" style="margin-left: 16px;font-family: 'Josefin Sans', sans-serif;" type="submit">Submit </button></div>
+                                        <div class="col-12 col-md-4 offset-md-4" data-bss-hover-animate="pulse" style="width: 230px;margin: 50px 0px 20px 400px;">
+                                            <button class="btn btn-light btn-lg tada animated" data-bs-toggle="tooltip" data-bss-tooltip="" id="submit" style="margin-left: 16px;font-family: 'Josefin Sans', sans-serif;" type="submit">Submit </button>
+                                        </div>
                                     </div>
-                                    <div id="next-prev-buttons" class="button-row d-flex mt-4"><button class="btn bg-primary btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button></div>
+                                    <div id="next-prev-buttons" class="button-row d-flex mt-4">
+                                        <button class="btn bg-primary btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +133,94 @@
             </div>
         </div>
     </section>
-    <script src="/js/signup.js"></script>
+    <script>
+        import axios from "axios";
+        import {showAlert, hideAlert} from "./alert"
+        const signupTutor = async (firstname, middlename,
+            lastname,
+            Mobile,
+            Gender,
+            email,
+            password,
+            passwordConfirm,
+            DOB,
+            CGPA,
+            TutoringCourse,
+            Institution,
+            Percentage,
+            Qualification,
+            Expreinece,
+            Marksheet,
+            Resume) => {
+           try{
+            const result = await axios({
+                method:'POST',
+                url:'http://127.0.0.1:8000/api/v1/tutors/signup',
+                data:{ firstname, middlename, lastname, Mobile,
+                    Gender,
+                    email,
+                    password,
+                    passwordConfirm,
+                    DOB,
+                    CGPA,
+                    TutoringCourse,
+                    Institution,
+                    Percentage,
+                    Qualification,
+                    Expreinece,
+                    Marksheet,
+                    Resume,
+                    photo
+            }
+            }  
+           );
+           if (result.data.status === "success"){
+            showAlert("success","Registered successfully")
+            window.setTimeout(()=>{
+                location.assign('/t')
+            }, 1500)
+           } 
+        
+            } catch(err){
+            showAlert('error',err.response.data.message)
+            }
+        } 
+        
+        export const logout =  async () =>{
+            try{ 
+                const result = await axios({
+                method: 'GET',
+                url:'http://127.0.0.1:8000/api/v1/students/logout'
+                });
+                if ((res.data.status === 'success')) location.reload(true);
+        
+            }catch(err){
+                showAlert('error','error logging out! Try again.')
+            }
+        }
+        documnet.querySelector('.multisteps-form__form').addEventListener('submit', e=>{
+            e.preventDefault();
+            const firstname =  document.getElementById('firstname').value;
+            const middlename =  document.getElementById('middlename').value;
+            const lastname =  document.getElementById('lastname').value;
+            const Mobile =  document.getElementById('Mobile').value;
+            const Gender =  document.getElementById('Gender').value;
+            const email =  document.getElementById('email').value;
+            const password =  document.getElementById('password').value;
+            const passwordConfirm =  document.getElementById('passwordConfirm').value;
+            const DOB =  document.getElementByName('DOB').value;
+            const CGPA =  document.getElementByName('CGPA').value;
+            const TutoringCourse =  document.getElementByName('Tutoringcourse').value;
+            const Institution =  document.getElementByName('Institution').value;
+            const Percentage =  document.getElementByName('Percentage').value;
+            const Qualification =  document.getElementByName('Qualification').value;
+            const Expreinece =  document.getElementByName('Expreinece').value;
+            const Marksheet =  document.getElementByName('Marksheet').value;
+            const Resume =  document.getElementByName('Resume').value;
+            signupTutor(firstname,middlename,lastname,Mobile,Gender,email,password,
+                passwordConfirm,DOB,CGPA,TutoringCourse,Institution, Percentage, Qualification, Expreinece,Marksheet,Resume)
+        })
+    </script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/bs-init.js"></script>
     <script src="/js/-Filterable-Cards-.js"></script>

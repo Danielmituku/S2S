@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv')
 const cookieParser = require('cookie-parser')
+const expressLayout = require('express-ejs-layouts')
 const studentRouter = require('./routes/studentRoute')
 const tutorRouter = require('./routes/tutorRoute')
 const viewRoute = require('./routes/viewRoutes')
@@ -12,10 +13,13 @@ const AppError = require("./utilis/appError")
 
 const app = express();
 
+//static files
 const path = require('path')
 app.use(express.static('public'));
 
-app.set('view engine', 'html');
+//set templating enigine
+app.use(expressLayout)
+app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
 
@@ -26,7 +30,6 @@ app.use(cookieParser())
 // app.use(helmet())
 
 app.use(express.json());
-
 app.use(morgan('dev'));
 
 //Test middleware 
@@ -58,4 +61,4 @@ app.all('*',(req,res,next)=>{
 
  
 // app.use(globlalErrorhandlers)
-module.exports= app;
+module.exports = app;
