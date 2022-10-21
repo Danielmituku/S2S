@@ -21,19 +21,19 @@ exports.getStudentLanding = (req,res)=>{
   res.status(200).render('student_home', {title: 'Home', layout:'./layouts/student-layout'})
 }
 exports.getMyCourse = (req,res)=>{
-  res.status(200).render('mycourses')
+  res.status(200).render('mycourses',{title:"Courses"})
 }
 exports.getTutorFind = (req, res)=>{
-  res.status(200).render('Tutors')
+  res.status(200).render('Tutors', {title: "Tutors"})
 }
 exports.getWebinar = (req, res)=>{
-  res.status(200).render('webinar')
+  res.status(200).render('webinar', {title:"Meetings"})
 }
 exports.getOnline = (req, res) =>{
-  res.status(200).render('online')
+  res.status(200).render('online',{title:"Meetings"})
 }
 exports.getTask = (req, res) =>{
-  res.status(200).render('tasks',{title:"tasks"})
+  res.status(200).render('tasks',{title:"Tasks"})
 }
 exports.getProfile = (req, res) =>{
   res.status(200).render('student_profile', {title: "My-profile"})
