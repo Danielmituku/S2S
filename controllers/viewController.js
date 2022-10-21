@@ -1,24 +1,24 @@
 exports.getsHome = (req,res)=>{
-    res.status(200).render('index')
+    res.status(200).render('index', {title: 'S2S'})
   }
 exports.getsLoginStudent= (req,res)=>{
-    res.status(200).render('logins')
+    res.status(200).render('logins', {title: 'student-Login'})
   }
 
 exports.getSignup = (req, res)=>{
-  res.status(200).render('signup')
+  res.status(200).render('signup',{title: 'sign-up'})
 }
 exports.getForgetPassword = (req, res)=>{
   res.status(200).render('forget')
 }
 exports.getsSignupTutor= (req,res)=>{
-    res.status(200).render('reg')
+    res.status(200).render('reg', {title:'Registration'})
   } 
 exports.getsSignupStudent= (req,res)=>{
     res.status(200).render('signup')
   } 
 exports.getStudentLanding = (req,res)=>{
-  res.status(200).render('student_home')
+  res.status(200).render('student_home', {title: 'Home'})
 }
 exports.getMyCourse = (req,res)=>{
   res.status(200).render('mycourses')
