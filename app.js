@@ -20,6 +20,7 @@ app.use(express.static('public'));
 //set templating enigine
 app.use(expressLayout)
 app.set('view engine', 'ejs');
+app.set('layout', './layouts/layout')
 app.engine('html', require('ejs').renderFile);
 
 
