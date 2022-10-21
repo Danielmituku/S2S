@@ -18,7 +18,7 @@ exports.getsSignupStudent= (req,res)=>{
     res.status(200).render('signup')
   } 
 exports.getStudentLanding = (req,res)=>{
-  res.status(200).render('student_home', {title: 'Home'})
+  res.status(200).render('student_home', {title: 'Home', layout:'./layouts/student-layout'})
 }
 exports.getMyCourse = (req,res)=>{
   res.status(200).render('mycourses')
@@ -33,13 +33,13 @@ exports.getOnline = (req, res) =>{
   res.status(200).render('online')
 }
 exports.getTask = (req, res) =>{
-  res.status(200).render('tasks')
+  res.status(200).render('tasks',{title:"tasks"})
 }
 exports.getProfile = (req, res) =>{
-  res.status(200).render('student_profile')
+  res.status(200).render('student_profile', {title: "My-profile"})
 }
 exports.getProfileEdit = (req, res)=>{
-  res.status(200).render('Sedit')
+  res.status(200).render('Sedit',{title: "Edit-Me"})
 }
 
 //  Tutor control
@@ -55,6 +55,6 @@ exports.getsTutorProfileEdit = (req, res)=>{
 exports.getsTutorLanding = (req, res)=>{
   res.status(200).render('TutorLanding')
 }
-exports.getsPortfolio = (req, res) =>{
+exports.getsPortfolio = (req, res) =>{ 
   res.status(200).render('portfolio')
 }
