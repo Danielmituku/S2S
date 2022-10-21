@@ -21,40 +21,42 @@ exports.getStudentLanding = (req,res)=>{
   res.status(200).render('student_home', {title: 'Home', layout:'./layouts/student-layout'})
 }
 exports.getMyCourse = (req,res)=>{
-  res.status(200).render('mycourses',{title:"Courses"})
+  res.status(200).render('mycourses',{title:"Courses",  layout:'./layouts/student-layout'})
 }
 exports.getTutorFind = (req, res)=>{
-  res.status(200).render('Tutors', {title: "Tutors"})
+  res.status(200).render('Tutors', {title: "Tutors",  layout:'./layouts/student-layout'})
 }
 exports.getWebinar = (req, res)=>{
-  res.status(200).render('webinar', {title:"Meetings"})
+  res.status(200).render('webinar', {title:"Meetings",  layout:'./layouts/student-layout'})
 }
 exports.getOnline = (req, res) =>{
-  res.status(200).render('online',{title:"Meetings"})
+  res.status(200).render('online',{title:"Meetings",  layout:'./layouts/student-layout'})
 }
 exports.getTask = (req, res) =>{
   res.status(200).render('tasks',{title:"Tasks"})
 }
 exports.getProfile = (req, res) =>{
-  res.status(200).render('student_profile', {title: "My-profile"})
+  res.status(200).render('student_profile', {title: "My-profile",  layout:'./layouts/student-layout'})
 }
 exports.getProfileEdit = (req, res)=>{
-  res.status(200).render('Sedit',{title: "Edit-Me"})
+  res.status(200).render('Sedit',{title: "Edit-Me",  layout:'./layouts/student-layout'})
 }
 
-//  Tutor control
+
+
+//  Tutor-View control
 exports.getsLoginTutor= (req,res)=>{
   res.status(200).render('logint')
 } 
 exports.getsTutorProfile = (req, res)=>{
-  res.status(200).render('Tprofile')
+  res.status(200).render('Tprofile',{title:"My-Profile"})
 }
 exports.getsTutorProfileEdit = (req, res)=>{
-  res.status(200).render('Tedit')
+  res.status(200).render('Tedit',{title:"Edit-Me"})
 }
 exports.getsTutorLanding = (req, res)=>{
-  res.status(200).render('TutorLanding')
+  res.status(200).render('TutorLanding', {title:"Home"})
 }
 exports.getsPortfolio = (req, res) =>{ 
-  res.status(200).render('portfolio')
+  res.status(200).render('portfolio',{title: "My-Portfolio"})
 }
