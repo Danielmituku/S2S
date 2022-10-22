@@ -4,12 +4,17 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv')
 const cookieParser = require('cookie-parser')
 const expressLayout = require('express-ejs-layouts')
+const AppError = require("./utilis/appError")
+
+
+//requireing Route
 const studentRouter = require('./routes/studentRoute')
 const tutorRouter = require('./routes/tutorRoute')
 const viewRoute = require('./routes/viewRoutes')
 const bookingRouter = require('./routes/bookingRoute')
+const reviewRouter = require('./routes/reviewRoute')
 
-const AppError = require("./utilis/appError")
+
 
 const app = express();
 
@@ -49,6 +54,7 @@ app.use((req,res,next)=>{
 
 //Routes
 app.use('/', viewRoute)
+app.use('/api/v1/reviews', reviewRouter)
 app.use('/api/v1/students', studentRouter)
 app.use('/api/v1/tutors', tutorRouter)
 app.use('/api/v1/bookings', bookingRouter)
