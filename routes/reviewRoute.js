@@ -5,7 +5,7 @@ const authController = require('../controllers/authController')
 
 const router = express.Router()
 
-router.get('/', reviewController.getAllReview).post( authController.protect, authController.restrictTo('student'), reviewController.createReview)
+router.route('/').get(reviewController.getAllReview).post( authController.protect, authController.restrictTo('student'), reviewController.createReview)
 
 
 module.exports = router
