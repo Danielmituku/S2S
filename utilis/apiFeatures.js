@@ -53,4 +53,4 @@ class APIfeatures {
    
   }
 
-module.exports = APIfeatures;
+module.exports = APIfeatures

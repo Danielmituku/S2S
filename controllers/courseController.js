@@ -35,7 +35,7 @@ exports.getAllCourses = catchAsync( async(req, res) => {
   //     let queryStr = JSON.stringify(queryObj);
   //     queryStr = queryStr.replace(/\b(gte|gt|ltte|lt)\b/g, match => `$${match}`);
   //     console.log(JSON.parse(queryStr));
-  //     // const tours = await Course.find().where('duration').equals(5).where('difficulty').equals("easy");
+  //     // const Courses = await Course.find().where('duration').equals(5).where('difficulty').equals("easy");
   //     // console.log(req.query);
   //     let query =  Course.find(JSON.parse(queryStr));
 
@@ -66,17 +66,17 @@ exports.getAllCourses = catchAsync( async(req, res) => {
     // query = query.skip(skip).limit(limit);
 
     // if(req.query.page){
-    //   const numTours = await Course.countDocuments();
-    //   if(skip >= numTours) throw new Error("The document is not avalibale");
+    //   const numCourses = await Course.countDocuments();
+    //   if(skip >= numCourses) throw new Error("The document is not avalibale");
     // }   
 });
 
 exports.createCourse = catchAsync(async (req, res, next) => {
-  const newTour = await Course.create(req.body);
+  const newCourse = await Course.create(req.body);
     res.status(201).json({
     status:"Success",
     data: {
-      tours: newCourse
+      Courses: newCourse
     }
   // try{
   // // const newTour = new Course({})
@@ -85,7 +85,7 @@ exports.createCourse = catchAsync(async (req, res, next) => {
   //   res.send(201).json({
   //   status:"Success",
   //   data: {
-  //     tours: newTour
+  //     Courses: newTour
   //   }
   // })} 
   //  catch (err){
@@ -98,16 +98,16 @@ exports.createCourse = catchAsync(async (req, res, next) => {
 
   /* creating a json documnet to file */
 
-  // const id = tours[tours.length - 1].id + 1;
+  // const id = Courses[Courses.length - 1].id + 1;
   // const newId = { id: id, ...req.body };
-  // tours.push(newId);
+  // Courses.push(newId);
   // fs.writeFile(
-  //   `${__dirname}/dev-data/data/tours-simple.json`,
-  //   JSON.stringify(tours),
+  //   `${__dirname}/dev-data/data/Courses-simple.json`,
+  //   JSON.stringify(Courses),
   //   () => {
   //       res.status(201).json({
   //           status: 'sucess',
-  //           data: tours, 
+  //           data: Courses, 
   //       });
   //   }
   // );
@@ -152,8 +152,8 @@ exports.updateCourse = catchAsync(async(req, res, next) => {
 
 exports.deleteCourse = async (req, res, next) => {
   try{ 
-    const tours = await Course.findByIdAndDelete(req.params.id)
-    if(!tours){
+    const courses = await Course.findByIdAndDelete(req.params.id)
+    if(!courses){
       return next(new AppError('No Course found with that ID', 404))
     }
     res.status(204).json({
@@ -181,7 +181,7 @@ exports.getCourseStats = async (req, res) => {
       {
         $group:{
           _id: '$difficulty',
-          numTours: { $sum: 1 },
+          numCourses: { $sum: 1 },
           numRating:{$sum:'$ratingsQunatity'},
           avgRating:{$avg:'$ratingsAverage'},
           avgPrice: {$avg: '$price'},
@@ -198,7 +198,7 @@ exports.getCourseStats = async (req, res) => {
     res.status(200).json({
       status: 'success',
       data: {
-       tours: stats
+       courses: stats
       },
     });    
 
@@ -228,8 +228,8 @@ exports.getMonthlyPlan = async (req, res)=>{
       {
         $group:{
           _id: { $month:'$startDates'},
-          numToursStarts:{ $sum: 1},
-          tours:{$push: '$name'}
+          numCoursesStarts:{ $sum: 1},
+          Courses:{$push: '$name'}
         }
       },
       {
@@ -241,12 +241,12 @@ exports.getMonthlyPlan = async (req, res)=>{
         }
       },
       {
-          $sort:{numToursStarts: -1 }
+          $sort:{numCoursesStarts: -1 }
       },
       {
         $limit: 12
       }
-    ]);
+    ]); 
 
     res.status(200).json({
       status: 'success',
