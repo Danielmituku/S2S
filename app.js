@@ -8,6 +8,7 @@ const AppError = require("./utilis/appError")
 
 
 //requireing Route
+const courseRouter = require('./routes/courseRoute')
 const studentRouter = require('./routes/studentRoute')
 const tutorRouter = require('./routes/tutorRoute')
 const viewRoute = require('./routes/viewRoutes')
@@ -53,6 +54,7 @@ app.use((req,res,next)=>{
 
 //Routes
 app.use('/', viewRoute)
+app.use('/api/v1/courses', courseRouter)
 app.use('/api/v1/reviews', reviewRouter)
 app.use('/api/v1/students', studentRouter)
 app.use('/api/v1/tutors', tutorRouter)

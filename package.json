@@ -35,6 +35,7 @@
     "nodemailer": "^6.8.0",
     "nodemon": "^2.0.19",
     "parcel-bundler": "^1.12.5",
+    "slugify": "^1.6.5",
     "validator": "^13.7.0"
   }
 }
