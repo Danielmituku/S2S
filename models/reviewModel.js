@@ -15,12 +15,12 @@ const reviewSchema = new mongoose.Schema({
             type: Date,
             default: Date.now()
         },
-        students:{
+        student:{
             type:mongoose.Schema.ObjectId,
             ref: 'Student',
             required: [true, 'review must given by student']
         },
-        courses:{
+        course:{
             type: mongoose.Schema.ObjectId,
             ref: 'Course',
             required:[true, 'review must belong to the course'] 
@@ -29,8 +29,8 @@ const reviewSchema = new mongoose.Schema({
         {
             toJSON: {virtuals: true},
             toObject: {virtuals: true}
-        }
-        )
+        });
+
 
 reviewSchema.pre(/^find/, function(next){
     // this.populate({
