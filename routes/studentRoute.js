@@ -3,6 +3,7 @@ const express = require('express')
 const studentController = require('../controllers/studentController')
 const authController = require('../controllers/authController')
 
+
 const router = express.Router();
 
 router.route('/signup').post(authController.signup)
@@ -20,6 +21,7 @@ router.route('/:id').get(studentController.getStudent).patch(studentController.u
 
 router.get('/login', studentController.getLoginForm);
 router.route('/login', studentController.getloginForm)
+
 
 
 module.exports = router; 

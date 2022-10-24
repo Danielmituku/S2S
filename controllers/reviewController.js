@@ -16,6 +16,9 @@ exports.getAllReview = catchAsync(async (req, res, next)=>{
 })
 
 exports.createReview = catchAsync(async (req, res, next)=>{
+   //nested route
+    if(!req.body.course) req.body.course = req.params.courseId
+    if(!req.body.student) req.body.student = req.student.id
     const newReview = await Review.create(req.body)
 
     res.status(201).json({

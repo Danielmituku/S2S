@@ -73,7 +73,11 @@ const courseSchema = mongoose.Schema({
     seretcourse:{
         type:Boolean,
         default:false 
-    }
+    },
+    tutor:[{
+        type: mongoose.Schema.ObjectId,
+        ref: 'Tutor'
+    }]
 }, 
 {
     toJSON:{ virtuals: true}, 
@@ -83,6 +87,12 @@ const courseSchema = mongoose.Schema({
 //Virtaul properties: not to save the data in database
 courseSchema.virtual('durationWeeks').get(function(){ return this.duration / 7;});
 
+// virtual populate
+courseSchema.virtual('reviews', {
+    ref: 'Review',
+    foreignField: 'courses',
+    localField: '_id'
+})
 //DOCUMENT MIDDLEWARE: runs before .save() and .create()
 
 // courseSchema.pre('save', function(next){
@@ -95,6 +105,7 @@ courseSchema.virtual('durationWeeks').get(function(){ return this.duration / 7;}
 // })
 
 //QUEREY MIDDLEWARE
+
 
 courseSchema.pre('/^find/', function(next){
 this.find({secretTour:{$ne: true}})

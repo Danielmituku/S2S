@@ -118,7 +118,7 @@ exports.createCourse = catchAsync(async (req, res, next) => {
 
 
 exports.getCourse = catchAsync(async(req, res, next) => {
-    const courses = await Course.findById(req.params.id);
+    const courses = await Course.findById(req.params.id).populate('reviews');
     
     if(!courses){
       return next(new AppError('No Course found with that ID', 404))

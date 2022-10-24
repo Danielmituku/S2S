@@ -1,8 +1,6 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 
-
-
 const reviewSchema = new mongoose.Schema({
         review:{
             type: String,
@@ -12,18 +10,17 @@ const reviewSchema = new mongoose.Schema({
             type: Number,
             min: 1,
             max: 5
-
         },
         createdAt:{
             type: Date,
             default: Date.now()
         },
-        studnets:{
+        students:{
             type:mongoose.Schema.ObjectId,
             ref: 'Student',
             required: [true, 'review must given by student']
         },
-        course:{
+        courses:{
             type: mongoose.Schema.ObjectId,
             ref: 'Course',
             required:[true, 'review must belong to the course'] 
@@ -36,10 +33,14 @@ const reviewSchema = new mongoose.Schema({
         )
 
 reviewSchema.pre(/^find/, function(next){
-    this.populate({
-        path: 'course',
-        select: 'name'
-    }).populate({
+    // this.populate({
+    //     path: 'courses',
+    //     select: 'name'
+    // }).populate({
+    //path: 'students',
+    //select: 'name photo'
+    // })
+     this.populate({
         path: 'students',
         select: 'name photo'
     })
