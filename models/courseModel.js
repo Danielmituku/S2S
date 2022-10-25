@@ -84,6 +84,9 @@ const courseSchema = mongoose.Schema({
     toObject:{virtuals: true}
 });
 
+courseSchema.index({price: 1, ratingAverage: -1})
+
+
 //Virtaul properties: not to save the data in database
 courseSchema.virtual('durationWeeks').get(function(){ return this.duration / 7;});
 

@@ -9,7 +9,7 @@ const router = express.Router();
 router.route('/signup').post(authControllerTutor.signup)
 router.route('/login').post(authControllerTutor.login) 
 
-router.get('/me', authController.protect, studentController.getMe, tutorController.getTutor)
+router.get('/me', tutorController.protect, tutorController.getMe, tutorController.getTutor)
 router.route('/').get(authControllerTutor.protect, tutorController.getAllTutor)
 router.route('/:id').get(tutorController.getTutor).patch(tutorController.updateTutor).delete(authControllerTutor.protect,authControllerTutor.restrictTo('admin'),tutorController.deleteTutor);
 
