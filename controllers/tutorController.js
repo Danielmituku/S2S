@@ -7,7 +7,7 @@ exports.getAllTutor = factory.getAllModel(Tutor)
 exports.getTutor = factory.getOne(Tutor)
 exports.updateTutor = factory.updateOne(Tutor)
 exports.deleteTutor = factory.deleteOne(Tutor)
-exports.createTutor = factory.createOne(Tutor)
+
 
 exports.getTutorStats = async (req, res) => {
   try {

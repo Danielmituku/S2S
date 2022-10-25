@@ -1,5 +1,5 @@
 const Course = require('../models/courseModel')
-const APIfeatures = require("../utilis/apiFeatures");
+
 const AppError = require('../utilis/appError');
 const catchAsync = require("../utilis/catchAsync")
 const factory = require('./handlerFactory')
@@ -12,65 +12,6 @@ exports.aliasTopCourses= catchAsync((req, res, next)=>{
 
   next();
 })
-exports.getAllCourses = catchAsync( async(req, res) => {
- //Execute query
- const features = new APIfeatures(Course.find(), req.query).filter().sort().limitFields().paginate();
- const courses = await features.query;
-   res.status(200).json({
-     status: 'success',
-     reqestAtTime: req.requestTime,
-     result: courses.length,
-     data: {
-       courses
-     },
-   });
-  
-  //   // console.log(req.requestTime);
-  //   //1) Fillterting
-  //     const queryObj = { ...req.query };
-  //     const excludedFields=['page','sort','limit', 'fields'];
-  //     excludedFields.forEach(el => delete queryObj[el]);
-  //     // console.log(req.query, queryObj)
-
-  // //1b) Advanced filltering
-  //     let queryStr = JSON.stringify(queryObj);
-  //     queryStr = queryStr.replace(/\b(gte|gt|ltte|lt)\b/g, match => `$${match}`);
-  //     console.log(JSON.parse(queryStr));
-  //     // const Courses = await Course.find().where('duration').equals(5).where('difficulty').equals("easy");
-  //     // console.log(req.query);
-  //     let query =  Course.find(JSON.parse(queryStr));
-
-  //2) Sorting
-
-      // if(req.query.sort){
-      //   const sortBy = req.query.sort.split(',').join(' ');
-      //   query = query.sort(sortBy);
-      // }else{
-      //   query = query.sort('--createdAt');
-      // }
-    
-  //3) limiting fields
-
-    // if(req.query.fields){
-    //   const fields = req.query.fields.split(',').join(' ');
-    //   query = query.select(fields);
-    // }else{
-    //   query = query.select('-__v');
-    // }
-
-    //4) pagination
-
-    // const page = req.query.page * 1 || 1;
-    // const limit = req.query.limit * 1 || 100;
-    // const skip = (page - 1)* limit;
-    
-    // query = query.skip(skip).limit(limit);
-
-    // if(req.query.page){
-    //   const numCourses = await Course.countDocuments();
-    //   if(skip >= numCourses) throw new Error("The document is not avalibale");
-    // }   
-});
 
 
 exports.getCourse = catchAsync(async(req, res, next) => {
@@ -124,6 +65,53 @@ exports.createCourse = factory.createOne(Course)
 //       });
 //   }
 // );
+exports.getAllCourses = factory.getAllModel(Course)
+  
+  //   // console.log(req.requestTime);
+  //   //1) Fillterting
+  //     const queryObj = { ...req.query };
+  //     const excludedFields=['page','sort','limit', 'fields'];
+  //     excludedFields.forEach(el => delete queryObj[el]);
+  //     // console.log(req.query, queryObj)
+
+  // //1b) Advanced filltering
+  //     let queryStr = JSON.stringify(queryObj);
+  //     queryStr = queryStr.replace(/\b(gte|gt|ltte|lt)\b/g, match => `$${match}`);
+  //     console.log(JSON.parse(queryStr));
+  //     // const Courses = await Course.find().where('duration').equals(5).where('difficulty').equals("easy");
+  //     // console.log(req.query);
+  //     let query =  Course.find(JSON.parse(queryStr));
+
+  //2) Sorting
+
+      // if(req.query.sort){
+      //   const sortBy = req.query.sort.split(',').join(' ');
+      //   query = query.sort(sortBy);
+      // }else{
+      //   query = query.sort('--createdAt');
+      // }
+    
+  //3) limiting fields
+
+    // if(req.query.fields){
+    //   const fields = req.query.fields.split(',').join(' ');
+    //   query = query.select(fields);
+    // }else{
+    //   query = query.select('-__v');
+    // }
+
+    //4) pagination
+
+    // const page = req.query.page * 1 || 1;
+    // const limit = req.query.limit * 1 || 100;
+    // const skip = (page - 1)* limit;
+    
+    // query = query.skip(skip).limit(limit);
+
+    // if(req.query.page){
+    //   const numCourses = await Course.countDocuments();
+    //   if(skip >= numCourses) throw new Error("The document is not avalibale");
+    // }   
 
 exports.getCourseStats = catchAsync(async (req, res) => {
 

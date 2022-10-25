@@ -1,4 +1,5 @@
 const catchAsync = require('../utilis/catchAsync')
+const APIfeatures = require("../utilis/apiFeatures");
 const AppError = require('../utilis/appError')
 
 
@@ -46,21 +47,29 @@ exports.updateOne = Model => catchAsync(async (req, res, next) => {
     })
   })
 
-exports.getAllModel = Model => catchAsync(async (req, res, next) => {
-    const docs = await Model.find();
-    res.status(201).json({
-      status: 'Success',
-      data: {
-        docs
-      }
-    });
-  })
-  
-exports.createOne = Model => catchAsync(async (req, res, next) => {
+exports.getAllModel = Model => catchAsync( async(req, res) => {
+    
+    //To allow for nested get reviews on Course
+    let fillter = {}
+    if(req.params.courseId) fillter = {course: req.params.courseId}
+
+    const features = new APIfeatures(Model.find(fillter), req.query).filter().sort().limitFields().paginate();
+    const docs = await features.query;
+      res.status(200).json({
+        status: 'success',
+        reqestAtTime: req.requestTime,
+        result: docs.length,
+        data: {
+          data: docs
+        },
+      })
+    })
+exports.createOne = Model => catchAsync ( async (req, res, next) => {
     const doc = await Model.create(req.body);
       res.status(201).json({
       status:"Success",
       data: {
         data: doc
       }
-  
+        })
+    })
