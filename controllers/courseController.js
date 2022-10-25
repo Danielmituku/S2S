@@ -72,51 +72,6 @@ exports.getAllCourses = catchAsync( async(req, res) => {
     // }   
 });
 
-exports.createCourse = catchAsync(async (req, res, next) => {
-  const newCourse = await Course.create(req.body);
-    res.status(201).json({
-    status:"Success",
-    data: {
-      Courses: newCourse
-    }
-  // try{
-  // // const newTour = new Course({})
-  // // newTour.save().then();
-  // const newTour = await Course.create(req.body);
-  //   res.send(201).json({
-  //   status:"Success",
-  //   data: {
-  //     Courses: newTour
-  //   }
-  // })} 
-  //  catch (err){
-  //   res.status(400).json({
-  //     status:"fail",
-  //     reportLength:"The message is not requires",
-  //     message: err
-  //   })
-  // }
-
-  /* creating a json documnet to file */
-
-  // const id = Courses[Courses.length - 1].id + 1;
-  // const newId = { id: id, ...req.body };
-  // Courses.push(newId);
-  // fs.writeFile(
-  //   `${__dirname}/dev-data/data/Courses-simple.json`,
-  //   JSON.stringify(Courses),
-  //   () => {
-  //       res.status(201).json({
-  //           status: 'sucess',
-  //           data: Courses, 
-  //       });
-  //   }
-  // );
-  
-})
-
-})
-
 
 exports.getCourse = catchAsync(async(req, res, next) => {
     const courses = await Course.findById(req.params.id).populate('reviews');
@@ -152,6 +107,23 @@ exports.updateCourse = catchAsync(async(req, res, next) => {
 })
 
 exports.deleteCourse = factory.deleteOne(Course)
+exports.createCourse = factory.createOne(Course)
+ 
+/* creating a json documnet to file */
+
+// const id = Courses[Courses.length - 1].id + 1;
+// const newId = { id: id, ...req.body };
+// Courses.push(newId);
+// fs.writeFile(
+//   `${__dirname}/dev-data/data/Courses-simple.json`,
+//   JSON.stringify(Courses),
+//   () => {
+//       res.status(201).json({
+//           status: 'sucess',
+//           data: Courses, 
+//       });
+//   }
+// );
 
 exports.getCourseStats = catchAsync(async (req, res) => {
 
