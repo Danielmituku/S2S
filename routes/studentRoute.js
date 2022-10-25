@@ -14,7 +14,7 @@ router.route('/logout').get(authController.logout)
 router.route('/forgetPassword').post(authController.forgetPassword) 
 router.route('/resetPassword/:token').patch(authController.resetPassword) 
 
-
+router.get('/me', authController.protect, studentController.getMe, studentController.getStudent)
 router.route('/').get(authController.protect, studentController.getAllStudent);
 router.route('/:id').get(studentController.getStudent).patch(studentController.updateStudent).delete(authController.protect,authController.restrictTo('admin'),studentController.deleteStudent);
 

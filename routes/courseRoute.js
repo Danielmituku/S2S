@@ -16,12 +16,12 @@ router.use('/:courseId/reviews', reviewRouter)
 
 
 router.route('/Course-stats').get(courseController.getCourseStats);
-router.route('/monthly-plan/:year').get(courseController.getMonthlyPlan);
+router.route('/monthly-plan/:year').get(authController.protect,authController.restrictTo('admin','tutor','student'),courseController.getMonthlyPlan);
 
 router.route('/top-5-cheap').get(courseController.aliasTopCourses,courseController.getAllCourses);
-router.route('/').post(courseController.createCourse).get(authController.protect,courseController.getAllCourses);
+router.route('/').post(authController.protect,authController.restrictTo('admin','tutor'),courseController.createCourse).get(courseController.getAllCourses);
 
-router.route('/:id').get(courseController.getCourse).patch(courseController.updateCourse).delete(courseController.deleteCourse).post(courseController.createCourse);
+router.route('/:id').get(courseController.getCourse).patch(authController.protect,authController.restrictTo('admin','tutor'),courseController.updateCourse).delete(authController.protect,authController.restrictTo('admin','tutor'),courseController.deleteCourse).post(authController.protect,authController.restrictTo('admin','tutor'),courseController.createCourse);
 
 
 

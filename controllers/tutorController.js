@@ -8,6 +8,10 @@ exports.getTutor = factory.getOne(Tutor)
 exports.updateTutor = factory.updateOne(Tutor)
 exports.deleteTutor = factory.deleteOne(Tutor)
 
+exports.getMe = (req, res, next)=>{
+  req.params.id = req.user.id
+  next()
+}
 
 exports.getTutorStats = async (req, res) => {
   try {
