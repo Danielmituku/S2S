@@ -1,72 +1,13 @@
 const Tutor = require('../models/tutorModel')
 const catchAsync = require("../utilis/catchAsync")
-
-exports.getAllTutor = catchAsync(async (req, res, next) => {
-  const users = await Tutor.find();
-  res.status(201).json({
-    status: 'Success',
-    data: {
-      users
-    }
-  });
-})
+const factory = require('./handlerFactory')
 
 
-exports.getTutor = catchAsync(async (req, res, next) => {
-  // console.log(req.requestTime);
-  const tutors = await Tutor.findById(req.params.id);
+exports.getAllTutor = factory.getAllModel(Tutor)
+exports.getTutor = factory.getOne(Tutor)
+exports.updateTutor = factory.updateOne(Tutor)
+exports.deleteTutor = factory.deleteOne(Tutor)
 
-  if (!tutors) {
-    return next(new AppError('No Tour found with that ID', 404))
-  }
-  res.status(200).json({
-    status: 'success',
-    // reqestAtTime: req.requestTime,
-    // result: tours.length,
-    data: {
-      tutors,
-    }
-  })
-})
-
-exports.updateTutor = catchAsync(async (req, res, next) => {
-  const tutor = await Tutor.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true
-  })
-
-  if (!tutor) {
-    return next(new AppError('No Tour found with that ID', 404))
-  }
-  res.status(200).json({
-    status: 'success',
-    data: {
-      tutor: tutor
-    }
-  })
-})
-
-exports.deleteTutor = async (req, res, next) => {
-  try {
-    const tutors = await Tutor.findByIdAndDelete(req.params.id)
-    if (!tutors) {
-      return next(new AppError('No Tour found with that ID', 404))
-    }
-    res.status(204).json({
-      status: 'success',
-      data: {
-        tutor: null,
-      }
-    })
-  }
-  catch (err) {
-    res.status(400).json({
-      status: "fail",
-      reportLength: "The message is not requires",
-      message: err,
-    })
-  }
-}
 
 exports.getTutorStats = async (req, res) => {
   try {

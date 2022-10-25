@@ -2,6 +2,7 @@ const Course = require('../models/courseModel')
 const APIfeatures = require("../utilis/apiFeatures");
 const AppError = require('../utilis/appError');
 const catchAsync = require("../utilis/catchAsync")
+const factory = require('./handlerFactory')
 
 //alias middleware
 exports.aliasTopCourses= catchAsync((req, res, next)=>{
@@ -150,29 +151,9 @@ exports.updateCourse = catchAsync(async(req, res, next) => {
     })
 })
 
-exports.deleteCourse = async (req, res, next) => {
-  try{ 
-    const courses = await Course.findByIdAndDelete(req.params.id)
-    if(!courses){
-      return next(new AppError('No Course found with that ID', 404))
-    }
-    res.status(204).json({
-      status: 'success',
-      data: {
-        Course: null,
-      }
-    })}
-    catch(err){
-      res.status(400).json({
-        status:"fail",
-        reportLength:"The message is not requires",
-        message: err,
-      })
-    }
-}
+exports.deleteCourse = factory.deleteOne(Course)
 
-exports.getCourseStats = async (req, res) => {
-  try{
+exports.getCourseStats = catchAsync(async (req, res) => {
 
     const stats = await Course.aggregate([
       {
@@ -201,15 +182,7 @@ exports.getCourseStats = async (req, res) => {
        courses: stats
       },
     });    
-
-  } catch(err){
-    res.status(400).json({
-      status:"fail",
-      reportLength:"The message is not requires",
-      message: err
-    })
-  }
-}
+})
 
 exports.getMonthlyPlan = async (req, res)=>{
   try{ 
