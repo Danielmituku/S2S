@@ -94,6 +94,11 @@ const tutorSchema = new mongoose.Schema({
         default:'tutor'
     },
     passwordChangedAt: Date,
+    active:{
+        type: Boolean,
+        default: true,
+        select: false
+    }
 })
 
 tutorSchema.pre('save', async function(next){

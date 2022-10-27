@@ -27,7 +27,9 @@ const studentSchema = new mongoose.Schema({
 
     active:{ 
         type: Boolean,
-        default: true },
+        default: true,
+        select: false
+     },
 
     password:{
         type: String,
@@ -73,7 +75,12 @@ studentSchema.pre('save', async function(next){
     this.passwordChangedAt = Date.now() - 1000;
     next()
 })
+studentSchema.pre('/^find/', function(next){
+    //this point to the currrent query
+    this.find({active:{$ne : false}})
+    next()
 
+})
 //instance method for comaprison of password
 studentSchema.methods.correctPassword = async function(candidatePassword, userPassword){
     return await bcrypt.compare(candidatePassword, userPassword)

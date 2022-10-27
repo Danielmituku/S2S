@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const rateLimit = require('express-rate-limit')
 const dotenv = require('dotenv')
 const cookieParser = require('cookie-parser')
 const expressLayout = require('express-ejs-layouts')

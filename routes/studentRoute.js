@@ -17,8 +17,12 @@ router.route('/resetPassword/:token').patch(authController.resetPassword)
 
 //Protect all routes after this middleware
 router.use(authController.protect)
+ 
+router.patch('/updateMyPassword',authController.updatePassword)
 
-// router.get('/me', studentController.getMe, studentController.getStudent)
+router.patch('/updateMe', studentController.updateMe)
+router.delete('/deleteMe', studentController.deleteMe)
+router.get('/me', studentController.getMe, studentController.getStudent)
 
 router.use(authController.restrictTo('admin'))
 
