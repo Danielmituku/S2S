@@ -9,6 +9,7 @@ exports.getAllStudent = factory.getAllModel(Student)
 exports.getStudent = factory.getOne(Student)
 exports.updateStudent = factory.updateOne(Student)
 exports.deleteStudent = factory.deleteOne(Student)
+exports.createStudent = factory.createOne(Student)
 
 
 exports.getMe = (req, res, next)=>{

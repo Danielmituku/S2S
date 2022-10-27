@@ -24,7 +24,7 @@ const courseSchema = mongoose.Schema({
             values:['easy','medium','difficult'],
             message:'difficulty is either: easy, medium, difficult'},
         },
-    ratingAverage: {
+    ratingsAverage: {
         type: Number, 
         required:[true, "A rating is required"],
         default: 4.5,
@@ -85,7 +85,7 @@ const courseSchema = mongoose.Schema({
     toObject:{virtuals: true}
 });
 
-courseSchema.index({price: 1, ratingAverage: -1})
+courseSchema.index({price: 1, ratingsAverage: -1})
 
 
 //Virtaul properties: not to save the data in database
@@ -127,7 +127,7 @@ courseSchema.post('/^find/', function(docs, next){
 
 //AGGRATION MIDDLEWARE
 courseSchema.pre('aggregate', function(next){
-    this.pipeline().unshift({$match:{secretTour: {$ne: true}}}) 
+    this.pipeline().unshift({$match:{secretCourse: {$ne: true}}}) 
     console.log(this.pipeline());
     next();
 })

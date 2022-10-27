@@ -11,17 +11,18 @@ router.route('/login').post(authController.login)
 router.route('/logout').get(authController.logout) 
 router.route('/forgetPassword').post(authController.forgetPassword) 
 router.route('/resetPassword/:token').patch(authController.resetPassword) 
-router.get('/login', studentController.getLoginForm);
-router.route('/login', studentController.getloginForm)
+// router.get('/login', studentController.getLoginForm);
+// router.route('/login', studentController.getloginForm)
 
 
 //Protect all routes after this middleware
 router.use(authController.protect)
 
-router.get('/me', studentController.getMe, studentController.getStudent)
+// router.get('/me', studentController.getMe, studentController.getStudent)
 
 router.use(authController.restrictTo('admin'))
-router.route('/').get(studentController.getAllStudent).post(studentController.createStudent);
+
+router.route('/').get(studentController.getAllStudent).post(studentController.createStudent)
 router.route('/:id').get(studentController.getStudent).patch(studentController.updateStudent).delete(authController.restrictTo('admin'), studentController.deleteStudent);
 
 module.exports = router; 

@@ -25,7 +25,8 @@ const studentSchema = new mongoose.Schema({
         required:false
     },
 
-    active:{ type: Boolean,
+    active:{ 
+        type: Boolean,
         default: true },
 
     password:{
