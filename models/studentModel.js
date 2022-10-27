@@ -25,6 +25,9 @@ const studentSchema = new mongoose.Schema({
         required:false
     },
 
+    active:{ type: Boolean,
+        default: true },
+
     password:{
         type: String,
         required: [true, "Please provide password"],

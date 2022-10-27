@@ -29,7 +29,8 @@ const courseSchema = mongoose.Schema({
         required:[true, "A rating is required"],
         default: 4.5,
         min:[1, "Rating must be min 1"],
-        max:[5, 'Rating must be max 5']
+        max:[5, 'Rating must be max 5'],
+        set: val => Math.round(val * 10) / 10
     },
     ratingsQuantity:{
         type: Number,

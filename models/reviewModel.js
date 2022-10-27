@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Student = require("./studentModel")
 const validator = require('validator')
 
 const reviewSchema = new mongoose.Schema({
@@ -8,8 +9,9 @@ const reviewSchema = new mongoose.Schema({
         },
         rating:{
             type: Number,
-            min: 1,
-            max: 5
+            min: [1,'Rating must be greater than one'],
+            max:[5, 'Rating must be less than five'],
+          
         },
         createdAt:{
             type: Date,
@@ -31,6 +33,7 @@ const reviewSchema = new mongoose.Schema({
             toObject: {virtuals: true}
         });
 
+reviewSchema.index({course:1, student:1}, {unique: true})
 
 reviewSchema.pre(/^find/, function(next){
     // this.populate({
@@ -61,12 +64,37 @@ const stats= await this.aggregate([
     }
 ])
     console.log(stats)
+ if(stats.length > 0){
+    await Student.findByIdAndUpdate(courseId, {
+        ratingsQuantity: stats[0].nRating, 
+        ratingsAverage: stats[0].avgRating
+    })
+}else{
+    await Student.findByIdAndUpdate(courseId, {
+        ratingsQuantity: 0,
+        ratingsAverage: 4.5
+    })
 }
-reviewSchema.pre('save', function(next){
+ }
+ 
+reviewSchema.post('save', function(next){
     //this point to current review
     this.constructor.calcAverageRatings(this.course)
-    next() 
 })
+
+// findByIdAndUpdate
+// findBYIdAndDelete
+
+reviewSchema.pre(/^findOneAnd/, async function(next){
+    this.r = await this.findOne();
+    console.log(this.r)
+    next()
+})
+
+reviewSchema.post(/^findOneAnd/, async function(){
+   await this.r.constructor.calcAverageRatings(this.r.course)
+})
+
 
 const Review = mongoose.model('Review', reviewSchema)
 
