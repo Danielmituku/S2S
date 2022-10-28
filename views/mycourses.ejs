@@ -21,13 +21,12 @@
                                     <div class="col-lg-8 mx-auto">
                                         <h2 class="text-uppercase text-secondary mb-0"><%= course[i].name %></h2>
                                         <hr class="star-dark mb-5">
-                                        <img class="img-fluid mb-5" src="/img/blockchain.jpg">
+                                        <img class="img-fluid mb-5" src= '/img/<%=course[i].imageCover%>' >
                                         <p class="mb-5">Description: <%= course[i].summary %> <br></p>
                                         <p>Rate: <%= course[i].ratingsAverage %> </p>
-                                        <p>Price: <%= course[i].price %> </p>
-                                        <p>Difficulty: <%= course[i].difficulty %> </p>
-                                        <p>Duration: <%= course[i].duration %></p>
-                        
+                                        <p> Price: $<%= course[i].price %></p>
+                                        <p>Difficulty: <%= course[i].difficulty %></p>
+                                        <p>Duration: <%= course[i].duration %>  hour</p>  
                                     </div>
                                 </div>
                             </div>
