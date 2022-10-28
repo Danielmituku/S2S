@@ -48,7 +48,7 @@ exports.getCourseDetails = catchAsync(async (req, res, next)=>{
   //2) build the template
 
   //3) render template using the data from step 1
-  res.status(200).render('mycourses',{ 
+  res.status(200).render('course',{ 
     title:"S2S | Details",  
     layout:'./layouts/student-layout',
     course

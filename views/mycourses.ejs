@@ -1,3 +1,6 @@
+<head>
+    <link rel="stylesheet" href="/css/style2.css" />
+</head>
 <body>
     <section class="py-5">
         <div class="container">
@@ -8,7 +11,7 @@
                 <span class="d-inline-block mx-3 py-1 position-relative" data-filter="2">Certified </span>
                 <span class="d-inline-block mx-3 py-1 position-relative" data-filter="3">relevant </span>
             </div>
-            <div class="row filtr-container">
+            <!-- <div class="row filtr-container">
             <% for (var i = 0; i < course.length; i++) { %>
                 <div class="col-md-6 col-lg-4">
                     <div class="modal-content">
@@ -43,140 +46,78 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <!-- <img class="img-fluid" src="/img/blockchain.jpg"> -->
+                        <img class="img-fluid" src="/img/blockchain.jpg">
                     </a>
                 <div class="modal-dialog modal-lg" role="document">
         </div>
                 </div>
-                <% } %>
-                <!-- <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" href="#portfolio-modal-5" data-bs-toggle="modal">
-                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
-                            <div class="text-center text-white my-auto portfolio-item-caption-content w-100"><i class="fa fa-search-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="/img/python1.jpg">
-                    </a></div> 
-                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" href="#portfolio-modal-2" data-bs-toggle="modal">
-                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
-                            <div class="text-center text-white my-auto portfolio-item-caption-content w-100"><i class="fa fa-search-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="/img/data.jpg">
-                    </a></div>
-                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" href="#portfolio-modal-4" data-bs-toggle="modal">
-                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
-                            <div class="text-center text-white my-auto portfolio-item-caption-content w-100"><i class="fa fa-search-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="/img/d-render-ai-artificial-intelligence-technology-cpu-central-processor-unit-chipset-printed-circuit-board-electronic-137795293.jpg">
-                    </a></div>
-                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" href="#portfolio-modal-6" data-bs-toggle="modal">
-                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
-                            <div class="text-center text-white my-auto portfolio-item-caption-content w-100"><i class="fa fa-search-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="/img/block-chain-crypto-currency-blockchain-concept-d-wireframe-digital-code-editable-cryptocurrency-template-illustration-illus-126119576.jpg">
-                    </a></div>
-                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" href="#portfolio-modal-3" data-bs-toggle="modal">
-                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
-                            <div class="text-center text-white my-auto portfolio-item-caption-content w-100"><i class="fa fa-search-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="/img/machine-learning.jpg">
-                    </a></div>
-            </div>-->
+                <% } %> -->
         </div>
     </section>
-    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-1">
-        <% for (var i = 0; i < course.length; i++) { %>
-
-    <% } %>
-       
-    </div>
-    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-2">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                <div class="modal-body">
-                    <div class="container text-center">
-                        <div class="row">
-                            <div class="col-lg-8 mx-auto">
-                                <h2 class="text-uppercase text-secondary mb-0">Data mining&nbsp;</h2>
-                                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="/img/data.jpg">
-                                <p class="mb-5">Data mining is&nbsp;a process used by companies to turn raw data into useful information.&nbsp;By using software to look for patterns in large batches of data, businesses can learn more about their customers to develop more effective marketing strategies, increase sales and decrease costs.<br></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer pb-5"><a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" data-bs-dismiss="modal">Enroll Now</a></div>
+   
+    <main class="main">
+        <div class="card-container">
+         <% for (var i = 0; i < course.length; i++) { %>
+          <div class="card">
+            <div class="card__header">
+              <div class="card__picture">
+                <div class="card__picture-overlay">&nbsp;</div>
+                <img
+                  src="/img/<%=course[i].imageCover%>"
+                  alt="course 1"
+                  class="card__picture-img"
+                />
+              </div>
+  
+              <h3 class="heading-tertirary">
+                <span><%= course[i].name %></span>
+              </h3>
             </div>
-        </div>
-    </div>
-    
-    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-3">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                <div class="modal-body">
-                    <div class="container text-center">
-                        <div class="row">
-                            <div class="col-lg-8 mx-auto">
-                                <h2 class="text-uppercase text-secondary mb-0">Machine learning</h2>
-                                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="/img/machine-learning.jpg">
-                                <p class="mb-5">Machine Learning is an AI technique that teaches computers to learn from experience. Machine learning algorithms use computational methods to “learn” information directly from data without relying on a predetermined equation as a model. The algorithms adaptively improve their performance as the number of samples available for learning increases.<br></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer pb-5"><a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" data-bs-dismiss="modal">&nbsp;Enroll Now</a></div>
+  
+            <div class="card__details">
+              <h4 class="card__sub-heading">Level: <%=course[i].difficulty%></h4>
+              <p class="card__text">
+                <%= course[i].summary %>
+              </p>
+              <div class="card__data">
+                <svg class="card__icon">
+                  <use xlink:href="/img/icons.svg#icon-map-pin"></use>
+                </svg>
+                <span>Banff, Canada</span>
+              </div>
+              <div class="card__data">
+                <svg class="card__icon">
+                  <use xlink:href="img/icons.svg#icon-calendar"></use>
+                </svg>
+                <span>Duration: <%= course[i].duration %>hr </span>
+              </div>
+              <div class="card__data">
+                <svg class="card__icon">
+                  <use xlink:href="img/icons.svg#icon-flag"></use>
+                </svg>
+                <span>3 stops</span>
+              </div>
+              <div class="card__data">
+                <svg class="card__icon">
+                  <use xlink:href="img/icons.svg#icon-user"></use>
+                </svg>
+                <span><%= course[i].enrolledStudents %> students has already enrolled</span>
+              </div>
             </div>
-        </div>
-    </div>
-    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-4">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                <div class="modal-body">
-                    <div class="container text-center">
-                        <div class="row">
-                            <div class="col-lg-8 mx-auto">
-                                <h2 class="text-uppercase text-secondary mb-0">artificial intelligence</h2>
-                                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="/img/d-render-ai-artificial-intelligence-technology-cpu-central-processor-unit-chipset-printed-circuit-board-electronic-137795293.jpg">
-                                <p class="mb-5"><br>Artificial Intelligence is the theory and development of computer systems able to perform tasks normally requiring human intelligence, such as visual perception, speech recognition, decision-making, and translation between languages.<br><br></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer pb-5"><a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" data-bs-dismiss="modal">&nbsp;Enroll Now</a></div>
+  
+            <div class="card__footer">
+              <p>
+                <span class="card__footer-value">$<%= course[i].price %></span>
+                <span class="card__footer-text">per person</span>
+              </p>
+              <p class="card__ratings">
+                <span class="card__footer-value"><%= course[i].ratingsAverage %></span>
+                <span class="card__footer-text">rating (<%= course[i].ratingsQuantity%>)</span>
+              </p>
+              <a href="/course/<%=course[i].slug%>" class="btn btn--green btn--small">Enroll Now</a>
             </div>
+          </div>
+          <% } %>
         </div>
-    </div>
-    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-5">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                <div class="modal-body">
-                    <div class="container text-center">
-                        <div class="row">
-                            <div class="col-lg-8 mx-auto">
-                                <h2 class="text-uppercase text-secondary mb-0">Python programming</h2>
-                                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="/img/python1.jpg">
-                                <p class="mb-5">Python is a<strong>&nbsp;</strong>high-level, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation. Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly procedural), object-oriented and functional programming.<br></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer pb-5"><a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" data-bs-dismiss="modal">&nbsp;Enroll Now</a></div>
-            </div>
-        </div>
-    </div>
-    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-6">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                <div class="modal-body">
-                    <div class="container text-center">
-                        <div class="row">
-                            <div class="col-lg-8 mx-auto">
-                                <h2 class="text-uppercase text-secondary mb-0">Project managment</h2>
-                                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="/img/project.jpg">
-                                <p class="mb-5">Project management involves the planning and organization of a company's resources to move a specific task, event, or duty towards completion. It typically involves a one-time project rather than an ongoing activity, and resources managed include personnel, finances, technology, and intellectual property.<br></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer pb-5"><a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" data-bs-dismiss="modal">&nbsp;Enroll Now</a></div>
-            </div>
-        </div>
-    </div>
+      </main>
 </body>

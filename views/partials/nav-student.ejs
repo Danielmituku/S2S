@@ -1,39 +1,61 @@
-<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-light" id="mainNav" style="color: #010101;font-family: 'Josefin Sans', sans-serif;">
-    <div class="container">
-        <a class="navbar-brand" href="/student" style="color: #010101;font-family: 'Josefin Sans', sans-serif;">Home</a>
-        <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive" style="color: rgb(33, 37, 41);">
-            <ul class="navbar-nav ms-auto text-uppercase">
-                <li class="nav-item"><a class="nav-link" href="/student/tutors" style="color: var(--bs-dark);font-family: 'Josefin Sans', sans-serif;">Find a tutor</a></li>
-                <li class="nav-item"><a class="nav-link" href="/student/webinar" style="color: #010101;font-family: 'Josefin Sans', sans-serif;">webinar</a></li>
-                <li class="nav-item"><a class="nav-link" href="/student/online" style="color: #010101;font-family: 'Josefin Sans', sans-serif;">online tarining</a></li>
-                <li class="nav-item"><a class="nav-link" href="/student/tasks" style="color: #010101;font-family: 'Josefin Sans', sans-serif;">tasks</a></li>
-                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link border rounded-pill" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="border-color: #010101;color: #010101;font-family: 'Josefin Sans', sans-serif;background: linear-gradient(-132deg, #DE6767, #7F67DE);">student</a>
-                    <div class="dropdown-menu"><a class="dropdown-item" href="/student/mycourses">my courses</a><a class="dropdown-item" href="/student/profile">profile</a><a class="dropdown-item" href="">ACHIVEMENTS<br></a><a class="dropdown-item" href="/">logout</a></div>
-                </li>
-            </ul>
-        </div>
+ <!-- <header class="header-students">
+    <nav class="nav nav--courses">
+        <ul class="main-nav-student">
+            <li class="nav-item"><a href="/student/tutors"  class="nav__el">Tutor</a></li>
+            <li class="nav-item"><a href="/student/webinar" class="nav__el">Webinar</a></li>
+            <li class="nav-item"><a href="/student/online" class="nav__el">Online</a></li>
+            <li class="nav-item"><a href="/student/mycourses" class="nav__el">Courses</a></li>
+        
+                <form class="nav__search">
+                    <button class="nav__search-btn">
+                      <svg>
+                        <use xlink:href="img/icons.svg#icon-search"></use>
+                      </svg>
+                    </button>
+                    <input
+                      type="text"
+                      placeholder="Search courses"
+                      class="nav__search-input"
+                    />
+                  </form>
+          <div class="nav nav--user">
+                <a href="#" class="nav__el">My bookings</a>
+                <button class="nav__el">Log out</button>
+                <a href="#" class="nav__el">
+                  <img src="/img/user.jpg" alt="User photo" class="nav__user-img" />
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle nav-link" aria-expanded="true" data-bs-toggle="dropdown"></a>
+                                <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="/student/mycourses">my courses</a>
+                                        <a class="dropdown-item" href="/student/profile">profile</a>
+                                        <a class="dropdown-item" href="">Achivement<br></a>
+                                </div>
+                        </li>  
+                </a>
+            
+                
+                <button class="nav__el">Log in</button>
+                <button class="nav__el nav__el--cta">Sign up</button>
+                
+            </div>
+        </ul>        
+    </nav>
+</header>
+ -->
+<!-- Nav menu with user information -->
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark pmd-navbar pmd-z-depth fixed-top">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <div class="dropdown pmd-dropdown pmd-user-info ml-auto">
+        <a href="javascript:void(0);" class="btn-user dropdown-toggle media align-items-center" data-toggle="dropdown" data-sidebar="true" aria-expanded="false">
+            <img class="mr-2" src="https://pro.propeller.in/assets/images/avatar-icon-40x40.png" width="40" height="40" alt="avatar">
+            <div class="media-body">
+                User
+            </div>
+            <i class="material-icons md-light ml-2 pmd-sm">more_vert</i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+            <a class="dropdown-item" href="javascript:void(0);">Edit Profile</a>
+            <a class="dropdown-item" href="javascript:void(0);">Logout</a>
+        </ul>
     </div>
 </nav>
-<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-light" id="mainNav" style="color: #010101;font-family: 'Josefin Sans', sans-serif;">
-    <div class="container"><a class="navbar-brand" href="/student" style="color: #010101;font-family: 'Josefin Sans', sans-serif;">Home</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive" style="color: rgb(33, 37, 41);">
-            <ul class="navbar-nav ms-auto text-uppercase">
-                <li class="nav-item"><a class="nav-link" href="/student/tutors" style="color: var(--bs-dark);font-family: 'Josefin Sans', sans-serif;">Find a tutor</a></li>
-                <li class="nav-item"><a class="nav-link" href="/student/webinar" style="color: #010101;font-family: 'Josefin Sans', sans-serif;">webinar</a></li>
-                <li class="nav-item"><a class="nav-link" href="/student/online" style="color: #010101;font-family: 'Josefin Sans', sans-serif;">online tarining</a></li>
-                <li class="nav-item"><a class="nav-link" href="/student/tasks" style="color: #010101;font-family: 'Josefin Sans', sans-serif;">tasks</a></li>
-                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link border rounded-pill" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="border-color: #010101;color: #010101;font-family: 'Josefin Sans', sans-serif;background: linear-gradient(-132deg, #DE6767, #7F67DE);">student</a>
-                    <div class="dropdown-menu"><a class="dropdown-item" href="/student/mycourses">my courses</a><a class="dropdown-item" href="/student/profile">profile</a><a class="dropdown-item" href="">ACHIVEMENTS<br></a><a class="dropdown-item" href="/">logout</a></div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<script src="/bootstrap/js/bootstrap.min.js"></script>
-<script src="/js/bs-init.js"></script>
-<script src="/js/-Filterable-Cards-.js"></script>
-<script src="/js/agency.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.js"></script>
-<script src="/js/Profile-Edit-Form.js"></script>
-<script src="/js/slider-hover.js"></script>
