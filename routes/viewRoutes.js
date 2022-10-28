@@ -15,6 +15,7 @@ router.get('/forgetpassword', viewController.getForgetPassword)
 
 router.get('/student', authController.isLoggedIn,authController.protect, viewController.getStudentLanding)
 router.get('/student/mycourses', authController.isLoggedIn, authController.protect, viewController.getMyCourse)
+router.get('/student/mycourses/:slug', authController.isLoggedIn, authController.protect, viewController.getCourseDetails)
 router.get('/student/tutors', authController.isLoggedIn, authController.protect, viewController.getTutorFind)
 router.get('/student/webinar', authController.isLoggedIn, authController.protect, viewController.getWebinar)
 router.get('/student/online', authController.isLoggedIn, authController.protect, viewController.getOnline)

@@ -39,6 +39,21 @@ exports.getMyCourse = catchAsync(async (req,res , next)=>{
     course
   })
 })
+exports.getCourseDetails = catchAsync(async (req, res, next)=>{
+  //1) get the Data, for the requested course including the tutor and review
+  const course = await Course.findOne({slug: req.params.slug}).populate({
+    path:'review',
+    fields: 'review rating student'
+  })
+  //2) build the template
+
+  //3) render template using the data from step 1
+  res.status(200).render('mycourses',{ 
+    title:"S2S | Details",  
+    layout:'./layouts/student-layout',
+    course
+  })
+})
 exports.getTutorFind = (req, res)=>{
   res.status(200).render('Tutors', {title: "S2S | Tutors",  layout:'./layouts/student-layout'})
 }

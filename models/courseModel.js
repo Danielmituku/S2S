@@ -117,6 +117,12 @@ this.find({secretTour:{$ne: true}})
 this.start = Date.now();
  next();
 })
+courseSchema.pre('^find', function(next){
+    this.populate({
+        path:'tutor',
+        select:'-__v -passwordChangedAt'
+    })
+})
 
 courseSchema.post('/^find/', function(docs, next){
     console.log(docs);
