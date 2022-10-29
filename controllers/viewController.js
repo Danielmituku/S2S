@@ -44,6 +44,9 @@ exports.getCourseDetails = catchAsync(async (req, res, next)=>{
   const course = await Course.findOne({slug: req.params.slug}).populate({
     path:'review',
     fields: 'review rating student'
+  }).populate({
+    path: 'tutors',
+    fields: 'name'
   })
   //2) build the template
 

@@ -71,7 +71,7 @@ const courseSchema = mongoose.Schema({
         select:false
     },
     startDates:[Date],
-    seretcourse:{
+    secreteCourse:{
         type:Boolean,
         default:false 
     },
@@ -99,10 +99,10 @@ courseSchema.virtual('reviews', {
 })
 //DOCUMENT MIDDLEWARE: runs before .save() and .create()
 
-// courseSchema.pre('save', function(next){
-//    this.slug = slugify(this.name,{lower:true});
-//    next();
-// });
+courseSchema.pre('save', function(next){
+   this.slug = slugify(this.name,{lower:true});
+   next();
+});
 // courseSchema.post('save', (doc, next)=> {
 //     console.log(doc);
 //     next();
@@ -112,11 +112,12 @@ courseSchema.virtual('reviews', {
 
 
 courseSchema.pre('/^find/', function(next){
-this.find({secretTour:{$ne: true}})
+this.find({secreteCourse:{$ne: true}})
 
 this.start = Date.now();
  next();
 })
+
 courseSchema.pre('^find', function(next){
     this.populate({
         path:'tutor',
