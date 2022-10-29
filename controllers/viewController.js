@@ -18,7 +18,7 @@ exports.getsSignupTutor= (req,res)=>{
     res.status(200).render('reg', {title:'S2S | Registration'})
   } 
 exports.getsSignupStudent= (req,res)=>{
-    res.status(200).render('signup')
+    res.status(200).render('signup',{title: 'S2S | sign-up'})
   } 
 
   //student-view controller
@@ -26,7 +26,8 @@ exports.getStudentLanding = (req,res)=>{
  
   res.status(200).render('student_home', {title: 'S2S | Home', layout:'./layouts/student-layout'})
 }
-exports.getMyCourse = catchAsync(async (req,res , next)=>{
+
+exports.getMyCourse = catchAsync(async (req, res , next)=> {
    //1) get course data from collection
   const course = await Course.find()
 
@@ -39,7 +40,9 @@ exports.getMyCourse = catchAsync(async (req,res , next)=>{
     course
   })
 })
-exports.getCourseDetails = catchAsync(async (req, res, next)=>{
+
+
+exports.getCourseDetails = catchAsync( async (req, res, next)=>{
   //1) get the Data, for the requested course including the tutor and review
   const course = await Course.findOne({slug: req.params.slug}).populate({
     path:'review',
@@ -52,11 +55,13 @@ exports.getCourseDetails = catchAsync(async (req, res, next)=>{
 
   //3) render template using the data from step 1
   res.status(200).render('course',{ 
-    title:"S2S | Details",  
+    title:"S2S | course",  
     layout:'./layouts/student-layout',
     course
   })
 })
+
+
 exports.getTutorFind = (req, res)=>{
   res.status(200).render('Tutors', {title: "S2S | Tutors",  layout:'./layouts/student-layout'})
 }

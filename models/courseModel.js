@@ -95,7 +95,7 @@ courseSchema.virtual('durationWeeks').get(function(){ return this.duration / 7;}
 courseSchema.virtual('reviews', {
     ref: 'Review',
     foreignField: 'course',
-    localField: '_id'
+    localField: '_id' 
 })
 //DOCUMENT MIDDLEWARE: runs before .save() and .create()
 

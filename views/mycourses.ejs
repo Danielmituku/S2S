@@ -87,19 +87,19 @@
               </div>
               <div class="card__data">
                 <svg class="card__icon">
-                  <use xlink:href="img/icons.svg#icon-calendar"></use>
+                  <use xlink:href="/img/icons.svg#icon-calendar"></use>
                 </svg>
                 <span>Duration: <%= course[i].duration %>hr </span>
               </div>
               <div class="card__data">
                 <svg class="card__icon">
-                  <use xlink:href="img/icons.svg#icon-flag"></use>
+                  <use xlink:href="/img/icons.svg#icon-flag"></use>
                 </svg>
                 <span>3 stops</span>
               </div>
               <div class="card__data">
                 <svg class="card__icon">
-                  <use xlink:href="img/icons.svg#icon-user"></use>
+                  <use xlink:href="/img/icons.svg#icon-user"></use>
                 </svg>
                 <span><%= course[i].enrolledStudents %> students has already enrolled</span>
               </div>
@@ -114,7 +114,7 @@
                 <span class="card__footer-value"><%= course[i].ratingsAverage %></span>
                 <span class="card__footer-text">rating (<%= course[i].ratingsQuantity%>)</span>
               </p>
-              <a href="/course/<%=course[i].slug%>" class="btn btn--green btn--small">Enroll Now</a>
+              <a href="/student/course" class="btn btn--green btn--small">Enroll Now</a>
             </div>
           </div>
           <% } %>

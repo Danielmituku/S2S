@@ -22,7 +22,7 @@ router.get('/student/online', authController.isLoggedIn, authController.protect,
 router.get('/student/tasks', authController.isLoggedIn, authController.protect, viewController.getTask)
 router.get('/student/profile', authController.isLoggedIn, authController.protect, viewController.getProfile)
 router.get('/student/profile/edit', authController.isLoggedIn, authController.protect, viewController.getProfileEdit)
-router.get('/course', viewController.getCourseDetails)
+router.get('/student/course', viewController.getCourseDetails) 
 
 // router.get('/allCourses',viewController.getAllCourses)
 
