@@ -107,28 +107,44 @@ tutorSchema.pre('save', async function(next){
     if(!this.isModified('password')) return next();
 
     //hash the password with cost of 12
-    this.password = await bcrypt.hash("passwoed", 12);
-
+    this.password = await bcrypt.hash("password", 12);
     //delete the passwoed confirm field
     this.passwordConfirm = undefined;
-
     next();
 })
+tutorSchema.pre('save', async function(next){
+    if(!this.isModified('password')||this.isNew) return next();
+    this.passwordChangedAt = Date.now() - 1000;
+    next()
+})
+tutorSchema.pre('/^find/', function(next){
+    //this point to the currrent query
+    this.find({active:{$ne : false}})
+    next()
 
+})
 //instance method for comaprison of password
 tutorSchema.methods.correctPassword = async function(candidatePassword, userPassword){
     return await bcrypt.compare(candidatePassword, userPassword)
 }
-tutorSchema.methods.changedPasswordAfter = function(JWTTimestamp){
-    if(this.passwordChangedAt){
-        const changedTimestamp = parseInt(this.passwordChangedAt.getDate() / 1000, 10);
-        console.log(this.changedTimestamp, JWTTimestamp)
 
+tutorSchema.methods.changedPasswordAfter = function(JWTTimesamp){
+    if(this.passwordChangedAt){
+        const changedTimestamp = ParseInt(this.passwordChangedAt.getDate() / 1000, 10);
+        console(this.changedTimestamp, JWTTimestamp)
         return JWTTimestamp < changedTimestamp
     }
-
     //false means not changed
     return false;
+}
+
+tutorSchema.methods.createPasswordResetToken = function() {
+    const resetToken = crypto.randomBytes(32).toString('hex');
+    this.passwordResetToken = crypto.createHash('sha256').update(resetToken).digest('hex');
+    this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
+    console.log({resetToken}, this.passwordResetToken);
+
+    return resetToken;
 }
 const Tutor = mongoose.model("Tutor", tutorSchema);
 

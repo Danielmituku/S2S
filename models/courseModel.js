@@ -75,10 +75,12 @@ const courseSchema = mongoose.Schema({
         type:Boolean,
         default:false 
     },
-    tutor:[{
+    tutor:[
+        {
         type: mongoose.Schema.ObjectId,
         ref: 'Tutor'
-    }]
+    }
+]
 }, 
 {
     toJSON:{ virtuals: true}, 

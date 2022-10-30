@@ -4,9 +4,6 @@ const catchAsync = require('../utilis/catchAsync')
 exports.getsHome = (req,res)=>{
     res.status(200).render('index', {title: 'S2S'})
   }
-exports.getsLoginStudent= (req,res)=>{
-    res.status(200).render('logins', {title: 'S2S | student-Login'})
-  }
 
 exports.getSignup = (req, res)=>{
   res.status(200).render('signup',{title: 'S2S | sign-up'})
@@ -22,6 +19,9 @@ exports.getsSignupStudent= (req,res)=>{
   } 
 
   //student-view controller
+  exports.getsLoginStudent= (req,res)=>{
+    res.status(200).render('logins', {title: 'S2S | student-Login'})
+  }
 exports.getStudentLanding = (req,res)=>{
  
   res.status(200).render('student_home', {title: 'S2S | Home', layout:'./layouts/student-layout'})
@@ -60,8 +60,6 @@ exports.getCourseDetails = catchAsync( async (req, res, next)=>{
     course
   })
 })
-
-
 exports.getTutorFind = (req, res)=>{
   res.status(200).render('Tutors', {title: "S2S | Tutors",  layout:'./layouts/student-layout'})
 }

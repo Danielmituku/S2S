@@ -1,6 +1,6 @@
- /* :root {
+ :root {
   --section-rotate: 1vw;
-} */
+}
 
 ::-moz-selection {
   background-color: #eb4d4b;
@@ -27,7 +27,8 @@ html {
   box-sizing: border-box;
 }
 
-body {
+.body {
+  font-size: 65.5%;
   line-height: 1.6;
   font-weight: 800;
   font-family: 'Lato', sans-serif;
