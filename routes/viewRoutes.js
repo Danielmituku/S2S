@@ -36,6 +36,7 @@ router.get('/tutors/portfolio', viewController.getsPortfolio)
 
 //routes for Admin
 router.get('/dashbord', viewController.getDashbord)
+router.get('/dashbord/add-course', viewController.addCourse)
 
 module.exports = router
 

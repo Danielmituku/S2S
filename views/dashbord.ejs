@@ -17,8 +17,8 @@
                 <div class="top-report-cards">
                     <div><i class="fas fa-users"></i></div>
                     <div>
-                        <p>Teacher</p>
-                        <h2></h2>
+                        <p>Tutor</p>
+                        <h2>Tutor Number</h2>
                     </div>
                 </div>
                 <!-- <div class="top-report-cards">
@@ -32,14 +32,14 @@
                     <div><i class="fas fa-user"></i></div>
                     <div>
                         <p>Courses</p>
-                        <h2>department_no</h2>
+                        <h2>Courses_no</h2>
                     </div>
                 </div>
                 <div class="top-report-cards">
                     <div><i class="fas fa-user"></i></div>
                     <div>
-                        <p>Addmission</p>
-                        <h2>admission_no</h2>
+                        <p>Reviews</p>
+                        <h2>Reviews_no</h2>
                     </div>
                 </div>
                 <!-- <div class="top-report-cards">
@@ -67,7 +67,7 @@
             <div class="report-cards">
                 <div class="earning">
                     <div class="card-header">
-                        <h3>University Earnings</h3>
+                        <h3>Tutor Earnings</h3>
                         <p id="close">X</p>
                     </div>
                     <div class="report-graph">
@@ -87,7 +87,7 @@
                 <div class="highlight-information">
                     <div class="new-admission">
                         <div class="card-header">
-                            <h3>New Admisson</h3>
+                            <h3>New Student</h3>
                             <p id="close">X</p>
                         </div>
                         <div>
@@ -96,13 +96,13 @@
                                     <tr>
                                         <th>Profile</th>
                                         <th>First Name</th>
-                                        <th>Middle Name</th>
+                                        <th>Last Name</th>
                                         <th>Gender</th>
                                         <th>Course</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    < admission.forEach(function(addm) { %>
+                                    < Student.forEach(function(addm) { %>
                                         <tr>
                                             <td><a href="/profile/<%=  %>"><img src="/img/team/1.jpg" width="40" height="40" alt="image"></a></td>
                                             <td>addm.firstName</td>

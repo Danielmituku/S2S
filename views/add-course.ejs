@@ -1,20 +1,32 @@
 
- <%- include('includes/admin-header') %>
+ <%- include('partials/header-admin') %>
 
 
  <!-- *********************admin body start**************** -->
  <div class="admin-body">
      <div class="student-form">
          
-         <%- include('includes/flash') %>
+         <!-- < include('partials/flash') %> -->
 
          <div class="basic-information">
-             <h3>Add Department</h3>
-             <form action="/add-department" method="post" class="basic-info-form" enctype="multipart/form-data" >
+             <h3>Add Course</h3>
+             <form action="/add-course" method="post" class="basic-info-form" enctype="multipart/form-data" >
                  <div>
-                     <input type="text" name="departmentName" placeholder="Department Name">
+                     <input type="text" name="courseName" placeholder="Course Name">
                  </div>
-                 
+                 <div>
+                    <input type="text" name="duration" placeholder="Duration">
+                </div>
+                <div>
+                    <label for="difficulty">Difficulty</label>
+                <select name="difficulty" placeholder="Difficult">
+                        <optgroup>
+                            <option value="">easy</option>
+                            <option value="">medium</option>
+                            <option value="">difficult</option>
+                        </optgroup>
+                </select>
+                </div>
                  <label for="description" class="description">
                      <textarea name="description" id="iddress" rows="2" placeholder="Description"></textarea>
                  </label>

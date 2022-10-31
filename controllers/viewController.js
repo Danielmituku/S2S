@@ -100,3 +100,6 @@ exports.getsPortfolio = (req, res) => {
 exports.getDashbord = (req, res) => {
   res.status(200).render('dashbord', { title: "S2S | Admin", layout: './layouts/admin-layout' })
 }
+exports.addCourse = (req, res) =>{
+  res.status(200).render('add-course', {title: "Add-course", layout:'./layouts/admin-layout' })
+}

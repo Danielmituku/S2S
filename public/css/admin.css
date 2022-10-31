@@ -10,12 +10,12 @@
 }
 
 :root {
-    --clr-primary: #193154;
-    --clr-secondary: #ffd43b;
-    --clr-icon: #0ca678;
+    --clr-primary: #7f67de;
+    --clr-secondary: #fcfcfc;
+    --clr-icon: #000108;
 }
 body{
-    font-family: 'IBM Plex Mono',monospace;
+    font-family: josefin;
 }
 a{
     /* color: #ffffff; */
@@ -32,7 +32,7 @@ input {
     padding: 0 35px;
     background-color: #e4ebf1;
     outline: none;
-    color: #012b3a;
+    color: #ffffff;
     font-weight: 550;
 }
 form .logout{
@@ -43,7 +43,7 @@ form .logout{
 .admin-sidebar {
     position: fixed;
     width: 250px;
-    background-color: #193154;
+    background-color: #7f67de;
     height: 100%;
     overflow-y: scroll;
     box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
@@ -63,7 +63,7 @@ form .logout{
     align-items: center;
     justify-content: center;
     height: 150px;
-    background-color: #001c40;
+    background-color: #1d1441;
     color: #f8f9fa;
 }
 .admin-profile  img{
@@ -78,16 +78,16 @@ form .logout{
 }
 .dropdown-container {
     display: none;
-    background-color: #515e7b;
+    background-color: #a798e4;
     padding-left: 8px;
     font-size: small;
 }
 .dropdown-btn{
-    color: #f8f9fa;
+    color: #ffffff;
 }
 .dropdown-btn:hover,
 .content li:hover a{
-    color: #ffd43b;
+    color: #1d1441;
 }
 .dropdown-btn i{
     float: right;
@@ -96,7 +96,7 @@ form .logout{
     transform: rotate(90deg);
 }
 .active {
-  color: #ffd43b;
+  color: #1d1441;
 }
 
 .body-content {
@@ -120,7 +120,7 @@ form .logout{
     width: calc(100% - 250px);
 
     display: flex;
-    background-color: #515e7b;
+    background-color: #7f67de;
     height: 60px;
     align-items: center;
     justify-content: center;
@@ -129,7 +129,7 @@ form .logout{
 }
 
 .admin-search-bar input {
-    background-color: #636e88;
+    background-color: #1d1441;
     width: 50%;
     height: 35px;
     outline: none;
@@ -140,7 +140,7 @@ form .logout{
 }
 
 .admin-search-bar button {
-    background-color: #636e88;
+    background-color: #1d1441;
     position: relative;
     left: -44px;
     width: 30px;
