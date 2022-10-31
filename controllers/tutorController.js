@@ -35,7 +35,7 @@ exports.updateMe = async (req, res, next) =>{
     }
   })
 }
-
+ 
 exports.deleteMe = catchAsync(
   async(req, res, next)=>{
    const user = await Tutor.findByIdAndUpdate(req.user.id,{ active: false })

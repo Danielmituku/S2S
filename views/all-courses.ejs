@@ -1,0 +1,32 @@
+<%- include('includes/user-header') %>
+
+ 
+    <div class="courses-section">
+        <div class="section-description">
+            <h2>Our Courses</h2>
+            <br>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, natus alias! Illo.</p>
+        </div>
+        <div class="courses">
+
+            <% departments.forEach(function(department) { %>
+
+                <div class="top-report-cards">
+                    
+                    <div>
+                        <div class="course"><img class="" src="/uploads/images/<%= department.image %>" alt=""><a href=""><%= department.departmentName%></a></div>
+                    </div>
+                </div>
+            <% }) %>
+
+            <!-- <div class="course"><div class="course1"></div> <a href="">Applied Sciences</a></div>
+            <div class="course"><div class="course2"></div> <a href="">Computer Sciences</a></div>
+            <div class="course"><div class="course3"></div> <a href="">Law</a></div>
+            <div class="course"><div class="course4"></div> <a href="">Medicine</a></div> -->
+        </div>
+    </div>
+    <%- include('includes/footer') %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>

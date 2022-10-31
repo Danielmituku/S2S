@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%-title%></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="/css/dashbord.css">
+    <link rel="stylesheet" href="/css/admin-add.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/style3.css">
+    <link rel="stylesheet" href="/css/time-table.css">
+    <link href="/css/profile.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/All_student.css">
+    <link rel="stylesheet" href="/css/notice-page.css">
+    <link rel="stylesheet" href="/css/admin-event.css">
+    <link rel="stylesheet" href="/css/notice.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/chart.min.js" integrity="sha512-VCHVc5miKoln972iJPvkQrUYYq7XpxXzvqNfiul1H4aZDwGBGC0lq373KNleaB2LpnC2a/iNfE5zoRYmB4TRDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div class="admin-sidebar">
+        <div class="admin-profile">
+            <a href=""><img src="/img/team/1.jpg" width="70" height="70" alt="image"></a>
+            <h4 class="name"></i>Daniel Mituku</h4>
+        </div>
+        <ul id="sideContent" class="content">
+            <li><a href="/"></i>Dashbord</a></li>
+            <li class="dropdown-btn"><a href="/all-admission">Admission</a></li>
+            <li class="dropdown-btn"> Students <i class="fa fa-caret-right"></i></li>
+            <ul class="dropdown-container">
+                <li><a href="/all-student/user.username">All Student</a></li>
+                <li><a href="/add-student">Add Student</a></li>
+            </ul>
+            
+
+            <li class="dropdown-btn"> Department <i class="fa fa-caret-right"></i></li>
+            <ul class="dropdown-container">
+                <li><a href="/add-department">Add Department</a></li>
+                <li><a href="/all-departments">All Department</a></li>
+            </ul>
+            <li class="dropdown-btn"><a href="/add-time-table">Time Table</a></i></li>
+            <ul class="dropdown-container">
+                <li><a href="">Add Time table</a></li>
+                <li><a href="">All Time tables</a></li>
+            </ul>
+
+            <li class="dropdown-btn"> Notice-Board <i class="fa fa-caret-right"></i></li>
+            <ul class="dropdown-container">
+                <li><a href="/notice">Add Notice</a></li>
+                <li><a href="/all-notice/user.user>">Notice Page</a></li>
+            </ul>
+            <li class="dropdown-btn"> Events <i class="fa fa-caret-right"></i></li>
+            <ul class="dropdown-container">
+                <li><a href="/addEvent">Add event</a></li>
+                <li><a href="/allEvents">All events</a></li>
+            </ul>
+            
+            <br>
+            <br>
+            <br>
+            <br>
+        </ul>
+    </div>
+
+    <div class="admin-navigation">
+        <p class="admin-menu-bar" href="" ><i class="fa fa-bars" aria-hidden="true"></i></p>
+        <form action="/search" method="POST" class="admin-search-bar">
+            <input type="text" placeholder="Search" name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <div class="admin-left-nav">
+            <button class="notification"><i class="fa fa-bell"></i></button>
+            <button class="profile"><i class="fa fa-user-circle"></i></button>
+              
+        </div>
+        <form action="/logout" method="POST">
+            <button class="btn login">Logout</button>
+        </form>
+    </div>

@@ -3,7 +3,7 @@ const viewController = require('../controllers/viewController')
 const authController = require('../controllers/authController')
 const router = express.Router();
 
-router.use(authController.isLoggedIn)
+// router.use(authController.isLoggedIn)
 
 
 // view Routes for student 
@@ -13,15 +13,15 @@ router.get('/signups',viewController.getsSignupStudent)
 router.get('/signup', viewController.getSignup)
 router.get('/forgetpassword', viewController.getForgetPassword)
 
-router.get('/student', authController.isLoggedIn,authController.protect, viewController.getStudentLanding)
-router.get('/student/mycourses', authController.isLoggedIn, authController.protect, viewController.getMyCourse)
-router.get('/student/mycourses/:slug', authController.isLoggedIn, authController.protect, viewController.getCourseDetails)
-router.get('/student/tutors', authController.isLoggedIn, authController.protect, viewController.getTutorFind)
-router.get('/student/webinar', authController.isLoggedIn, authController.protect, viewController.getWebinar)
-router.get('/student/online', authController.isLoggedIn, authController.protect, viewController.getOnline)
-router.get('/student/tasks', authController.isLoggedIn, authController.protect, viewController.getTask)
-router.get('/student/profile', authController.isLoggedIn, authController.protect, viewController.getProfile)
-router.get('/student/profile/edit', authController.isLoggedIn, authController.protect, viewController.getProfileEdit)
+router.get('/student', viewController.getStudentLanding)
+router.get('/student/mycourses',  viewController.getMyCourse)
+router.get('/student/mycourses/:slug',  viewController.getCourseDetails)
+router.get('/student/tutors',  viewController.getTutorFind) 
+router.get('/student/webinar',  viewController.getWebinar)
+router.get('/student/online',  viewController.getOnline)
+router.get('/student/tasks',  viewController.getTask)
+router.get('/student/profile',  viewController.getProfile)
+router.get('/student/profile/edit',  viewController.getProfileEdit)
 router.get('/student/course', viewController.getCourseDetails) 
 
 // router.get('/allCourses',viewController.getAllCourses)
@@ -33,6 +33,9 @@ router.get('/tutors', viewController.getsTutorLanding)
 router.get('/tutors/profile', viewController.getsTutorProfile)
 router.get('/tutors/profile/edit', viewController.getsTutorProfileEdit)
 router.get('/tutors/portfolio', viewController.getsPortfolio)
+
+//routes for Admin
+router.get('/dashbord', viewController.getDashbord)
 
 module.exports = router
 

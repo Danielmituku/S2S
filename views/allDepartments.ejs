@@ -1,0 +1,36 @@
+<%- include('includes/admin-header') %>
+
+<!-- Admin Dashbord body start -->
+<div class="admin-body allDepartments">
+    <div class="dashbord">
+        <div class="dashbord-header">
+            <h3>All Departments</h3>
+            <button class="btn download-report-btn">Download Report</button>
+        </div>
+        <div class="top-report">
+
+            <% 
+    
+            departments.forEach(function(department) { 
+
+            %>
+
+                <div class="top-report-cards">
+                    
+                    <div>
+                        <p><%= department.departmentName%></p>
+                        <h4>2 Class</h4>
+                    </div>
+                </div>
+
+            <%
+    
+            }) %>
+
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/js/admin.js"></script>
+    </body>
+    </html>

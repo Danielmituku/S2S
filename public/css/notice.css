@@ -1,0 +1,51 @@
+#tit{
+    text-align: center;
+    text-decoration: solid;
+    background-color: #f7edd9;
+    border-radius: 5px;
+    padding: 10px;
+    width: 50%;
+}
+#body{
+    background-color: #dce7e3;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    height: 300px;
+    border-radius: 5px;
+}
+#notice-card{
+    background-color: #f5da45;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+    box-shadow: 0em 0.3em 0.5em rgba(0, 0, 0, 0.253);
+
+}
+.inside-box, .notice-date{
+    padding: 10px;
+}
+
+.notice-part {
+    text-align: center;
+  }
+  
+  /* .notice-part th,tr {
+    border: 1px solid #EAEAEA;
+    text-align: left;
+    padding: 18px;
+  } */
+  
+  .notice-part h3{
+    background-color: #2f3a27;
+    width: 5rem;
+    color: #fff;
+    font-size: larger;
+    font-weight: bold;
+  }
+  
+    .notice-part table{
+      text-align: center;
+    }

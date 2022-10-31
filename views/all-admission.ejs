@@ -1,0 +1,55 @@
+
+    <%- include('includes/admin-header') %>
+
+
+    <div class="admin-body">
+        <%- include('includes/flash') %>
+
+        <div class="all-student-container">
+            <div class="welcome">
+                <h3>Admission</h3>
+            </div>
+            <!-- <h3 class="all-Student-title">Student List</h3> -->
+            
+            <div class="table-1">
+                <table cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <th>Media</th>
+                            <th>First Name</th>
+                            <th>MiddleName</th>
+                            <th>Last Name</th>
+                            <th>Gender</th>
+                            <th>Email</th>
+                            <th>Phone-Number</th>
+                            <th>Department</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% admission.forEach(function(addm) { %>
+                            <tr>
+                                <td><a href="/profile/<%=  %>"><img src="/image/art.jpg" width="40" height="40" alt="image"></a></td>
+                                <td><%= addm.firstname%></td>
+                                <td><%= addm.middleName%></td>
+                                <td><%= addm.lastName%></td>
+                                <td><%= addm.gender%></td>
+                                <td><%= addm.email%></td>
+                                <td><%= addm.phoneNumber%></td>
+                                <td><%= addm.courses%></td>
+
+                            </tr>
+                            
+                          <% }) %>
+                    </tbody>
+                   
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/admin.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400&display=swap');
+*,
+*::before,
+*::after {
+    text-decoration: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+:root {
+    --clr-primary: #193154;
+    --clr-secondary: #ffd43b;
+    --clr-icon: #0ca678;
+}
+body{
+    font-family: 'IBM Plex Mono',monospace;
+}
+a{
+    /* color: #ffffff; */
+}
+input:focus {
+    border: solid 2px var(--clr-secondary);
+}
+i {
+    color: var(--clr-secondary);
+}
+input {
+    border-radius: 20px;
+    height: 35px;
+    padding: 0 35px;
+    background-color: #e4ebf1;
+    outline: none;
+    color: #012b3a;
+    font-weight: 550;
+}
+form .logout{
+    color: whitesmoke;
+}
+/****************admin sidenav start***********************/
+
+.admin-sidebar {
+    position: fixed;
+    width: 250px;
+    background-color: #193154;
+    height: 100%;
+    overflow-y: scroll;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
+                0 2px 4px rgba(0,0,0,0.07), 
+                0 4px 8px rgba(0,0,0,0.07), 
+                0 8px 16px rgba(0,0,0,0.07),
+                0 16px 32px rgba(0,0,0,0.07), 
+                0 32px 64px rgba(0,0,0,0.07);
+    
+}
+.admin-sidebar::-webkit-scrollbar{
+    display: none;
+}
+.admin-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    background-color: #001c40;
+    color: #f8f9fa;
+}
+.admin-profile  img{
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.content li a{
+    color: #f8f9fa;
+}
+.admin-sidebar .content li{
+    padding: 20px;
+}
+.dropdown-container {
+    display: none;
+    background-color: #515e7b;
+    padding-left: 8px;
+    font-size: small;
+}
+.dropdown-btn{
+    color: #f8f9fa;
+}
+.dropdown-btn:hover,
+.content li:hover a{
+    color: #ffd43b;
+}
+.dropdown-btn i{
+    float: right;
+}
+.dropdown-btn:hover i{
+    transform: rotate(90deg);
+}
+.active {
+  color: #ffd43b;
+}
+
+.body-content {
+    position: absolute;
+    top: 0;
+    left: 250px;
+    width: 100%;
+    height: 1000vh;
+    background-color: #f8f9fa;
+}
+
+/****************admin topnav start***********************/
+.admin-menu-bar i{
+    display: none;
+    font-size: larger;
+    padding:10px ;
+}
+.admin-navigation {
+    position: fixed;
+    left: 250px;
+    width: calc(100% - 250px);
+
+    display: flex;
+    background-color: #515e7b;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    border-bottom: solid var(--clr-primary) 4px;
+}
+
+.admin-search-bar input {
+    background-color: #636e88;
+    width: 50%;
+    height: 35px;
+    outline: none;
+}
+
+.admin-search-bar input::placeholder {
+    padding-left: 5px;
+}
+
+.admin-search-bar button {
+    background-color: #636e88;
+    position: relative;
+    left: -44px;
+    width: 30px;
+    height: 30px;
+    border-radius: 19px;
+}
+.admin-search-bar {
+    flex: 1;
+}
+.admin-search-bar input::placeholder {
+    color: white;
+}
+
+.admin-left-nav button {
+    padding: 7px;
+    margin: 10px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--clr-primary);
+}
+
+.admin-left-nav i {
+    font-size: 19px;
+}
+
+/* ***************admin Responsive start****************** */
+
+@media (max-width: 768px) {
+
+    .admin-sidebar {
+        display: none;
+      margin-top: 60px;
+        /* transition: transform 0.3s ease-in; */
+        /* transform: translateX(0); */
+    }
+
+    .admin-navigation,
+    .admin-body {
+        left: 0;
+        width: 100%;
+    }
+
+    input {
+        width: 90%;
+    }
+
+    .admin-menu-bar i {
+        display: block;
+        /* color: #ffffff; */
+        font-size: 20px;
+    }
+}
+
+

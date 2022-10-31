@@ -1,0 +1,82 @@
+
+.profile-container{
+  display: flex;
+  margin:40px;
+}
+.profile h3{
+  margin: 20px;
+}
+.basic-profile-info{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.basic-profile-info p{
+  padding: 3px 0;
+}
+.basic-profile-info i{
+  margin-right: 5px;
+}
+.profileCard
+{
+  justify-content: left;
+  padding: 20px;
+  width: 400px;
+  background: #fff;
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.5);
+}
+.imageContainer
+{
+  position: relative;
+}
+.imageContainer img 
+{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  clip-path: circle();
+}
+.info
+{
+  color: #4b4fe2;
+  margin-right: 16px;
+  
+}
+.main-container
+{
+  padding: 20px;
+
+}
+.skill-bar
+{
+background-color: #bdc9ea;
+border-radius: 16px;
+}
+.progress-bar{
+padding: 0.1em 16px;
+border-radius: 16px;
+text-align: center;
+color: #fff;
+background-color: #4b4fe2;
+}
+.profileCard .title
+{
+  position:absolute;
+  left: 15px;
+  bottom: 0;
+}
+.skill-bar2
+{
+  background-color: red;background: linear-gradient(45deg,rgba(255,255,255,0.5)25%,transparent 25%, transparent 50%, rgba(255,255,255,0.5)50%,rgba(255,255,255,0.5)75%,transparent 75%,transparent 75%);
+
+}
+.right-profile{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.textContainer
+{
+padding: 20px;
+}

@@ -1,0 +1,64 @@
+
+    <%- include('includes/admin-header') %>
+
+
+    <div class="admin-body">
+        <%- include('includes/flash') %>
+
+        <div class="all-student-container">
+            <div class="welcome">
+                <h3>All Student of Egna Begna University</h3>
+            </div>
+            <!-- <h3 class="all-Student-title">Student List</h3> -->
+            
+            <div class="table-1">
+                <table cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <th>Media</th>
+                            <th>Id</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Gender</th>
+                            <th>Email</th>
+                            <th>Phone-Number</th>
+                            <th>Department</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% posts.forEach(function(post) { %>
+                            <tr>
+                                <td><a href="/profile/<%= post._id %>"><img src="/image/art.jpg" width="40" height="40" alt="image"></a></td>
+                                <td><%= post.username%></td>
+                                <td><%= post.firstName%></td>
+                                <td><%= post.lastName%></td>
+                                <td><%= post.gender%></td>
+                                <td><%= post.email%></td>
+                                <td><%= post.phoneNumber%></td>
+                                <td><%= post.department%></td>
+                                <td>
+                                    <a href="/student/<%=post._id %>/edit" class="btn border-shadow update">
+                                        <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                                    </a>
+                                    
+                                    <a href="/student/<%= post._id %>/delete" class="btn border-shadow delete">
+                                        <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            
+                          <% }) %>
+                    </tbody>
+                   
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/admin.js"></script>
+</body>
+</html>
+
+

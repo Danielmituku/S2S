@@ -1,0 +1,53 @@
+<%- include('includes/admin-header') %>
+
+<!-- ***************** add event body ****************-->
+<div class="admin-body">
+    <div class="student-form">
+        <div class="basic-information">
+            <h3>Create an event</h3>
+            <form action="/addEvent" method="POST" class="basic-info-form" enctype="multipart/form-data" >
+                <div>
+                    <input type="text" name="eventName" placeholder="Event name">
+                    <input type="date" name="eventDate" placeholder="Event date">
+                </div>
+                
+                <label for="fileUpload" class="flie-upload-label">
+                    <div>
+                        <i class="fa fa-file-upload"></i>
+                    </div>
+                    <input class="file-upload" type="file" id="fileUpload" name="image" required>
+                    <p><strong>Choose a file</strong> or drag it here</p>
+                </label>
+                <label for="description" class="description">
+                    <textarea name="description" id="description" rows="6" placeholder="Description"></textarea>
+                </label>
+                <div>
+                    <div>
+                        <input type="text" name="venue" placeholder="Venue">
+                    </div>
+                    <div>
+                        <input type="text" name="timing" placeholder="Timing">
+                    </div>
+                    <div>
+                        <label for="registration">Registration:</label>
+                        <select name="registration" id="">
+                            <option value="Required">Required</option>
+                            <option value="notRequired">Not required</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-btn">
+                        <button type="submit" class="btn submit-btn">Create event</button>
+                        <button type="submit" class="btn cancel-btn">cancel</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
+<!-- *********************add event body end**************** -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./js/admin.js"></script>
+</body>
+</html>

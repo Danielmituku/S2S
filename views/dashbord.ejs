@@ -1,0 +1,192 @@
+
+<!-- Admin Dashbord body start -->
+    <div class="admin-body">
+        <div class="dashbord">
+            <div class="dashbord-header">
+                <h3>Dashbord</h3>
+                <button class="btn download-report-btn">Download Report</button>
+            </div>
+            <div class="top-report">
+                <div class="top-report-cards">
+                    <div><i class="fas fa-user"></i></div>
+                    <div>
+                        <p>Student</p>
+                        <h2>student_no%</h2>
+                    </div>
+                </div>
+                <div class="top-report-cards">
+                    <div><i class="fas fa-users"></i></div>
+                    <div>
+                        <p>Teacher</p>
+                        <h2></h2>
+                    </div>
+                </div>
+                <!-- <div class="top-report-cards">
+                    <div><i class="fas fa-user"></i></div>
+                    <div>
+                        <p>Attendance</p>
+                        <h2>1010</h2>
+                    </div>
+                </div> -->
+                <div class="top-report-cards">
+                    <div><i class="fas fa-user"></i></div>
+                    <div>
+                        <p>Courses</p>
+                        <h2>department_no</h2>
+                    </div>
+                </div>
+                <div class="top-report-cards">
+                    <div><i class="fas fa-user"></i></div>
+                    <div>
+                        <p>Addmission</p>
+                        <h2>admission_no</h2>
+                    </div>
+                </div>
+                <!-- <div class="top-report-cards">
+                    <div><i class="fas fa-user"></i></div>
+                    <div>
+                        <p>Library</p>
+                        <h2>1010</h2>
+                    </div>
+                </div> -->
+                <div class="top-report-cards">
+                    <div><i class="fas fa-user"></i></div>
+                    <div>
+                        <p>Income</p>
+                        <h2>1010</h2>
+                    </div>
+                </div>
+                <!-- <div class="top-report-cards">
+                    <div><i class="fas fa-user"></i></div>
+                    <div>
+                        <p>Expense</p>
+                        <h2>1010</h2>
+                    </div>
+                </div> -->
+            </div>
+            <div class="report-cards">
+                <div class="earning">
+                    <div class="card-header">
+                        <h3>University Earnings</h3>
+                        <p id="close">X</p>
+                    </div>
+                    <div class="report-graph">
+                        <div class="graph-type">
+                            <a href="">1D</a>
+                            <a href="">1W</a>
+                            <a href="">1M</a>
+                            <a href=""  class="active">1Y</a>
+                        </div>
+                        <div class="chart-container" style="position: relative;  width:70vw">
+                            <canvas id="myChart" >
+                                
+                            </canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-information">
+                    <div class="new-admission">
+                        <div class="card-header">
+                            <h3>New Admisson</h3>
+                            <p id="close">X</p>
+                        </div>
+                        <div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Profile</th>
+                                        <th>First Name</th>
+                                        <th>Middle Name</th>
+                                        <th>Gender</th>
+                                        <th>Course</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    < admission.forEach(function(addm) { %>
+                                        <tr>
+                                            <td><a href="/profile/<%=  %>"><img src="/img/team/1.jpg" width="40" height="40" alt="image"></a></td>
+                                            <td>addm.firstName</td>
+                                            <td> addm.middleName</td>
+                                            <td>addm.gender</td>
+                                            <td>addm.courses</td>                    
+                                        </tr>
+                                        
+                                    < }) >
+                                </tbody>
+                            </table>
+                           
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="exam-topers">
+                        <div class="card-header">
+                            <h3>Exam Toppers</h3>
+                            <p id="close">X</p>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Mark</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>10</td>
+                                    <td>mark</td>
+                                    <td>90.00</td>
+                                </tr>
+                                <tr>
+                                    <td>17</td>
+                                    <td>mark</td>
+                                    <td>90.00</td>
+                                </tr>
+                                <tr>
+                                    <td>23</td>
+                                    <td>mark</td>
+                                    <td>90.00</td>
+                                </tr>
+                                <tr>
+                                    <td>87</td>
+                                    <td>mark</td>
+                                    <td>90.00</td>
+                                </tr>
+                                <tr>
+                                    <td>16</td>
+                                    <td>mark</td>
+                                    <td>90.00</td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let myChart = document.getElementById('myChart').getContext('2d');
+
+        let massPopChart = new Chart(myChart, {
+            type: 'bar', //bar , horizontalBar , pie.line.doughnut, radar, polarArea
+            data:{
+                labels:['2015', '2016', '2017', '2018', '2019', '2020'],
+                datasets:[{
+                    label:'Income',
+                    data:[10000, 5000, 8500, 6400, 1000, 7000 ],
+                      backgroundColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                    ],
+                }]
+            },
+        });
+    </script>
+   <script src="/js/admin.js"></script>
+</body>
+</html>

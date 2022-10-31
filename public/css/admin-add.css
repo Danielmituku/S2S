@@ -1,0 +1,102 @@
+
+.admin-body {
+    position: absolute;
+    top: 64px;
+    left: 250px;
+    z-index: -1;
+    text-align: center;
+    background-color: #ffffff;
+    width: calc(100% - 250px);
+}
+.basic-information,
+.account-information, .time-table {
+    position: relative;
+    padding: 30px;
+    margin: 50px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: solid 1px #b6b9c0;
+    box-shadow: 0em 0em 3em rgba(0, 0, 0, 0.137);
+}
+
+#back-link{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+.student-form h3{
+    padding: 0 30px 30px;
+}
+.basic-info-form,
+.account-information {
+    display: flex;
+    flex-direction: column; 
+}
+.basic-info-form input,
+.account-information input {
+    margin: 20px;
+}
+.flie-upload-label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #c9dadf;
+    padding: 40px;
+    border:dashed 2px #92b0b3;
+    cursor: pointer;
+}
+.flie-upload-label i{
+    font-size: 50px;
+    color: #012b3a;
+}
+.upload-btn{
+    background-color: #39bfd3;
+    color: #012b3a;
+}
+.upload-btn:hover{
+    background-color: #012b3a;
+}
+.file-upload {
+    background-color: #c9dadf;
+    border-radius: 0;
+}
+
+.flie-upload-label input[type="file"] {
+    /* display: none; */
+}
+.flie-upload-label p{
+    padding: 15px;
+}
+.form-btn {
+    display: flex;
+    flex-direction: row;
+}
+.form-btn button{
+    margin: 20px;
+}
+.description textarea{
+    background-color: #cfe3eb;
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+}
+.student-form .btn {
+    color: #fff;
+    width: 100px;
+    height: 40px;
+    border-radius: 19px;
+}
+.submit-btn{
+    background-color: rgb(22, 161, 131);
+}
+.cancel-btn {
+    background-color: #515e7b;
+}
+.account-information {
+margin: 20px;
+background-color: #fff;
+}
+

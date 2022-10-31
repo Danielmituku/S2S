@@ -1,0 +1,60 @@
+/* *{
+    padding: 0;
+    margin: 0;
+}
+h2{
+    font-family:sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 5px solid white;
+}
+body{
+    background-color: #546a63;
+    color: #fff;
+    background-image: image();
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+.MU-table{
+    position: absolute;
+    width: 60%;
+    height: 50%;
+    border-spacing: 0px;
+}
+thead{
+    background:#e85959;
+   text-align: center;
+}
+.title th{
+    padding: 15px;
+}
+tbody tr{
+  background: rgb(204, 204, 204); 
+  background: rgba(204, 204, 204, 0.5);
+}
+tbody tr:hover{
+ 
+ outline: #fff solid thin;
+    background: rgba(255, 255, 255, 0.4);
+}
+tbody tr {
+ text-align: center;
+ padding: 20px;
+} */
+
+.time-table .top {
+    padding: 20px;
+}
+.time-table .top select {
+    margin: 20px;
+}
+input{
+    border-radius: 0;
+    height: 35px; 
+    padding: 0 1rem;
+    /* display: flex; */
+    overflow-x: visible;
+}

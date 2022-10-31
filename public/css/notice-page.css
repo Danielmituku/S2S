@@ -1,0 +1,24 @@
+#notice-card{
+  margin: 50px;
+  text-align: center;
+max-width: 500px;
+  /* background-color: rgb(216, 200, 59); */
+}
+.card-header{
+  background-color: none;
+  margin: 0;
+  /* padding: 0; */
+  padding: 15px ;
+
+}
+.card-header h3{
+  flex: 2;
+/* display: grid;
+place-content: center; */
+}
+.new-admission{
+  padding: 20px;
+}
+.notice-date{
+  font-size: .8em;
+}
