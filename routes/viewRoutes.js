@@ -42,6 +42,12 @@ router.get('/dashbord/add-student', viewController.getStudent)
 router.get('/dashbord/all-student', viewController.getAllStudent)
 router.get('/dashbord/add-tutor', viewController.getTutor)
 router.get('/dashbord/all-tutors', viewController.getAllTutor)
+router.get('/dashbord/all-events', viewController.getAllEvents)
+router.get('/dashbord/add-events', viewController.getEvent) 
+router.get('/dashbord/all-time-table', viewController.getAllTimeTable)
+router.get('/dashbord/add-time-table', viewController.getTimeTable)
+router.get('/dashbord/all-notice', viewController.getAllNotice)
+router.get('/dashbord/add-notice', viewController.getNotice)
 
 module.exports = router
 

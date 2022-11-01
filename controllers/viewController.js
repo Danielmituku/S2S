@@ -107,19 +107,43 @@ exports.getAllCourse =(req, res)=>{
   res.status(200).render('all-courses', {
     title:"Admin | All-Course", layout:'./layouts/admin-layout'})
   }
-exports.getStudent =(req, res)=>{
+  exports.getStudent =(req, res)=>{
     res.status(200).render('add-student', {
       title:"Admin | Student", layout:'./layouts/admin-layout'})
     }
-exports.getAllStudent =(req, res)=>{
+    exports.getAllStudent =(req, res)=>{
       res.status(200).render('all-student', {
         title:"Admin | All-Student", layout:'./layouts/admin-layout'})
       }
-exports.getTutor =(req, res)=>{
-        res.status(200).render('add-student', {
+      exports.getTutor =(req, res)=>{
+        res.status(200).render('add-tutor', {
           title:"Admin | Tutor", layout:'./layouts/admin-layout'})
         }
-exports.getAllTutor =(req, res)=>{
-          res.status(200).render('all-student', {
+        exports.getAllTutor =(req, res)=>{
+          res.status(200).render('all-tutor', {
             title:"Admin | All-Tutor", layout:'./layouts/admin-layout'})
           }
+          exports.getAllEvents =(req, res)=>{
+            res.status(200).render('all-events', {
+              title:"Admin | All-Event", layout:'./layouts/admin-layout'})
+            }
+            exports.getEvent =(req, res)=>{
+              res.status(200).render('add-event', {
+                title:"Admin | Add-Event", layout:'./layouts/admin-layout'})
+              }
+              exports.getAllTimeTable =(req, res)=>{
+                res.status(200).render('all-time-table', {
+                  title:"Admin | All-Timetable", layout:'./layouts/admin-layout'})
+                }
+                exports.getTimeTable =(req, res)=>{
+                  res.status(200).render('all-courses', {
+                    title:"Admin | Add-Timetable", layout:'./layouts/admin-layout'})
+                  }
+                  exports.getAllNotice =(req, res)=>{
+                    res.status(200).render('all-courses', {
+                      title:"Admin | All-Course", layout:'./layouts/admin-layout'})
+                    }
+                    exports.getNotice =(req, res)=>{
+                      res.status(200).render('all-courses', {
+                        title:"Admin | All-Course", layout:'./layouts/admin-layout'})
+                      }

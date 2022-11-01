@@ -31,16 +31,16 @@
         <div class="header-toolbar">
             <a class="logo" href="/"><i class="fa fa-university"></i></a>
             <a class="search-icon" href=""><i class="fa fa-search"></i></a>
-            <% if(user){ %>
+             if(user){
                 <a class="btn student-icon" href=""><i class="fa fa-bell"></i></a>
-                <a class="btn" href="/profile/<%=user._id%>"><img class="student-profile" src="/image/engida.jpg" alt=""></a>
+                <a class="btn" href="/profile/user._id"><img class="student-profile" src="/image/engida.jpg" alt=""></a>
                 <div class="student-profile-dropdown item">
                     <a class="profile-drop-btn" style="color: #fff;" href="" "></a>
                 </div>
                 <form action="/logout" method="POST">
                     <button class="btn login" style="background-color: rgb(247, 70, 105); border: none; color: #fff;">Logout</button>
                 </form>
-            <% }else{ %>
+             }else{ 
                 <a class= "btn login" href="/login">Login</a>
-            <% } %>
+            < } 
         </div>

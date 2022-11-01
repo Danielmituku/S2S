@@ -1,4 +1,4 @@
-<%- include('partials/user-header') %>
+<%- include('partials/header-admin') %>
 
  
     <div class="courses-section">
@@ -9,15 +9,16 @@
         </div>
         <div class="courses">
 
-            <% courses.forEach(function(department) { %>
+             courses.forEach(function(department) { 
 
                 <div class="top-report-cards">
                     
                     <div>
-<div class="course"><img class="" src="/uploads/images/<%= course.image %>" alt=""><a href=""><%= course                                                                                                                                                                                                                                                                        .departmentName%></a></div>
+    <div class="course"><img class="" src="/uploads/images/ourse.image" alt="">
+        <a href="">coursedepartmentName</></div>
                     </div>
                 </div>
-            <% }) %>
+             })
 
             <!-- <div class="course"><div class="course1"></div> <a href="">Applied Sciences</a></div>
             <div class="course"><div class="course2"></div> <a href="">Computer Sciences</a></div>
@@ -25,8 +26,8 @@
             <div class="course"><div class="course4"></div> <a href="">Medicine</a></div> -->
         </div>
     </div>
-    <%- include('includes/footer') %>
+     <!-- include('includes/footer')  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./js/script.js"></script>
+    <script src="/js/admin.js"></script>
 </body>
 </html>

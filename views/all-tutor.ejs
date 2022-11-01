@@ -1,0 +1,78 @@
+
+ <%- include('partials/header-admin') %>
+
+
+    <!-- *********************admin body start**************** -->
+    <div class="admin-body">
+        <div class="student-form">
+            
+            <!-- include('includes/flash')  -->
+
+            <div class="basic-information">
+                <h3>Basic Information</h3>
+                <form action="/add-student" method="POST" enctype="multipart/form-data" class="basic-info-form">
+                    <div>
+                        
+                        <input type="text" name="firstName" placeholder="First Name">
+                        <input type="text" name="lastName" placeholder="Last Name">
+                    </div>
+                    <div>
+                        <input type="number" maxlength="10" name="phoneNumber" placeholder="Phone No">
+                        Birth Date<input type="date" name="birthDate" placeholder="Date">
+                        <!-- <input type="date" name="age" placeholder="Age"> -->
+                    </div>
+                    <div>
+                        <label>Gender:</label>
+                        <select class="gender" name="gender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="text" name="department" placeholder="Department">
+                        <input type="text" name="email" placeholder="Enter your email">
+                    </div>
+                    <label for="description" class="description">
+                        <textarea name="address" id="iddress" rows="2" placeholder="Address"></textarea>
+                    </label>
+                    <label for="fileUpload" class="flie-upload-label">
+                        <div>
+                            <i class="fa fa-file-upload"></i>
+                        </div>
+                        <input class="file-upload" type="file" id="fileUpload" name="image">
+                        <p><strong>Click here to Choose a file</strong> or drag it here</p>
+                        <!-- <button class="btn upload-btn" type="submit"">Upload</button> -->
+                    </label>
+                    <label for="description" class="description">
+                        <textarea name="description" id="description" rows="6" placeholder="Description"></textarea>
+                    </label>
+
+                    <h3>Account Information</h3>
+                <div>
+                    <div>
+                        <input type="text" name="username" placeholder="User Name">
+                    </div>
+                    <div>
+                        <input type="password" name="password" placeholder="Password">
+                        <!-- <input type="password" name="password" placeholder="Confirm Password"> -->
+                    </div>
+                  
+                </div>
+                    <div class="form-btn">
+                        <button type="submit" class="btn submit-btn">Submit</button>
+                        <button type="submit" class="btn cancel-btn">cancel</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="account-information">
+                
+            </div>
+        </div>
+    </div>
+    
+    <!-- *********************admin body end**************** -->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/admin.js"></script>
+</body>
+</html>
