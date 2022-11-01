@@ -1,4 +1,4 @@
-<%- include('includes/user-header') %>
+<%- include('partials/user-header') %>
 
  
     <div class="courses-section">
@@ -9,12 +9,12 @@
         </div>
         <div class="courses">
 
-            <% departments.forEach(function(department) { %>
+            <% courses.forEach(function(department) { %>
 
                 <div class="top-report-cards">
                     
                     <div>
-                        <div class="course"><img class="" src="/uploads/images/<%= department.image %>" alt=""><a href=""><%= department.departmentName%></a></div>
+<div class="course"><img class="" src="/uploads/images/<%= course.image %>" alt=""><a href=""><%= course                                                                                                                                                                                                                                                                        .departmentName%></a></div>
                     </div>
                 </div>
             <% }) %>

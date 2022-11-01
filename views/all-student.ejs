@@ -1,13 +1,13 @@
 
-    <%- include('includes/admin-header') %>
+    <%- include('partials/header-admin') %>
 
 
     <div class="admin-body">
-        <%- include('includes/flash') %>
+         <!-- include('includes/flash')  -->
 
         <div class="all-student-container">
             <div class="welcome">
-                <h3>All Student of Egna Begna University</h3>
+                <h3>All Student of S2S</h3>
             </div>
             <!-- <h3 class="all-Student-title">Student List</h3> -->
             
@@ -27,28 +27,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% posts.forEach(function(post) { %>
+                         <!-- posts.forEach(function(post) {  -->
                             <tr>
-                                <td><a href="/profile/<%= post._id %>"><img src="/image/art.jpg" width="40" height="40" alt="image"></a></td>
-                                <td><%= post.username%></td>
-                                <td><%= post.firstName%></td>
-                                <td><%= post.lastName%></td>
-                                <td><%= post.gender%></td>
-                                <td><%= post.email%></td>
-                                <td><%= post.phoneNumber%></td>
-                                <td><%= post.department%></td>
+                                <td><a href="/profile/ post._id "><img src="/image/art.jpg" width="40" height="40" alt="image"></a></td>
+                                <td> student.username</td>
+                                <td>student.firstName</td>
+                                <td>student.lastName</td>
+                                <td>student.gender</td>
+                                <td>student.email</td>
+                                <td>student.phoneNumber</td>
+                                <td>student.course</td>
                                 <td>
-                                    <a href="/student/<%=post._id %>/edit" class="btn border-shadow update">
+                                    <a href="/student/post._id /edit" class="btn border-shadow update">
                                         <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
                                     </a>
                                     
-                                    <a href="/student/<%= post._id %>/delete" class="btn border-shadow delete">
+                                    <a href="/student/post._id /delete" class="btn border-shadow delete">
                                         <span class="text-gradient"><i class="fas fa-times"></i></span>
                                     </a>
                                 </td>
                             </tr>
                             
-                          <% }) %>
+                           <!-- })  -->
                     </tbody>
                    
                 </table>

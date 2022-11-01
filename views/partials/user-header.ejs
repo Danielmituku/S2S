@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/university-solid.svg">
+    <title>Egna Begna University</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <!-- CSS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/footer Style.css">
+    <link rel="stylesheet" href="/css/header-intro.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/student-page.css">
+    <link href="/css/profile.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/time-table.css">
+    <link rel="stylesheet" href="/css/eventSlider.css">
+    <link rel="stylesheet" href="/css/notice.css">
+    <link rel="stylesheet" href="/css//sub-pages.css">
+    <link rel="stylesheet" href="/css/student-notice-link.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-toolbar">
+            <a class="logo" href="/"><i class="fa fa-university"></i></a>
+            <a class="search-icon" href=""><i class="fa fa-search"></i></a>
+            <% if(user){ %>
+                <a class="btn student-icon" href=""><i class="fa fa-bell"></i></a>
+                <a class="btn" href="/profile/<%=user._id%>"><img class="student-profile" src="/image/engida.jpg" alt=""></a>
+                <div class="student-profile-dropdown item">
+                    <a class="profile-drop-btn" style="color: #fff;" href="" "></a>
+                </div>
+                <form action="/logout" method="POST">
+                    <button class="btn login" style="background-color: rgb(247, 70, 105); border: none; color: #fff;">Logout</button>
+                </form>
+            <% }else{ %>
+                <a class= "btn login" href="/login">Login</a>
+            <% } %>
+        </div>

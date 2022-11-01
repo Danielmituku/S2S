@@ -1,3 +1,4 @@
+
 .dashbord{
     padding: 10px;
     margin: 0 25px;
@@ -13,7 +14,7 @@
    background-color: #f8f9fa;
 }
 .download-report-btn {
-    background-color: #3794ff;
+    background-color: #1d1441;
     color: #f8f9fa;
     box-shadow: 0em 0.3em 0.5em rgba(0, 0, 0, 0.253);
 }
@@ -36,7 +37,7 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-color: #515e7b;
+    background-color: #1d1441;
     color: #f8f9fa;
     border-radius: 8px;
      box-shadow: 0em 0.3em 0.5em rgba(0, 0, 0, 0.253);

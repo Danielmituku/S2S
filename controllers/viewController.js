@@ -100,6 +100,26 @@ exports.getsPortfolio = (req, res) => {
 exports.getDashbord = (req, res) => {
   res.status(200).render('dashbord', { title: "S2S | Admin", layout: './layouts/admin-layout' })
 }
-exports.addCourse = (req, res) =>{
-  res.status(200).render('add-course', {title: "Add-course", layout:'./layouts/admin-layout' })
+exports.getCourse = (req, res) =>{
+  res.status(200).render('add-course', {title: "Admin | Course", layout:'./layouts/admin-layout' })
 }
+exports.getAllCourse =(req, res)=>{
+  res.status(200).render('all-courses', {
+    title:"Admin | All-Course", layout:'./layouts/admin-layout'})
+  }
+exports.getStudent =(req, res)=>{
+    res.status(200).render('add-student', {
+      title:"Admin | Student", layout:'./layouts/admin-layout'})
+    }
+exports.getAllStudent =(req, res)=>{
+      res.status(200).render('all-student', {
+        title:"Admin | All-Student", layout:'./layouts/admin-layout'})
+      }
+exports.getTutor =(req, res)=>{
+        res.status(200).render('add-student', {
+          title:"Admin | Tutor", layout:'./layouts/admin-layout'})
+        }
+exports.getAllTutor =(req, res)=>{
+          res.status(200).render('all-student', {
+            title:"Admin | All-Tutor", layout:'./layouts/admin-layout'})
+          }
