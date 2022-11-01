@@ -40,12 +40,10 @@ exports.signup = catchAsync(async (req, res) => {
 
 exports.login = catchAsync(async (req, res, next) => {
     const { email, password} = req.body
-
     //1) check the email and the passwoerd are existed
     if(!email || !password){
         return next(new AppError("Please provide email and password", 400))
     }
-
     //2) check if the email and password are correct
     const user = await Student.findOne({email}).select('+password')
     console.log(user);
@@ -54,6 +52,8 @@ exports.login = catchAsync(async (req, res, next) => {
     }
     //3) if everything is ok, send the token to the client
     createSendToken(user,201,res)
+    res.redirect('/student')
+    
 })
 exports.logout = (req, res) => {
     res.cookie('jwt',"loggedout", {
@@ -84,7 +84,6 @@ exports.protect = catchAsync(async (req, res, next) => {
     if (freshStudent.changedPasswordAfter(decoded.iat)) {
         return next(new AppError('The password is recently changed! please log in again.', 401))
     }
-
     //Grant Access to the protected route
     req.user = freshStudent
     next();

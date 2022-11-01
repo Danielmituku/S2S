@@ -1,13 +1,11 @@
 
-    <%- include('includes/admin-header') %>
-
-
+    <%- include('partials/header-admin') %>
     <div class="admin-body">
-        <%- include('includes/flash') %>
+        <!-- include('includes/flash')  -->
 
         <div class="all-student-container">
             <div class="welcome">
-                <h3>Admission</h3>
+                <h3>Reviews</h3>
             </div>
             <!-- <h3 class="all-Student-title">Student List</h3> -->
             
@@ -26,20 +24,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% admission.forEach(function(addm) { %>
+                         admission.forEach(function(addm) { 
                             <tr>
-                                <td><a href="/profile/<%=  %>"><img src="/image/art.jpg" width="40" height="40" alt="image"></a></td>
-                                <td><%= addm.firstname%></td>
-                                <td><%= addm.middleName%></td>
-                                <td><%= addm.lastName%></td>
-                                <td><%= addm.gender%></td>
-                                <td><%= addm.email%></td>
-                                <td><%= addm.phoneNumber%></td>
-                                <td><%= addm.courses%></td>
+                                <td><a href="/profile/<  %>"><img src="/image/art.jpg" width="40" height="40" alt="image"></a></td>
+                                <td>addm.firstname</td>
+                                <td>addm.middleName</td>
+                                <td> addm.lastName</td>
+                                <td> addm.gender</td>
+                                <td> addm.email</td>
+                                <td> addm.phoneNumber</td>
+                                <td>addm.courses</td>
 
                             </tr>
                             
-                          <% }) %>
+                          <!-- < }) > -->
                     </tbody>
                    
                 </table>

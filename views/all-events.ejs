@@ -1,43 +1,43 @@
-<%- include('includes/admin-header') %>
+<%- include('partials/header-admin') %>
 
 <!-- ***************** add event body ****************-->
 <div class="admin-body">
     <div class="student-form">
         
         <div class="event-container">
-            <%let count = 1%>
-            <%events.forEach( event =>{ %>
+            let count = 1
+            events.forEach( event =>{ 
                 <div class="event-table">
                     <table>
-                        <h3><%= count %></h3>
+                        <h3> count </h3>
                         <!-- <th colspan="2">Event Created</th> -->
                         <tr>
                             <td><b>Title:</b> </td>
-                            <td><%= event.eventName%></td>
+                            <td> event.eventName</td>
                         </tr>
                         <tr>
                             <td><b>Date: </b></td>
-                            <td><%= event.eventDate%></td>
+                            <td>event.eventDate</td>
                         </tr>
                         <tr>
                             <td><b>Timing: </b></td>
-                            <td><%= event.timing%></td>
+                            <td> event.timing</td>
                         </tr>
                         <tr>
                             <td><b>Venue: </b></td>
-                            <td><%= event.venue%></td>
+                            <td>event.venue</td>
                         </tr>
                         <tr>
                             <td><b>Details:</b></td>
-                            <td> <%= event.description%></td>
+                            <td> event.description</td>
                         </tr>
                         <tr>
                             <td><b>Registration:</b></td>
-                            <td><%= event.registration%></td>
+                            <td>event.registration</td>
                         </tr>
                     </table>
                 </div>
-            <% count++})%>
+             count++})
             
         </div>
         
@@ -46,6 +46,6 @@
 <!-- *********************add event body end**************** -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./js/admin.js"></script>
+<script src="/js/admin.js"></script>
 </body>
 </html>

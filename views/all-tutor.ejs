@@ -1,78 +1,64 @@
 
- <%- include('partials/header-admin') %>
+    <%- include('partials/header-admin') %>
 
 
-    <!-- *********************admin body start**************** -->
     <div class="admin-body">
-        <div class="student-form">
-            
-            <!-- include('includes/flash')  -->
+         <!-- include('includes/flash')  -->
 
-            <div class="basic-information">
-                <h3>Basic Information</h3>
-                <form action="/add-student" method="POST" enctype="multipart/form-data" class="basic-info-form">
-                    <div>
-                        
-                        <input type="text" name="firstName" placeholder="First Name">
-                        <input type="text" name="lastName" placeholder="Last Name">
-                    </div>
-                    <div>
-                        <input type="number" maxlength="10" name="phoneNumber" placeholder="Phone No">
-                        Birth Date<input type="date" name="birthDate" placeholder="Date">
-                        <!-- <input type="date" name="age" placeholder="Age"> -->
-                    </div>
-                    <div>
-                        <label>Gender:</label>
-                        <select class="gender" name="gender">
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Other">Other</option>
-                        </select>
-                        <input type="text" name="department" placeholder="Department">
-                        <input type="text" name="email" placeholder="Enter your email">
-                    </div>
-                    <label for="description" class="description">
-                        <textarea name="address" id="iddress" rows="2" placeholder="Address"></textarea>
-                    </label>
-                    <label for="fileUpload" class="flie-upload-label">
-                        <div>
-                            <i class="fa fa-file-upload"></i>
-                        </div>
-                        <input class="file-upload" type="file" id="fileUpload" name="image">
-                        <p><strong>Click here to Choose a file</strong> or drag it here</p>
-                        <!-- <button class="btn upload-btn" type="submit"">Upload</button> -->
-                    </label>
-                    <label for="description" class="description">
-                        <textarea name="description" id="description" rows="6" placeholder="Description"></textarea>
-                    </label>
-
-                    <h3>Account Information</h3>
-                <div>
-                    <div>
-                        <input type="text" name="username" placeholder="User Name">
-                    </div>
-                    <div>
-                        <input type="password" name="password" placeholder="Password">
-                        <!-- <input type="password" name="password" placeholder="Confirm Password"> -->
-                    </div>
-                  
-                </div>
-                    <div class="form-btn">
-                        <button type="submit" class="btn submit-btn">Submit</button>
-                        <button type="submit" class="btn cancel-btn">cancel</button>
-                    </div>
-                </form>
+        <div class="all-tutor-container">
+            <div class="welcome">
+                <h3>All tutors of S2S</h3>
             </div>
+            <!-- <h3 class="all-tutor-title">tutor List</h3> -->
             
-            <div class="account-information">
-                
+            <div class="table-1">
+                <table cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <th>Media</th>
+                            <th>Id</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Gender</th>
+                            <th>Email</th>
+                            <th>Phone-Number</th>
+                            <th>Department</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                         <!-- posts.forEach(function(post) {  -->
+                            <tr>
+                                <td><a href="/profile/ post._id "><img src="/image/art.jpg" width="40" height="40" alt="image"></a></td>
+                                <td> tutor.username</td>
+                                <td>tutor.firstName</td>
+                                <td>tutor.lastName</td>
+                                <td>tutor.gender</td>
+                                <td>tutor.email</td>
+                                <td>tutor.phoneNumber</td>
+                                <td>tutor.course</td>
+                                <td>
+                                    <a href="/tutor/post._id /edit" class="btn border-shadow update">
+                                        <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                                    </a>
+                                    
+                                    <a href="/tutor/post._id /delete" class="btn border-shadow delete">
+                                        <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            
+                           <!-- })  -->
+                    </tbody>
+                   
+                </table>
             </div>
         </div>
     </div>
-    
-    <!-- *********************admin body end**************** -->
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/admin.js"></script>
 </body>
 </html>
+
+

@@ -1,11 +1,11 @@
-<%- include('includes/admin-header') %>
+<%- include('partials/header-admin.ejs') %>
 
 <!-- ***************** add event body ****************-->
 <div class="admin-body">
     <div class="student-form">
         <div class="basic-information">
             <h3>Create an event</h3>
-            <form action="/addEvent" method="POST" class="basic-info-form" enctype="multipart/form-data" >
+            <form action="/add-events" method="POST" class="basic-info-form" enctype="multipart/form-data" >
                 <div>
                     <input type="text" name="eventName" placeholder="Event name">
                     <input type="date" name="eventDate" placeholder="Event date">
@@ -48,6 +48,6 @@
 <!-- *********************add event body end**************** -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./js/admin.js"></script>
+<script src="/js/admin.js"></script>
 </body>
 </html>

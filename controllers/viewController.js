@@ -1,4 +1,7 @@
 const Course = require('../models/courseModel')
+const Student = require('../models/studentModel')
+const Tutor = require('../models/tutorModel')
+const Review = require('../models/reviewModel')
 const catchAsync = require('../utilis/catchAsync')
 
 //Overview Controller
@@ -147,3 +150,11 @@ exports.getAllCourse =(req, res)=>{
                       res.status(200).render('all-courses', {
                         title:"Admin | All-Course", layout:'./layouts/admin-layout'})
                       }
+                      exports.getReviews =(req, res)=>{
+                        res.status(200).render('all-reviews', {
+                          title:"Admin | All-Reviews", layout:'./layouts/admin-layout'})
+                        }
+                        exports.getAllReviews =(req, res)=>{
+                          res.status(200).render('all-reviews', {
+                            title:"Admin | All-Reviews", layout:'./layouts/admin-layout'})
+                          }

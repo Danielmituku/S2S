@@ -1,4 +1,5 @@
-const axios = require('axios')
+import axios from 'axios'
+
 const login = async (email, password) => {
       // console.log(email, password)
   try {
@@ -20,4 +21,4 @@ document.querySelector('.form').addEventListener('submit', e=>{
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
     login(email, password)
-}) 
+})
