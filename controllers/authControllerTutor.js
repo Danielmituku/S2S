@@ -22,13 +22,13 @@ const createSendToken = (user, statusCode, res) => {
     res.cookie('jwt', token, cookieOptions)
 
     //remove the passwords from the output
-    res.status(statusCode).json({
-        status: 'success',
-        token,
-        data: {
-            user
-        }
-    })
+    // res.status(statusCode).json({
+    //     status: 'success',
+    //     token,
+    //     data: {
+    //         user
+    //     }
+    // })
 }
 exports.signup = catchAsync(async (req, res) => {
     const newUser = await Tutor.create(req.body);
@@ -53,7 +53,10 @@ exports.login = catchAsync(async (req, res, next) => {
     }
     //3) if everything is ok, send the token to the client
     createSendToken(user,201,res)
-
+    res.status(200).render('TutorLanding',{
+        title: 'S2S | Home', layout: './layouts/tutor-layout',
+        user
+      })
 })
 
 exports.logout = (req, res) => {

@@ -22,13 +22,13 @@ const createSendToken = (user, statusCode, res) => {
     res.cookie('jwt', token, cookieOptions)
 
     //remove the passwords from the output
-    res.status(statusCode).json({
-        status: 'success',
-        token,
-        data: {
-            user
-        }
-    })
+    // res.status(statusCode).json({
+    //     status: 'success',
+    //     token,
+    //     data: {
+    //         user
+    //     }
+    // })
 }
 
 exports.signup = catchAsync(async (req, res) => {
@@ -52,9 +52,12 @@ exports.login = catchAsync(async (req, res, next) => {
     }
     //3) if everything is ok, send the token to the client
     createSendToken(user,201,res)
-    res.redirect('/student')
-    
+    res.status(200).render('student_home',{
+        title: 'S2S | Home', layout: './layouts/student-layout',
+        user
+      })
 })
+
 exports.logout = (req, res) => {
     res.cookie('jwt',"loggedout", {
         expires: new Date(Date.now() + 10 * 1000),

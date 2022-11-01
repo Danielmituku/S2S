@@ -1,8 +1,10 @@
+const jwt = require('jsonwebtoken')
 const Course = require('../models/courseModel')
 const Student = require('../models/studentModel')
 const Tutor = require('../models/tutorModel')
 const Review = require('../models/reviewModel')
 const catchAsync = require('../utilis/catchAsync')
+
 
 //Overview Controller
 exports.getsHome = (req, res) => {
@@ -26,10 +28,34 @@ exports.getsSignupStudent = (req, res) => {
 exports.getsLoginStudent = (req, res) => {
   res.status(200).render('logins', { title: 'S2S | student-Login' })
 }
+
+// exports.login = catchAsync(async (req,res, next) =>{
+
+//   const email = req.body.email
+//   const password = req.body.password
+//   //1) check the email and the passwoerd are existed
+//   if(!email || !password){
+//       return next(new AppError("Please provide email and password", 400))
+//   }
+//   //2) check if the email and password are correct
+//   const user = await Student.findOne({email}).select('+password')
+//   console.log(user);
+//   if(!user || !user.correctPassword(password, user.password)){
+//       return next(new AppError("Incorrect email or Password!!", 401));
+//   }
+//   //3) if everything is ok, send the token to the client
+//   createSendToken(user,201,res)
+//   res.status(200).render('student_home',{
+//     title: 'S2S | Home',
+//     user
+//   })
+// })
+
 exports.getStudentLanding = (req, res) => {
 
   res.status(200).render('student_home', { title: 'S2S | Home', layout: './layouts/student-layout' })
 }
+
 exports.getMyCourse = catchAsync(async (req, res, next) => {
   //1) get course data from collection
   const course = await Course.find()
