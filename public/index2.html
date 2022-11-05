@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title> S2S | Meeeting </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+        <script src='https://8x8.vc/external_api.js'></script>
+    </head>
+    <body>
+        <button id="start" type="start">Start Meeting</button>
+        <div id="jitsi-container"></div>
+        <script>
+            var button = document.querySelector('#start');
+            var container = document.querySelector('#jitsi-container');
+            var api = null;
+
+            button.addEventListener('click', () => {
+                var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                var stringLength = 30;
+                function pickRandom () {
+                    return possible[Math.floor() * possible.length];
+                }
+                var randomString = Array.apply(null,Array(stringLength)).map (pickRandom).join('');
+
+                var domain = "8x8.vc";
+                var options = {
+                    "roomName": 'S2S Meeting', randomString,
+                    "parentNode": container,
+                };
+                api = new JitsiMeetExternalAPI(domain, options);
+             });
+        </script>
+    </body>
+</html>

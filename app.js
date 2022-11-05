@@ -19,6 +19,7 @@ const tutorRouter = require('./routes/tutorRoute')
 const viewRoute = require('./routes/viewRoutes')
 const bookingRouter = require('./routes/bookingRoute')
 const reviewRouter = require('./routes/reviewRoute')
+const meetingRouter = require('./routes/meetingRoute')
 
 const app = express();
 
@@ -84,6 +85,9 @@ app.use((req,res,next)=>{
 //3) Routes
 
 app.use('/', viewRoute)
+app.use('/',  bookingRouter)
+app.use('/', meetingRouter)
+
 app.use('/api/v1/courses', courseRouter)
 app.use('/api/v1/reviews', reviewRouter)
 app.use('/api/v1/students', studentRouter)

@@ -10,12 +10,6 @@
     />
     <link rel="stylesheet" href="/css/style2.css">
 
-    
-    <script src="https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js"></script>
-    <link
-      href="https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css"
-      rel="stylesheet"
-    />
   </head>
   <body>
     
@@ -192,7 +186,10 @@
           <p class="cta__text">
             Meet your tutor Face to Face. 1 course. Great tuotring. Make it yours today!
           </p>
-          <button class="btn btn--green span-all-rows">Book course now!</button>
+          <form action="/checkout-session/<%= course.id%>" method="get">
+            <button class="btn btn--green span-all-rows" type="submit">Book course now!</button>
+          </form>
+
         </div>
       </div>
     </section>

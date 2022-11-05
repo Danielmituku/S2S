@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src='https://8x8.vc/external_api.js'></script>
+    <style>html, body, #jaas-container { height: 100%; }</style>
+    <script type="text/javascript">
+      window.onload = () => {
+        const api = new JitsiMeetExternalAPI("8x8.vc", {
+          roomName: "vpaas-magic-cookie-f5b1e26c4d0f4d95a530464be64abaa3/S2S Meeting",
+          parentNode: document.querySelector('#jaas-container')
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="jaas-container"></div>
+</body>
+</html>

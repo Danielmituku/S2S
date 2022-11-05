@@ -38,6 +38,8 @@ router.get('/reg', viewController.getsSignupTutor)
 
 router.get('/tutors',authControllerTutor.protect,  viewController.getsTutorLanding)
 router.get('/tutors/profile', authControllerTutor.protect, viewController.getsTutorProfile)
+router.get('/tutors/webinar', authControllerTutor.protect, viewController.getMeeting)
+router.get('/tutors/Meeting', authControllerTutor.protect, viewController.getMeeting)
 router.get('/tutors/profile/edit', authControllerTutor.protect, viewController.getsTutorProfileEdit)
 router.get('/tutors/portfolio', authControllerTutor.protect, viewController.getsPortfolio)
 

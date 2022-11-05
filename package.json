@@ -40,6 +40,7 @@
     "nodemon": "^2.0.19",
     "parcel-bundler": "^1.12.5",
     "slugify": "^1.6.5",
+    "stripe": "^7.63.1",
     "validator": "^13.7.0",
     "xss-clean": "^0.1.1"
   }

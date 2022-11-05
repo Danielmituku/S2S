@@ -4,65 +4,65 @@ const bcrypt = require('bcrypt')
 const crypto = require('crypto')
 
 const studentSchema = new mongoose.Schema({
-    name:{
+    name: {
         type: String,
-        required:[true, "Please provide your name!"],
+        required: [true, "Please provide your name!"],
     },
-    email:{
+    email: {
         type: String,
         required: [true, "Please provide your email"],
         lowercase: true,
-        unique:true,
-        validate:[validator.isEmail,"Invalid Email address"]
+        unique: true,
+        validate: [validator.isEmail, "Invalid Email address"]
     },
-    role:{
+    role: {
         type: String,
-        enum:['student','admin'],
-        default:'student'
+        enum: ['student', 'admin'],
+        default: 'student'
     },
-    photo:{ 
+    photo: {
         type: String,
-        required:false
+        required: false
     },
 
-    active:{ 
+    active: {
         type: Boolean,
         default: true,
         select: false
-     },
+    },
 
-    password:{
+    password: {
         type: String,
         required: [true, "Please provide password"],
         minlegnth: 8
     },
 
-    passwordConfirm:{
+    passwordConfirm: {
         type: String,
         required: [true, "Please confirm the password"],
-        validate:{
-            validator: function(el){
+        validate: {
+            validator: function (el) {
                 return el === this.password
-            },  
+            },
             message: "Password does not match!!"
         }
     },
-    passwordChangedAt:{ 
-        type: Date 
+    passwordChangedAt: {
+        type: Date
     },
 
-    passwordResetToken:{
-        type: String 
+    passwordResetToken: {
+        type: String
     },
     passwordResetExpires: {
         type: Date
     }
 })
 
-studentSchema.pre('save', async function(next){
-    
+studentSchema.pre('save', async function (next) {
+
     //Only run if password is acctually modifeid
-    if(!this.isModified('password')) return next();
+    if (!this.isModified('password')) return next();
 
     //hash the password with cost of 12
     this.password = await bcrypt.hash("password", 12);
@@ -70,24 +70,26 @@ studentSchema.pre('save', async function(next){
     this.passwordConfirm = undefined;
     next();
 })
-studentSchema.pre('save', async function(next){
-    if(!this.isModified('password')||this.isNew) return next();
+
+studentSchema.pre('save', async function (next) {
+    if (!this.isModified('password') || this.isNew) return next();
     this.passwordChangedAt = Date.now() - 1000;
     next()
 })
-studentSchema.pre('/^find/', function(next){
+
+studentSchema.pre('/^find/', function (next) {
     //this point to the currrent query
-    this.find({active:{$ne : false}})
+    this.find({ active: { $ne: false } })
     next()
 
 })
 //instance method for comaprison of password
-studentSchema.methods.correctPassword = async function(candidatePassword, userPassword){
+studentSchema.methods.correctPassword = async function (candidatePassword, userPassword) {
     return await bcrypt.compare(candidatePassword, userPassword)
 }
 
-studentSchema.methods.changedPasswordAfter = function(JWTTimesamp){
-    if(this.passwordChangedAt){
+studentSchema.methods.changedPasswordAfter = function (JWTTimesamp) {
+    if (this.passwordChangedAt) {
         const changedTimestamp = ParseInt(this.passwordChangedAt.getDate() / 1000, 10);
         console(this.changedTimestamp, JWTTimestamp)
         return JWTTimestamp < changedTimestamp
@@ -96,11 +98,11 @@ studentSchema.methods.changedPasswordAfter = function(JWTTimesamp){
     return false;
 }
 
-studentSchema.methods.createPasswordResetToken = function() {
+studentSchema.methods.createPasswordResetToken = function () {
     const resetToken = crypto.randomBytes(32).toString('hex');
     this.passwordResetToken = crypto.createHash('sha256').update(resetToken).digest('hex');
     this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
-    console.log({resetToken}, this.passwordResetToken);
+    console.log({ resetToken }, this.passwordResetToken);
 
     return resetToken;
 }

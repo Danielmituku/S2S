@@ -124,7 +124,9 @@ exports.getsTutorLanding = (req, res) => {
 exports.getsPortfolio = (req, res) => {
   res.status(200).render('portfolio', { title: "S2S | My-Portfolio", layout: './layouts/tutor-layout' })
 }
-
+exports.getMeeting = (req,res)=>{
+  res.status(200).render('Meeting', {title: 'S2S | Meeeting ', layout:'./layouts/meeting-layout'})
+}
 //Admin-view Controller
 exports.getDashbord = (req, res) => {
   res.status(200).render('dashbord', { title: "S2S | Admin", layout: './layouts/admin-layout' })
