@@ -12,9 +12,11 @@ const router = express.Router();
 router.get('/', viewController.getsHome)
 router.route('/logins').get(viewController.getsLoginStudent)
 router.post('/student', authController.login)
+router.post('/logout', authController.logout)
 router.get('/signups',viewController.getsSignupStudent)
+router.post('/signup', authController.signup)
 router.get('/signup', viewController.getSignup)
-router.get('/forgetpassword', viewController.getForgetPassword)
+router.get('/forgetpassword', viewController.getForgetPassword)  
 
 // router.use(authController.isLoggedIn)
 
@@ -32,9 +34,11 @@ router.get('/student/course',authController.protect, viewController.getCourseDet
 // router.get('/allCourses',viewController.getAllCourses)
 
 //view routes for Tutor 
-router.get('/logint',viewController.getsLoginTutor)
+router.get('/logint', viewController.getsLoginTutor)
 router.post('/tutors', authControllerTutor.login)
+router.post('logout', authControllerTutor.logout)
 router.get('/reg', viewController.getsSignupTutor)
+router.post('/reg', authControllerTutor.signup)
 
 router.get('/tutors',authControllerTutor.protect,  viewController.getsTutorLanding)
 router.get('/tutors/profile', authControllerTutor.protect, viewController.getsTutorProfile)

@@ -3,6 +3,25 @@ const Course = require("../models/courseModel")
 const catchAsync = require("../utilis/catchAsync")
 const AppError = require("../utilis/appError")
 
+exports.getCourseCheckout = catchAsync(async (req, res, next) => {
+    //1) get the Data, for the requested course including the tutor and review
+    const course = await Course.findById(req.params.courseId).populate({
+        path: 'review',
+        fields: 'review rating student'
+      }).populate({
+        path: 'tutors',
+        fields: 'name'
+      })
+    
+    
+      //3) render template using the data from step 1
+      res.status(200).render('checkout', {
+        title: "S2S | course",
+        layout: './layouts/student-layout',
+        course
+      })
+  })
+
 exports.getCheckoutSession = catchAsync( async (req, res, next) => {
 //1) get the currently course
 

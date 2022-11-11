@@ -1,4 +1,4 @@
- <header class="header-students">
+ <!-- <header class="header-students">
     <nav class="nav nav--courses">
         <ul class="main-nav-student">
             <li class="nav-item"><a href="/student/tutors"  class="nav__el">Tutor</a></li>
@@ -19,7 +19,10 @@
                   </form>
           <div class="nav nav--user">
                 <a href="#" class="nav__el">My bookings</a>
+                <form action="/logout" method="POST">
                 <button class="nav__el">Log out</button>
+
+                </form>
                 <a href="#" class="nav__el">
                   <img src="/img/user.jpg" alt="User photo" class="nav__user-img" />
                     <li class="nav-item dropdown">
@@ -31,50 +34,83 @@
                                 </div>
                         </li>  
                 </a>
-                 <!-- <button class="nav__el">Log in</button>
-                <button class="nav__el nav__el--cta">Sign up</button> --> 
+                  <button class="nav__el">Log in</button>
+                <button class="nav__el nav__el--cta">Sign up</button> 
             </div>
         </ul>        
     </nav>
-    <!-- <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
-        <a class="navbar-brand" href="#">
-          <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" width="30" height="30" alt="logo">
-          BootstrapBay
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar-list-4">
-          <ul class="navbar-nav">
-              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Dashboard</a>
-                <a class="dropdown-item" href="#">Edit Profile</a>
-                <a class="dropdown-item" href="#">Log Out</a>
-              </div>
-            </li>   
-          </ul>
-        </div>
-      </nav>
-</header> -->
+  -->
+  <!DOCTYPE html>
+<html>
 
-<!-- Nav menu with user information
-     <nav class="navbar navbar-expand-xl navbar-dark bg-dark pmd-navbar pmd-z-depth fixed-top">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <div class="dropdown pmd-dropdown pmd-user-info ml-auto">
-        <a href="javascript:void(0);" class="btn-user dropdown-toggle media align-items-center" data-toggle="dropdown" data-sidebar="true" aria-expanded="false">
-            <img class="mr-2" src="https://pro.propeller.in/assets/images/avatar-icon-40x40.png" width="40" height="40" alt="avatar">
-            <div class="media-body">
-                User
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>S2S</title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,400&amp;display=swap">
+    <link rel="stylesheet" href="/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/fonts/material-icons.min.css">
+    <link rel="stylesheet" href="/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="/css/-Filterable-Cards-.css">
+    <link rel="stylesheet" href="/css/404-NOT-FOUND-animated.css">
+    <link rel="stylesheet" href="/css/Account-setting-or-edit-profile.css">
+    <link rel="stylesheet" href="/css/animated-services.css">
+    <link rel="stylesheet" href="/css/Article-Cards.css">
+    <link rel="stylesheet" href="/css/File-Manager.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.carousel.css">
+    <link rel="stylesheet" href="/css/Landing-Page---Parallax-Background---Logo-Heading-ButtonGIF.css">
+    <link rel="stylesheet" href="/css/Login-Form-blue-Gradient-1.css">
+    <link rel="stylesheet" href="/css/Login-Form-blue-Gradient.css">
+    <link rel="stylesheet" href="/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="/css/Ludens-Users---3-Profile.css">
+    <link rel="stylesheet" href="/css/Ludens-Users---4-Edit-Profile.css">
+    <link rel="stylesheet" href="/css/Multi-step-form.css">
+    <link rel="stylesheet" href="/css/News-Cards.css">
+    <link rel="stylesheet" href="/css/Profile-Edit-Form-1.css">
+    <link rel="stylesheet" href="/css/Profile-Edit-Form.css">
+    <link rel="stylesheet" href="/css/Profile-with-data-and-skills.css">
+    <link rel="stylesheet" href="/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="/css/slider-hover.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/Team-with-rotating-cards.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-light" id="mainNav" style="color: #010101;font-family: 'Josefin Sans', sans-serif;">
+        <div class="container"><a class="navbar-brand" href="student_home.html" style="color: #010101;font-family: 'Josefin Sans', sans-serif;">Home</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive" style="color: rgb(33, 37, 41);">
+                <ul class="navbar-nav ms-auto text-uppercase">
+                    <li class="nav-item"><a class="nav-link" href="/student/tutors" style="color: var(--bs-dark);font-family: 'Josefin Sans', sans-serif;">Find a tutor</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/student/webinar" style="color: #010101;font-family: 'Josefin Sans', sans-serif;">webinar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/student/online" style="color: #010101;font-family: 'Josefin Sans', sans-serif;">online tarining</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/student/mycourses" style="color: #010101;font-family: 'Josefin Sans', sans-serif;">courses</a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link border rounded-pill" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="border-color: #010101;color: #010101;font-family: 'Josefin Sans', sans-serif;background: linear-gradient(-132deg, #DE6767, #7F67DE);">student</a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="/student/mycourses">my courses</a><a class="dropdown-item" href="/student/mycourses">profile</a><a class="dropdown-item" href="">ACHIVEMENTS<br></a>
+                          <form action="/logout" method="post">
+                            <button class="dropdown-item" type="submit" style="color: #010101;font-family: 'Josefin Sans', sans-serif;">LOG OUT</button>
+                          </form>
+                        </div>
+                    </li>
+                  </li>
+                </ul>
             </div>
-            <i class="material-icons md-light ml-2 pmd-sm">more_vert</i>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-right" role="menu">
-            <a class="dropdown-item" href="javascript:void(0);">Edit Profile</a>
-            <a class="dropdown-item" href="javascript:void(0);">Logout</a>
-        </ul>
-    </div>
-</nav> -->
+        </div>
+    </nav>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/bs-init.js"></script>
+    <script src="/js/-Filterable-Cards-.js"></script>
+    <script src="/js/agency.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.js"></script>
+    <script src="/js/Multi-step-form.js"></script>
+    <script src="/js/Profile-Edit-Form.js"></script>
+    <script src="/js/slider-hover.js"></script>
+</body>
+
+</html>

@@ -20,7 +20,7 @@ router.route('/monthly-plan/:year').get(authController.protect,authController.re
 
 router.route('/top-5-cheap').get(courseController.aliasTopCourses,courseController.getAllCourses);
 router.route('/').post(authController.protect,authController.restrictTo('admin','tutor'),courseController.createCourse).get(courseController.getAllCourses);
-
+ 
 router.route('/:id').get(courseController.getCourse).patch(authController.protect,authController.restrictTo('admin','tutor'),courseController.updateCourse).delete(authController.protect,authController.restrictTo('admin','tutor'),courseController.deleteCourse).post(authController.protect,authController.restrictTo('admin','tutor'),courseController.createCourse);
 
 

@@ -50,7 +50,7 @@
             </div>
             <div id="multistep-start-row" class="row">
                 <div id="multistep-start-column" class="col-12 col-lg-8 m-auto">
-                    <form id="main-form" class="multisteps-form__form" method="post">
+                    <form id="main-form" class="multisteps-form__form" action="/reg" method="post">
                         <div id="single-form-next" class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
                             <h3 class="text-center multisteps-form__title">Personal Info</h3>
                             <div id="form-content" class="multisteps-form__content">
@@ -71,7 +71,8 @@
                                                     <option value="">Male</option>
                                                     <option value="">Female</option>
                                                 </optgroup>
-                                            </select></div>
+                                            </select>
+                                        </div>
                                         <div class="col-md-4">
                                             <label class="form-label" style="font-family: 'Josefin Sans', sans-serif;">Middle Name</label>
                                             <input class="form-control" id="middlename" name="middlename" type="text" style="margin: 20px;">
@@ -118,14 +119,27 @@
                                             <p style="font-family: 'Josefin Sans', sans-serif;">Percentage</p>
                                             <input class="form-control" type="text" required="" name="Percentage" placeholder="Ex. 85" style="width: 300px;margin: 20px;font-family: 'Josefin Sans', sans-serif;">
                                             <p style="font-family: 'Josefin Sans', sans-serif;">Experience</p>
-                                            <textarea class="form-control" type="text" required="" placeholder="1 year of tutoring" name="Experience" style="font-family: 'Josefin Sans', sans-serif;width: 320px;"></textarea>
+                                            <input class="form-control" type="number" required="" name="Expreinece" placeholder="Ex. 2" style="width: 300px;margin: 20px;font-family: 'Josefin Sans', sans-serif;">
+                                            <label class="form-label" style="width: 80.8281px;font-family: 'Josefin Sans', sans-serif;text-align: center;">Course</label>
+                                            <select class="form-select" style="font-family: 'Josefin Sans', sans-serif;margin: 20px;" name="TutoringCourse">
+                                                    <option value="Blockchain">Blockchain</option>
+                                                    <option value="Data Mining">Data Mining</option>
+                                                    <option value="Node.js">Node.js</option>
+                                                    <option value="C programming">C programming</option>
+                                                    <option value="Advanced PHP">Advanced PHP</option>
+                                                    <option value="Machine learning">Machine learning</option>
+                                                    <option value="Artificial Intelligence">Artificial Intelligence</option>
+                                                    <option value="C++ programming">C++ programming</option>
+                                                    <option value="Project Managment">Project Managment</option>
+                                               
+                                            </select>
                                         </div>
                                         <div class="col-12 col-md-4 offset-md-4" data-bss-hover-animate="pulse" style="width: 230px;margin: 50px 0px 20px 400px;">
                                             <button class="btn btn-light btn-lg tada animated" data-bs-toggle="tooltip" data-bss-tooltip="" id="submit" style="margin-left: 16px;font-family: 'Josefin Sans', sans-serif;" type="submit">Submit </button>
                                         </div>
                                     </div>
                                     <div id="next-prev-buttons" class="button-row d-flex mt-4">
-                                        <button class="btn bg-primary btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
+                                        <button class="btn bg-primary btn btn-primary js-btn-prev" type="submit" title="Prev">Prev</button>
                                     </div>
                                 </div>
                             </div>
@@ -135,7 +149,7 @@
             </div>
         </div>
     </section>
-    <script>
+    <!-- <script>
         import axios from "axios";
         import {showAlert, hideAlert} from "./alert"
         const signupTutor = async (firstname, middlename,
@@ -222,7 +236,7 @@
             signupTutor(firstname,middlename,lastname,Mobile,Gender,email,password,
                 passwordConfirm,DOB,CGPA,TutoringCourse,Institution, Percentage, Qualification, Expreinece,Marksheet,Resume)
         })
-    </script>
+    </script> -->
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/bs-init.js"></script>
     <script src="/js/-Filterable-Cards-.js"></script>

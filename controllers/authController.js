@@ -34,6 +34,7 @@ const createSendToken = (user, statusCode, res) => {
 exports.signup = catchAsync(async (req, res) => {
     const newUser = await Student.create(req.body);
     createSendToken(newUser, 201, res)
+    res.redirect('/logins')
     // JSON WEB TOKEN IS APPLIED HER WHICH HELP US OR WE CAN TREAT IT AS SESSION TIME FOR THE AUTHENTCETICATED USER
     //THERE US NO NEED TO STORE USER SESSION  ON SERVER 
 })
@@ -63,8 +64,9 @@ exports.logout = (req, res) => {
         expires: new Date(Date.now() + 10 * 1000),
         httpOnly: true
     })
-    res.status(200).json({ status: "success"})
+    res.redirect('/')
 }
+
 exports.protect = catchAsync(async (req, res, next) => {
     //1) Getting token and check if it's there
     let token;
