@@ -15,11 +15,13 @@ exports.getCourseCheckout = catchAsync(async (req, res, next) => {
     
     
       //3) render template using the data from step 1
-      res.status(200).render('checkout', {
-        title: "S2S | course",
-        layout: './layouts/student-layout',
-        course
-      })
+      res.redirect('/checkout.html')
+      
+    //   res.status(200).render('checkout', {
+    //     title: "S2S | course",
+    //     layout:'./layouts/paymentLayout',
+    //     course
+    //   })
   })
 
 exports.getCheckoutSession = catchAsync( async (req, res, next) => {
