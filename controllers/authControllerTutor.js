@@ -86,9 +86,9 @@ exports.protect = catchAsync(async (req, res, next) => {
         return next(new AppError("The Tutor belong to this token no more exist.", 401))
     }
     //4) check if user changed password after the token was issued
-    if (freshTutor.changedPasswordAfter(decoded.iat)) {
-        return next(new AppError('The password is recently changed! please log in again.', 401))
-    }
+    // if (freshTutor.changedPasswordAfter(decoded.iat)) {
+    //     return next(new AppError('The password is recently changed! please log in again.', 401))
+    // }
 
     //Grant Access to the protected route
     req.user = freshTutor

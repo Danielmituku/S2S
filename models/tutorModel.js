@@ -128,15 +128,15 @@ tutorSchema.methods.correctPassword = async function(candidatePassword, userPass
     return await bcrypt.compare(candidatePassword, userPassword)
 }
 
-tutorSchema.methods.changedPasswordAfter = function(JWTTimesamp){
-    if(this.passwordChangedAt){
-        const changedTimestamp = ParseInt(this.passwordChangedAt.getDate() / 1000, 10);
-        console(this.changedTimestamp, JWTTimestamp)
-        return JWTTimestamp < changedTimestamp
-    }
-    //false means not changed
-    return false;
-}
+// tutorSchema.methods.changedPasswordAfter = function(JWTTimesamp){
+//     if(this.passwordChangedAt){
+//         const changedTimestamp = ParseInt(this.passwordChangedAt.getDate() / 1000, 10);
+//         console(this.changedTimestamp, JWTTimesamp)
+//         return JWTTimesamp < changedTimestamp
+//     }
+//     //false means not changed
+//     return false;
+// }
 
 tutorSchema.methods.createPasswordResetToken = function() {
     const resetToken = crypto.randomBytes(32).toString('hex');
